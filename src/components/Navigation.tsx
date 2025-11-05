@@ -28,9 +28,7 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-sm shadow-soft"
-          : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-sm shadow-soft" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -39,7 +37,7 @@ const Navigation = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="font-display font-semibold text-lg tracking-wide uppercase text-foreground hover:text-primary transition-colors"
           >
-            Artist Name
+            MISIPI
           </button>
 
           <div className="hidden md:flex items-center gap-8">
@@ -61,11 +59,7 @@ const Navigation = () => {
             >
               Travelling Artist
             </button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              variant="default"
-              className="rounded-full"
-            >
+            <Button onClick={() => scrollToSection("contact")} variant="default" className="rounded-full">
               Contact
             </Button>
           </div>
