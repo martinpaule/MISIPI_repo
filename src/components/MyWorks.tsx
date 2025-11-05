@@ -5,43 +5,63 @@ import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
 import artwork4 from "@/assets/artwork-4.jpg";
+import artwork5 from "@/assets/artwork-5.jpg";
+import artwork6 from "@/assets/artwork-6.jpg";
 
 const artworks = [
   {
     id: 1,
     image: artwork1,
-    title: "Bold Expressions",
+    title: "Studio Mural",
     year: "2024",
-    medium: "Mixed media on canvas",
-    dimensions: "120 x 100 cm",
-    description: "An exploration of graphic forms and vibrant color relationships",
+    medium: "Mixed media on wall",
+    dimensions: "Large scale",
+    description: "Striking cat mural in studio workspace with vibrant teal and geometric patterns",
   },
   {
     id: 2,
     image: artwork2,
-    title: "Soft Horizons",
+    title: "Interior Studies",
     year: "2024",
-    medium: "Acrylic on canvas",
-    dimensions: "150 x 100 cm",
-    description: "Atmospheric landscape capturing the essence of memory and place",
+    medium: "Oil on canvas",
+    dimensions: "Various sizes",
+    description: "A series exploring domestic spaces and still life compositions",
   },
   {
     id: 3,
     image: artwork3,
-    title: "Creature Forms",
-    year: "2023",
-    medium: "Collage and paint",
-    dimensions: "100 x 80 cm",
-    description: "Playful abstraction merging organic and geometric elements",
+    title: "Landscape Journey",
+    year: "2024",
+    medium: "Oil on canvas",
+    dimensions: "Framed",
+    description: "Atmospheric landscape with flowing colors and emotional depth",
   },
   {
     id: 4,
     image: artwork4,
-    title: "Sunset Memory",
-    year: "2023",
-    medium: "Oil on canvas",
-    dimensions: "140 x 100 cm",
-    description: "A meditation on light, color, and emotional resonance",
+    title: "Colorful Creature",
+    year: "2024",
+    medium: "Mixed media on wood",
+    dimensions: "Large scale",
+    description: "Bold cat face artwork merging graphic design with expressive color",
+  },
+  {
+    id: 5,
+    image: artwork5,
+    title: "Body Art",
+    year: "2024",
+    medium: "Tattoo design",
+    dimensions: "Various",
+    description: "Exploring art on skin with distinctive cat motif designs",
+  },
+  {
+    id: 6,
+    image: artwork6,
+    title: "Coastal Moment",
+    year: "2024",
+    medium: "Photography",
+    dimensions: "Digital",
+    description: "Capturing natural beauty and serene coastal landscapes",
   },
 ];
 
@@ -50,8 +70,8 @@ const instagramPosts = [
   { id: 2, image: artwork2 },
   { id: 3, image: artwork3 },
   { id: 4, image: artwork4 },
-  { id: 5, image: artwork1 },
-  { id: 6, image: artwork3 },
+  { id: 5, image: artwork5 },
+  { id: 6, image: artwork6 },
 ];
 
 const MyWorks = () => {
