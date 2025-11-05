@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Instagram } from "lucide-react";
+import { Instagram } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
@@ -58,18 +58,18 @@ const MyWorks = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<(typeof artworks)[0] | null>(null);
 
   return (
-    <section id="works" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
-        {/* Selected Works Gallery */}
-        <div className="mb-20">
-          <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4 text-center text-foreground">
+    <div className="py-12">
+      <div className="grid lg:grid-cols-2 gap-12">
+        {/* Manual Gallery Column */}
+        <div>
+          <h3 className="font-display font-bold text-2xl md:text-3xl tracking-tight mb-6 text-foreground">
             Selected Works
-          </h2>
-          <p className="font-body text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          </h3>
+          <p className="font-body text-muted-foreground mb-8">
             A curated collection of recent pieces exploring abstraction, memory, and color
           </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 gap-4">
             {artworks.map((artwork, index) => (
               <div
                 key={artwork.id}
@@ -95,31 +95,29 @@ const MyWorks = () => {
           </div>
         </div>
 
-        {/* Instagram Gallery */}
-        <div className="pt-12 border-t border-border">
-          <div className="text-center mb-8">
-            <h3 className="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4 text-foreground">
-              From Instagram
-            </h3>
-            <p className="font-body text-muted-foreground mb-4">
-              Latest updates from my studio on Instagram
-            </p>
-            <a
-              href="https://instagram.com/artist"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-primary hover:text-accent transition-colors"
-            >
-              <Instagram className="w-5 h-5" />
-              Follow @artist_username
-            </a>
-          </div>
+        {/* Instagram Gallery Column */}
+        <div>
+          <h3 className="font-display font-bold text-2xl md:text-3xl tracking-tight mb-6 text-foreground">
+            From Instagram
+          </h3>
+          <p className="font-body text-muted-foreground mb-4">
+            Latest updates from my studio on Instagram
+          </p>
+          <a
+            href="https://www.instagram.com/martinaemisipi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-primary hover:text-accent transition-colors mb-8"
+          >
+            <Instagram className="w-5 h-5" />
+            Follow @martinaemisipi
+          </a>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             {instagramPosts.map((post, index) => (
               <a
                 key={post.id}
-                href="https://instagram.com/artist"
+                href="https://www.instagram.com/martinaemisipi/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative overflow-hidden rounded-xl aspect-square animate-fade-in-up"
@@ -169,7 +167,7 @@ const MyWorks = () => {
           )}
         </DialogContent>
       </Dialog>
-    </section>
+    </div>
   );
 };
 

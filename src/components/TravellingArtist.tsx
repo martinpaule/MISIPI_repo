@@ -47,89 +47,83 @@ const TravellingArtist = () => {
   };
 
   return (
-    <section id="travelling" className="py-24 bg-gradient-soft relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-warm opacity-10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-cool opacity-10 rounded-full blur-3xl" />
+    <div className="py-12">
+      <div className="text-center mb-12">
+        <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4 text-foreground">
+          Travelling Artist
+        </h2>
+        <p className="font-body text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          Residencies, journeys, and creative explorations around the world
+        </p>
+      </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight mb-4 text-foreground">
-            Travelling Artist
-          </h2>
-          <p className="font-body text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Residencies, journeys, and creative explorations around the world
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto space-y-8">
-          {residencies.map((residency, index) => (
-            <Card
-              key={residency.id}
-              className="overflow-hidden shadow-soft hover:shadow-medium transition-shadow duration-300 border-border/50 animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.15}s` }}
-            >
-              <div className="p-8">
-                {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-                  <div>
-                    <div className="flex items-center gap-2 text-primary mb-2">
-                      <MapPin className="w-5 h-5" />
-                      <h3 className="font-display font-bold text-2xl text-foreground">
-                        {residency.location}
-                      </h3>
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="w-4 h-4" />
-                      <span className="font-body text-sm">{residency.period}</span>
-                    </div>
+      <div className="max-w-4xl mx-auto space-y-8">
+        {residencies.map((residency, index) => (
+          <Card
+            key={residency.id}
+            className="overflow-hidden shadow-soft hover:shadow-medium transition-shadow duration-300 border-border/50 animate-fade-in-up"
+            style={{ animationDelay: `${index * 0.15}s` }}
+          >
+            <div className="p-8">
+              {/* Header */}
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                <div>
+                  <div className="flex items-center gap-2 text-primary mb-2">
+                    <MapPin className="w-5 h-5" />
+                    <h3 className="font-display font-bold text-2xl text-foreground">
+                      {residency.location}
+                    </h3>
+                  </div>
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Calendar className="w-4 h-4" />
+                    <span className="font-body text-sm">{residency.period}</span>
                   </div>
                 </div>
-
-                {/* Image Gallery */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  {residency.images.map((image, imgIndex) => (
-                    <div
-                      key={imgIndex}
-                      className="relative overflow-hidden rounded-xl aspect-square"
-                    >
-                      <img
-                        src={image}
-                        alt={`${residency.location} artwork ${imgIndex + 1}`}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Description */}
-                <div className="font-body text-muted-foreground leading-relaxed space-y-3">
-                  <p>{residency.description}</p>
-                  {expandedId === residency.id && (
-                    <p className="animate-fade-in-up">{residency.extendedDescription}</p>
-                  )}
-                </div>
-
-                {/* Read More Button */}
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => toggleExpanded(residency.id)}
-                  className="mt-4 text-primary hover:text-accent"
-                >
-                  {expandedId === residency.id ? "Show less" : "Read more"}
-                  <ChevronDown
-                    className={`w-4 h-4 ml-2 transition-transform duration-300 ${
-                      expandedId === residency.id ? "rotate-180" : ""
-                    }`}
-                  />
-                </Button>
               </div>
-            </Card>
-          ))}
-        </div>
+
+              {/* Image Gallery */}
+              <div className="grid grid-cols-3 gap-3 mb-6">
+                {residency.images.map((image, imgIndex) => (
+                  <div
+                    key={imgIndex}
+                    className="relative overflow-hidden rounded-xl aspect-square"
+                  >
+                    <img
+                      src={image}
+                      alt={`${residency.location} artwork ${imgIndex + 1}`}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {/* Description */}
+              <div className="font-body text-muted-foreground leading-relaxed space-y-3">
+                <p>{residency.description}</p>
+                {expandedId === residency.id && (
+                  <p className="animate-fade-in-up">{residency.extendedDescription}</p>
+                )}
+              </div>
+
+              {/* Read More Button */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => toggleExpanded(residency.id)}
+                className="mt-4 text-primary hover:text-accent"
+              >
+                {expandedId === residency.id ? "Show less" : "Read more"}
+                <ChevronDown
+                  className={`w-4 h-4 ml-2 transition-transform duration-300 ${
+                    expandedId === residency.id ? "rotate-180" : ""
+                  }`}
+                />
+              </Button>
+            </div>
+          </Card>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 
