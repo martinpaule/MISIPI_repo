@@ -117,13 +117,13 @@ const Contact = () => {
                 artist@example.com
               </a>
               <a
-                href="https://instagram.com/artist"
+                href="https://www.instagram.com/martinaemisipi/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 font-body text-muted-foreground hover:text-accent transition-colors"
               >
                 <Instagram className="w-5 h-5" />
-                @artist_username
+                @martinaemisipi
               </a>
             </div>
 
@@ -134,7 +134,7 @@ const Contact = () => {
 
             {/* Copyright */}
             <p className="font-body text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Artist Name. All rights reserved.
+              © {new Date().getFullYear()} Martina Pauleová. All rights reserved.
             </p>
           </div>
         </div>

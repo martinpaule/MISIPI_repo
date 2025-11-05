@@ -16,7 +16,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center animate-fade-in">
         <h1 className="font-display font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight mb-6 text-foreground">
-          Artist Name
+          Martina Pauleová
         </h1>
         <p className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary">
           Abstract Artist
