@@ -18,9 +18,8 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative flex flex-col items-start">
-        {/* Line 1: MISIPI -> MARTINA */}
-        <div className="relative flex items-center">
+      <div className="relative">
+        <div className="flex items-center">
           {/* M with ARTINA sliding out */}
           <div className="relative inline-flex items-center">
             <span className="text-[#FFB5C5] font-bold relative z-10" style={letterOutlineStyle}>
@@ -31,7 +30,7 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
                 className={`inline-block transition-all duration-500 ease-out ${
                   isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                 }`}
-                style={{ transitionDelay: isHovered ? "400ms" : "0ms" }}
+                style={{ transitionDelay: isHovered ? "500ms" : "0ms" }}
               >
                 ARTINA
               </span>
@@ -47,15 +46,31 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
             I
           </span>
 
-          {/* S - will move down */}
-          <span
-            className={`text-[#A8D8EA] font-bold absolute transition-all duration-400 ease-out ${
-              isHovered ? "translate-y-[1.2em] opacity-100" : "translate-y-0 opacity-100"
-            }`}
-            style={{ ...letterOutlineStyle, left: "calc(1em + 0.6em)" }}
-          >
-            S
-          </span>
+          {/* S with OLÁROVÁ - moves down and left on hover */}
+          <div className="relative inline-flex items-center">
+            <span
+              className={`text-[#A8D8EA] font-bold relative z-10 transition-all duration-400 ease-out ${
+                isHovered ? "translate-y-[1.2em] -translate-x-[1.6em]" : ""
+              }`}
+              style={letterOutlineStyle}
+            >
+              S
+            </span>
+            <div 
+              className={`overflow-hidden inline-block transition-all duration-400 ease-out ${
+                isHovered ? "translate-y-[1.2em] -translate-x-[1.6em]" : ""
+              }`}
+            >
+              <span
+                className={`inline-block transition-all duration-500 ease-out ${
+                  isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+                }`}
+                style={{ transitionDelay: isHovered ? "600ms" : "0ms" }}
+              >
+                OLÁROVÁ
+              </span>
+            </div>
+          </div>
 
           {/* Second I */}
           <span
@@ -66,15 +81,31 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
             I
           </span>
 
-          {/* P - will move down 2 lines */}
-          <span
-            className={`text-[#E0BBE4] font-bold absolute transition-all duration-400 ease-out ${
-              isHovered ? "translate-y-[2.4em] opacity-100" : "translate-y-0 opacity-100"
-            }`}
-            style={{ ...letterOutlineStyle, left: "calc(1em + 0.6em + 1em + 0.6em)" }}
-          >
-            P
-          </span>
+          {/* P with AULEOVÁ - moves down 2 lines and left on hover */}
+          <div className="relative inline-flex items-center">
+            <span
+              className={`text-[#E0BBE4] font-bold relative z-10 transition-all duration-400 ease-out ${
+                isHovered ? "translate-y-[2.4em] -translate-x-[3.2em]" : ""
+              }`}
+              style={letterOutlineStyle}
+            >
+              P
+            </span>
+            <div 
+              className={`overflow-hidden inline-block transition-all duration-400 ease-out ${
+                isHovered ? "translate-y-[2.4em] -translate-x-[3.2em]" : ""
+              }`}
+            >
+              <span
+                className={`inline-block transition-all duration-500 ease-out ${
+                  isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+                }`}
+                style={{ transitionDelay: isHovered ? "600ms" : "0ms" }}
+              >
+                AULEOVÁ
+              </span>
+            </div>
+          </div>
 
           {/* Third I */}
           <span
@@ -84,54 +115,6 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
           >
             I
           </span>
-        </div>
-
-        {/* Line 2: SOLÁROVÁ (appears when S moves down) */}
-        <div
-          className={`relative flex items-center mt-[0.2em] transition-opacity duration-300 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ transitionDelay: isHovered ? "300ms" : "0ms" }}
-        >
-          <div className="relative inline-flex items-center">
-            <span className="text-[#A8D8EA] font-bold relative z-10 invisible" style={letterOutlineStyle}>
-              S
-            </span>
-            <div className="absolute left-0 top-0 overflow-hidden inline-block">
-              <span
-                className={`inline-block transition-all duration-500 ease-out ${
-                  isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
-                }`}
-                style={{ transitionDelay: isHovered ? "500ms" : "0ms" }}
-              >
-                OLÁROVÁ
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Line 3: PAULEOVÁ (appears when P moves down) */}
-        <div
-          className={`relative flex items-center mt-[0.2em] transition-opacity duration-300 ${
-            isHovered ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ transitionDelay: isHovered ? "300ms" : "0ms" }}
-        >
-          <div className="relative inline-flex items-center">
-            <span className="text-[#E0BBE4] font-bold relative z-10 invisible" style={letterOutlineStyle}>
-              P
-            </span>
-            <div className="absolute left-0 top-0 overflow-hidden inline-block">
-              <span
-                className={`inline-block transition-all duration-500 ease-out ${
-                  isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
-                }`}
-                style={{ transitionDelay: isHovered ? "500ms" : "0ms" }}
-              >
-                AULEOVÁ
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
