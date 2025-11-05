@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import MisipiLogo from "./MisipiLogo";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,9 +36,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-display font-semibold text-lg tracking-wide uppercase text-foreground hover:text-primary transition-colors"
+            className="font-display font-semibold text-lg tracking-wide uppercase"
           >
-            MISIPI
+            <MisipiLogo />
           </button>
 
           <div className="hidden md:flex items-center gap-8">

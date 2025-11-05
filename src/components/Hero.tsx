@@ -1,4 +1,5 @@
 import heroArtwork from "@/assets/hero-artwork.jpg";
+import MisipiLogo from "./MisipiLogo";
 
 const Hero = () => {
   return (
@@ -12,7 +13,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center animate-fade-in">
         <h1 className="font-display font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight mb-6 text-foreground">
-          MISIPI
+          <MisipiLogo className="text-5xl md:text-7xl lg:text-8xl" />
         </h1>
         <p className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary">Abstract Artist</p>
         <p className="font-body text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed">
