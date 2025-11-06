@@ -18,7 +18,7 @@ const Hero = () => {
         <h1 className="font-display font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight mb-6 text-foreground">
           <MisipiLogo className="text-5xl md:text-7xl lg:text-8xl" onHoverChange={setIsLogoHovered} />
         </h1>
-        <div className={`transition-all duration-400 ease-out ${isLogoHovered ? 'translate-y-[3em]' : ''}`}>
+        <div className={`transition-all duration-400 ease-out ${isLogoHovered ? 'translate-y-[4.5em]' : ''}`}>
           <p className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary">Abstract Artist</p>
           <p className="font-body text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed">
             Exploring color, memory and movement through abstract forms

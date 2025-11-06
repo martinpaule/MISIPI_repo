@@ -6,11 +6,12 @@ interface MisipiLogoProps {
 }
 
 const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleHoverChange = (hovered: boolean) => {
-    setIsHovered(hovered);
-    onHoverChange?.(hovered);
+  const handleToggle = () => {
+    const newState = !isExpanded;
+    setIsExpanded(newState);
+    onHoverChange?.(newState);
   };
 
   // Letter style with outline
@@ -20,9 +21,8 @@ const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
 
   return (
     <div
-      className={`relative inline-block ${className}`}
-      onMouseEnter={() => handleHoverChange(true)}
-      onMouseLeave={() => handleHoverChange(false)}
+      className={`relative inline-block cursor-pointer ${className}`}
+      onClick={handleToggle}
       style={{ letterSpacing: "-0.02em" }}
     >
       <div className="relative flex items-center" style={{ gap: "0" }}>
@@ -34,9 +34,9 @@ const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
           <div className="absolute left-full top-0 overflow-hidden">
             <span
               className={`inline-block whitespace-nowrap transition-all duration-500 ease-out ${
-                isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+                isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
               }`}
-              style={{ transitionDelay: isHovered ? "500ms" : "0ms" }}
+              style={{ transitionDelay: isExpanded ? "500ms" : "0ms" }}
             >
               ARTINA
             </span>
@@ -46,7 +46,7 @@ const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
         {/* First I */}
         <span
           className={`text-foreground transition-opacity duration-200 ${
-            isHovered ? "opacity-0" : "opacity-100"
+            isExpanded ? "opacity-0" : "opacity-100"
           }`}
         >
           I
@@ -56,7 +56,7 @@ const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
         <div className="relative inline-flex items-center" style={{ gap: "0" }}>
           <span
             className={`text-[#A8D8EA] font-bold relative z-10 transition-all duration-400 ease-out ${
-              isHovered ? "translate-y-[1.2em] -translate-x-[1.6em]" : ""
+              isExpanded ? "translate-y-[1.2em] -translate-x-[1em]" : ""
             }`}
             style={letterOutlineStyle}
           >
@@ -64,14 +64,14 @@ const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
           </span>
           <div 
             className={`absolute left-full top-0 overflow-hidden transition-all duration-400 ease-out ${
-              isHovered ? "translate-y-[1.2em] -translate-x-[1.6em]" : ""
+              isExpanded ? "translate-y-[1.2em] -translate-x-[1em]" : ""
             }`}
           >
             <span
               className={`inline-block whitespace-nowrap transition-all duration-500 ease-out ${
-                isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+                isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
               }`}
-              style={{ transitionDelay: isHovered ? "600ms" : "0ms" }}
+              style={{ transitionDelay: isExpanded ? "600ms" : "0ms" }}
             >
               OLÁROVÁ
             </span>
@@ -81,7 +81,7 @@ const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
         {/* Second I */}
         <span
           className={`text-foreground transition-opacity duration-200 ${
-            isHovered ? "opacity-0" : "opacity-100"
+            isExpanded ? "opacity-0" : "opacity-100"
           }`}
         >
           I
@@ -91,7 +91,7 @@ const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
         <div className="relative inline-flex items-center" style={{ gap: "0" }}>
           <span
             className={`text-[#E0BBE4] font-bold relative z-10 transition-all duration-400 ease-out ${
-              isHovered ? "translate-y-[2.4em] -translate-x-[3.2em]" : ""
+              isExpanded ? "translate-y-[2.4em] -translate-x-[2em]" : ""
             }`}
             style={letterOutlineStyle}
           >
@@ -99,14 +99,14 @@ const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
           </span>
           <div 
             className={`absolute left-full top-0 overflow-hidden transition-all duration-400 ease-out ${
-              isHovered ? "translate-y-[2.4em] -translate-x-[3.2em]" : ""
+              isExpanded ? "translate-y-[2.4em] -translate-x-[2em]" : ""
             }`}
           >
             <span
               className={`inline-block whitespace-nowrap transition-all duration-500 ease-out ${
-                isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+                isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
               }`}
-              style={{ transitionDelay: isHovered ? "600ms" : "0ms" }}
+              style={{ transitionDelay: isExpanded ? "600ms" : "0ms" }}
             >
               AULEOVÁ
             </span>
@@ -116,7 +116,7 @@ const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
         {/* Third I */}
         <span
           className={`text-foreground transition-opacity duration-200 ${
-            isHovered ? "opacity-0" : "opacity-100"
+            isExpanded ? "opacity-0" : "opacity-100"
           }`}
         >
           I
