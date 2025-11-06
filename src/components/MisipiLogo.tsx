@@ -2,10 +2,16 @@ import { useState } from "react";
 
 interface MisipiLogoProps {
   className?: string;
+  onHoverChange?: (isHovered: boolean) => void;
 }
 
-const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
+const MisipiLogo = ({ className = "", onHoverChange }: MisipiLogoProps) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleHoverChange = (hovered: boolean) => {
+    setIsHovered(hovered);
+    onHoverChange?.(hovered);
+  };
 
   // Letter style with outline
   const letterOutlineStyle = {
@@ -15,8 +21,8 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
   return (
     <div
       className={`relative inline-block ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => handleHoverChange(true)}
+      onMouseLeave={() => handleHoverChange(false)}
       style={{ letterSpacing: "-0.02em" }}
     >
       <div className="relative flex items-center" style={{ gap: "0" }}>
@@ -25,7 +31,7 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
           <span className="text-[#FFB5C5] font-bold relative z-10" style={letterOutlineStyle}>
             M
           </span>
-          <div className={`relative overflow-hidden inline-block transition-all duration-300 ${isHovered ? 'w-auto' : 'w-0'}`}>
+          <div className="absolute left-full top-0 overflow-hidden">
             <span
               className={`inline-block whitespace-nowrap transition-all duration-500 ease-out ${
                 isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
@@ -57,8 +63,8 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
             S
           </span>
           <div 
-            className={`overflow-hidden inline-block transition-all duration-400 ease-out ${
-              isHovered ? "translate-y-[1.2em] -translate-x-[1.6em] w-auto" : "w-0"
+            className={`absolute left-full top-0 overflow-hidden transition-all duration-400 ease-out ${
+              isHovered ? "translate-y-[1.2em] -translate-x-[1.6em]" : ""
             }`}
           >
             <span
@@ -92,8 +98,8 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
             P
           </span>
           <div 
-            className={`overflow-hidden inline-block transition-all duration-400 ease-out ${
-              isHovered ? "translate-y-[2.4em] -translate-x-[3.2em] w-auto" : "w-0"
+            className={`absolute left-full top-0 overflow-hidden transition-all duration-400 ease-out ${
+              isHovered ? "translate-y-[2.4em] -translate-x-[3.2em]" : ""
             }`}
           >
             <span

@@ -1,7 +1,10 @@
+import { useState } from "react";
 import heroArtwork from "@/assets/hero-artwork.jpg";
 import MisipiLogo from "./MisipiLogo";
 
 const Hero = () => {
+  const [isLogoHovered, setIsLogoHovered] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -13,12 +16,14 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center animate-fade-in">
         <h1 className="font-display font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight mb-6 text-foreground">
-          <MisipiLogo className="text-5xl md:text-7xl lg:text-8xl" />
+          <MisipiLogo className="text-5xl md:text-7xl lg:text-8xl" onHoverChange={setIsLogoHovered} />
         </h1>
-        <p className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary">Abstract Artist</p>
-        <p className="font-body text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed">
-          Exploring color, memory and movement through abstract forms
-        </p>
+        <div className={`transition-all duration-400 ease-out ${isLogoHovered ? 'translate-y-[3em]' : ''}`}>
+          <p className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary">Abstract Artist</p>
+          <p className="font-body text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed">
+            Exploring color, memory and movement through abstract forms
+          </p>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
