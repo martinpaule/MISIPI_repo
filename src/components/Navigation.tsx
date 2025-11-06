@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import MisipiLogo from "./MisipiLogo";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,23 +49,24 @@ const Navigation = () => {
               onClick={() => scrollToSection("about")}
               className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors"
             >
-              About Me
+              {t('nav.about')}
             </button>
             <button
               onClick={() => scrollToSection("works")}
               className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors"
             >
-              My Works
+              {t('nav.works')}
             </button>
             <button
               onClick={() => scrollToSection("travelling")}
               className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors"
             >
-              Travelling Artist
+              {t('nav.travelling')}
             </button>
             <Button onClick={() => scrollToSection("contact")} variant="default" className="rounded-full">
-              Contact
+              {t('nav.contact')}
             </Button>
+            <LanguageToggle />
           </div>
         </div>
       </div>
