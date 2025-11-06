@@ -38,7 +38,7 @@ const Navigation = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="font-display font-semibold text-lg tracking-wide uppercase"
           >
-            <MisipiLogo />
+            <MisipiLogo animated={false} />
           </button>
 
           <div className="hidden md:flex items-center gap-8">
