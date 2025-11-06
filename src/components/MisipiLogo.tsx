@@ -25,9 +25,9 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
           <span className="text-[#FFB5C5] font-bold relative z-10" style={letterOutlineStyle}>
             M
           </span>
-          <div className="relative overflow-hidden inline-block">
+          <div className={`relative overflow-hidden inline-block transition-all duration-300 ${isHovered ? 'w-auto' : 'w-0'}`}>
             <span
-              className={`inline-block transition-all duration-500 ease-out ${
+              className={`inline-block whitespace-nowrap transition-all duration-500 ease-out ${
                 isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
               }`}
               style={{ transitionDelay: isHovered ? "500ms" : "0ms" }}
@@ -58,11 +58,11 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
           </span>
           <div 
             className={`overflow-hidden inline-block transition-all duration-400 ease-out ${
-              isHovered ? "translate-y-[1.2em] -translate-x-[1.6em]" : ""
+              isHovered ? "translate-y-[1.2em] -translate-x-[1.6em] w-auto" : "w-0"
             }`}
           >
             <span
-              className={`inline-block transition-all duration-500 ease-out ${
+              className={`inline-block whitespace-nowrap transition-all duration-500 ease-out ${
                 isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
               }`}
               style={{ transitionDelay: isHovered ? "600ms" : "0ms" }}
@@ -93,11 +93,11 @@ const MisipiLogo = ({ className = "" }: MisipiLogoProps) => {
           </span>
           <div 
             className={`overflow-hidden inline-block transition-all duration-400 ease-out ${
-              isHovered ? "translate-y-[2.4em] -translate-x-[3.2em]" : ""
+              isHovered ? "translate-y-[2.4em] -translate-x-[3.2em] w-auto" : "w-0"
             }`}
           >
             <span
-              className={`inline-block transition-all duration-500 ease-out ${
+              className={`inline-block whitespace-nowrap transition-all duration-500 ease-out ${
                 isHovered ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
               }`}
               style={{ transitionDelay: isHovered ? "600ms" : "0ms" }}
