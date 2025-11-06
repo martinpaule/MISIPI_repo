@@ -44,14 +44,13 @@ const Hero = () => {
             isExpanded={isLogoExpanded}
           />
         </h1>
-        <div className={`transition-all duration-400 ease-out ${isLogoExpanded ? "translate-y-[18em]" : ""}`}>
+        <div className={`transition-all duration-400 ease-out ${isLogoExpanded ? "translate-y-[15em]" : ""}`}>
           <p className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary">Abstract Artist</p>
           <p className="font-body text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed">
             Exploring color, memory and movement through abstract forms
           </p>
         </div>
       </div>
-
     </section>
   );
 };
