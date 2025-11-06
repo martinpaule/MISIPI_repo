@@ -44,7 +44,7 @@ const Hero = () => {
             isExpanded={isLogoExpanded}
           />
         </h1>
-        <div className={`transition-all duration-400 ease-out ${isLogoExpanded ? 'translate-y-[6em]' : ''}`}>
+        <div className={`transition-all duration-400 ease-out ${isLogoExpanded ? 'translate-y-[18em]' : ''}`}>
           <p className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary">Abstract Artist</p>
           <p className="font-body text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed">
             Exploring color, memory and movement through abstract forms
@@ -52,11 +52,12 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-foreground/30 rounded-full flex items-start justify-center p-2">
           <div className="w-1.5 h-3 bg-foreground/30 rounded-full" />
         </div>
+        */}
       </div>
     </section>
   );
