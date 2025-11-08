@@ -75,14 +75,18 @@ const Hero = () => {
         </h1>
         <div className={`transition-all duration-400 ease-out ${isLogoExpanded ? "translate-y-[15em]" : ""}`}>
           <p
-            className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary"
-            style={{ textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8), -1px -1px 2px rgba(255, 255, 255, 0.6)" }}
+            className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-black"
+            style={{ 
+              textShadow: "-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, -2px 0 0 white, 2px 0 0 white, 0 -2px 0 white, 0 2px 0 white"
+            }}
           >
             {t("hero.subtitle")}
           </p>
           <p
-            className="font-body text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed"
-            style={{ textShadow: "1px 1px 3px rgba(255, 255, 255, 0.7), -1px -1px 2px rgba(255, 255, 255, 0.5)" }}
+            className="font-body text-lg md:text-xl max-w-2xl mx-auto text-black leading-relaxed"
+            style={{ 
+              textShadow: "-1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, -2px 0 0 white, 2px 0 0 white, 0 -2px 0 white, 0 2px 0 white"
+            }}
           >
             {t("hero.description")}
           </p>
