@@ -8,6 +8,7 @@ const Hero = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [imageBlur, setImageBlur] = useState(0);
+  const [overlayOpacity, setOverlayOpacity] = useState(0);
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -32,6 +33,10 @@ const Hero = () => {
       const blurAmount = Math.min((currentScrollY / 300) * 8, 8);
       setImageBlur(blurAmount);
 
+      // Calculate overlay opacity: starts at 0, gradually increases with scroll
+      const overlayAmount = Math.min(currentScrollY / 300, 1);
+      setOverlayOpacity(overlayAmount);
+
       setLastScrollY(currentScrollY);
     };
 
@@ -53,7 +58,10 @@ const Hero = () => {
             filter: `blur(${imageBlur}px)`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/90" />
+        <div 
+          className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/90 transition-opacity duration-300"
+          style={{ opacity: overlayOpacity }}
+        />
       </div>
 
       {/* Content */}
@@ -66,8 +74,16 @@ const Hero = () => {
           />
         </h1>
         <div className={`transition-all duration-400 ease-out ${isLogoExpanded ? "translate-y-[15em]" : ""}`}>
-          <p className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary">{t('hero.subtitle')}</p>
-          <p className="font-body text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed">
+          <p 
+            className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary"
+            style={{ textShadow: '2px 2px 4px rgba(255, 255, 255, 0.8), -1px -1px 2px rgba(255, 255, 255, 0.6)' }}
+          >
+            {t('hero.subtitle')}
+          </p>
+          <p 
+            className="font-body text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed"
+            style={{ textShadow: '1px 1px 3px rgba(255, 255, 255, 0.7), -1px -1px 2px rgba(255, 255, 255, 0.5)' }}
+          >
             {t('hero.description')}
           </p>
         </div>
