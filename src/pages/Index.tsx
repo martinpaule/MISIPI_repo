@@ -9,8 +9,12 @@ const Index = () => {
       <Navigation />
       <main>
         <Hero />
-        <AboutMe />
-        <MyWorks />
+        <section id="about">
+          <AboutMe />
+        </section>
+        <section id="works">
+          <MyWorks />
+        </section>
       </main>
     </div>
   );

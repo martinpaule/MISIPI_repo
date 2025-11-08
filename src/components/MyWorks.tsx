@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Instagram } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useLanguage } from "@/contexts/LanguageContext";
 import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
@@ -76,86 +78,105 @@ const instagramPosts = [
 
 const MyWorks = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<(typeof artworks)[0] | null>(null);
+  const { t } = useLanguage();
 
   return (
-    <div className="py-12">
-      <div className="grid lg:grid-cols-2 gap-12">
-        {/* Manual Gallery Column */}
-        <div>
-          <h3 className="font-display font-bold text-2xl md:text-3xl tracking-tight mb-6 text-foreground">
-            Selected Works
-          </h3>
-          <p className="font-body text-muted-foreground mb-8">
-            A curated collection of recent pieces exploring abstraction, memory, and color
-          </p>
+    <div className="py-24 container mx-auto px-6">
+      <div className="text-center mb-12 animate-fade-in">
+        <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4 text-foreground">
+          Art Gallery
+        </h2>
+      </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {artworks.map((artwork, index) => (
-              <div
-                key={artwork.id}
-                className="group cursor-pointer animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setSelectedArtwork(artwork)}
-              >
-                <div className="relative overflow-hidden rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 aspect-[4/5]">
-                  <img
-                    src={artwork.image}
-                    alt={artwork.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="font-display font-semibold text-lg text-background mb-1">
-                      {artwork.title}
-                    </h3>
-                    <p className="font-body text-sm text-background/90">{artwork.year}</p>
+      <Tabs defaultValue="selected" className="w-full">
+        <TabsList className="grid w-full grid-cols-2 mb-8 h-auto p-1 bg-muted/50 max-w-2xl mx-auto">
+          <TabsTrigger 
+            value="selected" 
+            className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+          >
+            Selected Works
+          </TabsTrigger>
+          <TabsTrigger 
+            value="instagram" 
+            className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+          >
+            From Instagram
+          </TabsTrigger>
+        </TabsList>
+
+        {/* Selected Works Tab */}
+        <TabsContent value="selected" className="animate-fade-in">
+          <div className="max-w-5xl mx-auto">
+            <p className="font-body text-muted-foreground mb-8 text-center">
+              A curated collection of recent pieces exploring abstraction, memory, and color
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              {artworks.map((artwork, index) => (
+                <div
+                  key={artwork.id}
+                  className="group cursor-pointer animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={() => setSelectedArtwork(artwork)}
+                >
+                  <div className="relative overflow-hidden rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 aspect-[4/5]">
+                    <img
+                      src={artwork.image}
+                      alt={artwork.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                      <h3 className="font-display font-semibold text-lg text-background mb-1">
+                        {artwork.title}
+                      </h3>
+                      <p className="font-body text-sm text-background/90">{artwork.year}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </TabsContent>
 
-        {/* Instagram Gallery Column */}
-        <div>
-          <h3 className="font-display font-bold text-2xl md:text-3xl tracking-tight mb-6 text-foreground">
-            From Instagram
-          </h3>
-          <p className="font-body text-muted-foreground mb-4">
-            Latest updates from my studio on Instagram
-          </p>
-          <a
-            href="https://www.instagram.com/martinaemisipi/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-primary hover:text-accent transition-colors mb-8"
-          >
-            <Instagram className="w-5 h-5" />
-            Follow @martinaemisipi
-          </a>
+        {/* Instagram Tab */}
+        <TabsContent value="instagram" className="animate-fade-in">
+          <div className="max-w-5xl mx-auto">
+            <p className="font-body text-muted-foreground mb-4 text-center">
+              Latest updates from my studio on Instagram
+            </p>
+            <a
+              href="https://www.instagram.com/martinaemisipi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-primary hover:text-accent transition-colors mb-8 mx-auto justify-center w-full"
+            >
+              <Instagram className="w-5 h-5" />
+              Follow @martinaemisipi
+            </a>
 
-          <div className="grid grid-cols-2 gap-4">
-            {instagramPosts.map((post, index) => (
-              <a
-                key={post.id}
-                href="https://www.instagram.com/martinaemisipi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative overflow-hidden rounded-xl aspect-square animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                <img
-                  src={post.image}
-                  alt="Instagram post"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300 flex items-center justify-center">
-                  <Instagram className="w-8 h-8 text-background opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              </a>
-            ))}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              {instagramPosts.map((post, index) => (
+                <a
+                  key={post.id}
+                  href="https://www.instagram.com/martinaemisipi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden rounded-xl aspect-square animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.05}s` }}
+                >
+                  <img
+                    src={post.image}
+                    alt="Instagram post"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300 flex items-center justify-center">
+                    <Instagram className="w-8 h-8 text-background opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
-      </div>
+        </TabsContent>
+      </Tabs>
 
       {/* Lightbox Dialog */}
       <Dialog open={!!selectedArtwork} onOpenChange={() => setSelectedArtwork(null)}>

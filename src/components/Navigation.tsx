@@ -32,7 +32,7 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm shadow-soft" : "bg-transparent"
+        isScrolled ? "bg-green/10 backdrop-blur-sm shadow-soft" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6">
