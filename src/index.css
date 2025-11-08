@@ -120,50 +120,8 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  html {
-    background-color: hsl(var(--background));
-    transition: background-color 0.5s ease;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-
-  /* Apply smooth color transitions only to specific properties that benefit from it */
-  /* Avoid global transitions that can cause blinking/flashing */
-  body,
-  main,
-  section,
-  article,
-  div[class*="bg-"],
-  nav,
-  header,
-  footer {
-    transition: background-color 0.5s ease, color 0.5s ease;
-  }
-
-  /* Text elements */
-  h1, h2, h3, h4, h5, h6, p, span, label {
-    transition: color 0.5s ease;
-  }
-
-  /* Interactive elements need faster, more comprehensive transitions */
-  button,
-  a,
-  input,
-  select,
-  textarea {
-    transition: background-color 0.3s ease, 
-                border-color 0.3s ease, 
-                color 0.3s ease, 
-                transform 0.2s ease, 
-                box-shadow 0.3s ease, 
-                opacity 0.3s ease;
-  }
-
-  /* SVG elements */
-  svg,
-  svg * {
-    transition: fill 0.5s ease, stroke 0.5s ease;
-  }
+body {
+  @apply bg-background text-foreground;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 }

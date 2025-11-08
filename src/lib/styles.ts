@@ -21,7 +21,6 @@ export const createTextOutline = (width: number = 2, color: string = '#000') => 
 // Commonly used text outline styles
 export const TEXT_OUTLINES = {
   thin: createTextOutline(1, '#000'),
-  thinWhite: createTextOutline(1, '#fff'),
   medium: createTextOutline(2, '#000'),
   thick: createTextOutline(3, '#000'),
   white: createTextOutline(2, '#fff'),

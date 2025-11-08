@@ -6,28 +6,21 @@ import { Label } from "@/components/ui/label";
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
 
-  const handleToggle = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
-
   return (
-    <div 
-      onClick={handleToggle}
-      className="flex items-center gap-2 border-2 border-foreground/20 rounded-md p-2 cursor-pointer hover:bg-accent/50 transition-colors"
-    >
-      <Label htmlFor="light" className="flex items-center gap-1 pointer-events-none text-xs">
+    <div className="flex items-center gap-2 border-2 border-foreground/20 rounded-md p-2">
+      <Label htmlFor="light" className="flex items-center gap-1 cursor-pointer text-xs">
         <Sun className="h-4 w-4" />
         <span>Light</span>
       </Label>
       <RadioGroup
         value={theme || 'light'}
         onValueChange={setTheme}
-        className="flex items-center gap-1 pointer-events-none"
+        className="flex items-center gap-1"
       >
         <RadioGroupItem value="light" id="light" />
         <RadioGroupItem value="dark" id="dark" />
       </RadioGroup>
-      <Label htmlFor="dark" className="flex items-center gap-1 pointer-events-none text-xs">
+      <Label htmlFor="dark" className="flex items-center gap-1 cursor-pointer text-xs">
         <Moon className="h-4 w-4" />
         <span>Dark</span>
       </Label>
