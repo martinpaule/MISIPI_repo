@@ -27,48 +27,18 @@ const pressArticles = [
   },
   {
     title: {
-      en: "The Color of Memory: An Interview",
-      sk: "Farba pamäti: Rozhovor"
+      en: "Bienále FORMA",
+      sk: "Bienále FORMA"
     },
     description: {
-      en: "Exploring the artist's approach to abstraction",
-      sk: "Skúmanie prístupu umelkyne k abstrakcii"
+      en: "Seventh edition of applied arts exhibition",
+      sk: "Siedmy ročník výstavy úžitkového umenia"
     },
     publication: {
-      en: "Art Monthly",
-      sk: "Art Monthly"
+      en: "Slovenská výtvarná únia - Galéria Umelka",
+      sk: "Slovenská výtvarná únia - Galéria Umelka"
     },
-    link: "#",
-  },
-  {
-    title: {
-      en: "Studio Visit: Abstract Expressions",
-      sk: "Návšteva ateliéru: Abstraktné výrazy"
-    },
-    description: {
-      en: "Inside the creative process",
-      sk: "Pohľad do tvorivého procesu"
-    },
-    publication: {
-      en: "Contemporary Art Review",
-      sk: "Contemporary Art Review"
-    },
-    link: "#",
-  },
-  {
-    title: {
-      en: "Between Landscape and Emotion",
-      sk: "Medzi krajinou a emóciou"
-    },
-    description: {
-      en: "A profile on emerging abstract artists",
-      sk: "Profil začínajúcich abstraktných umelcov"
-    },
-    publication: {
-      en: "Art Forum",
-      sk: "Art Forum"
-    },
-    link: "#",
+    link: "https://www.archinfo.sk/kalendarium/bienale-forma-13163.html",
   },
 ];
 
