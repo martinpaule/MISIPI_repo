@@ -62,57 +62,6 @@ All colors MUST be HSL.
     /* Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
-  .dark {
-    --background: 220 25% 10%;
-    --foreground: 40 40% 95%;
-
-    --card: 220 20% 15%;
-    --card-foreground: 40 40% 95%;
-
-    --popover: 220 20% 15%;
-    --popover-foreground: 40 40% 95%;
-
-    /* Deep blue - primary (slightly lighter for dark mode) */
-    --primary: 210 70% 50%;
-    --primary-foreground: 220 25% 10%;
-
-    /* Warm orange - secondary */
-    --secondary: 25 75% 55%;
-    --secondary-foreground: 40 40% 95%;
-
-    --muted: 220 20% 20%;
-    --muted-foreground: 40 20% 65%;
-
-    /* Magenta/red - accent */
-    --accent: 340 70% 60%;
-    --accent-foreground: 220 25% 10%;
-
-    /* Soft green */
-    --green: 150 45% 55%;
-    --green-foreground: 220 25% 10%;
-
-    /* Sunset yellow */
-    --yellow: 45 90% 60%;
-    --yellow-foreground: 220 25% 10%;
-
-    --destructive: 0 80% 65%;
-    --destructive-foreground: 40 40% 95%;
-
-    --border: 220 20% 25%;
-    --input: 220 20% 22%;
-    --ring: 210 70% 50%;
-
-    /* Gradient backgrounds for dark mode */
-    --gradient-warm: linear-gradient(135deg, hsl(25 75% 55%) 0%, hsl(45 90% 60%) 100%);
-    --gradient-cool: linear-gradient(135deg, hsl(210 70% 50%) 0%, hsl(150 45% 55%) 100%);
-    --gradient-sunset: linear-gradient(135deg, hsl(340 70% 60%) 0%, hsl(25 75% 55%) 50%, hsl(45 90% 60%) 100%);
-    --gradient-soft: linear-gradient(180deg, hsl(220 25% 10%) 0%, hsl(220 20% 15%) 100%);
-
-    /* Shadows for dark mode */
-    --shadow-soft: 0 8px 30px hsl(0 0% 0% / 0.4);
-    --shadow-medium: 0 12px 40px hsl(0 0% 0% / 0.6);
-  }
 }
 
 @layer base {
@@ -120,50 +69,7 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  html {
-    background-color: hsl(var(--background));
-    transition: background-color 0.5s ease;
-  }
-
   body {
     @apply bg-background text-foreground;
-  }
-
-  /* Apply smooth color transitions only to specific properties that benefit from it */
-  /* Avoid global transitions that can cause blinking/flashing */
-  body,
-  main,
-  section,
-  article,
-  div[class*="bg-"],
-  nav,
-  header,
-  footer {
-    transition: background-color 0.5s ease, color 0.5s ease;
-  }
-
-  /* Text elements */
-  h1, h2, h3, h4, h5, h6, p, span, label {
-    transition: color 0.5s ease;
-  }
-
-  /* Interactive elements need faster, more comprehensive transitions */
-  button,
-  a,
-  input,
-  select,
-  textarea {
-    transition: background-color 0.3s ease, 
-                border-color 0.3s ease, 
-                color 0.3s ease, 
-                transform 0.2s ease, 
-                box-shadow 0.3s ease, 
-                opacity 0.3s ease;
-  }
-
-  /* SVG elements */
-  svg,
-  svg * {
-    transition: fill 0.5s ease, stroke 0.5s ease;
   }
 }

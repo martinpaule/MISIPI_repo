@@ -9,12 +9,174 @@ import artInterestImage from "@/assets/art-interest-section.jpg";
 import teachingImage from "@/assets/teaching-section.jpg";
 import travellingArtistImage from "@/assets/travelling-artist-section.jpg";
 import exhibitionsImage from "@/assets/exhibitions-section.jpg";
+import artwork1 from "@/assets/artwork-1.jpg";
+import artwork2 from "@/assets/artwork-2.jpg";
+import artwork3 from "@/assets/artwork-3.jpg";
+import retrospektivaCover from "@/assets/retrospektiva-cover.jpg";
+import retrospektivaSecond from "@/assets/retrospektiva-second.jpg";
+import bienaleCover from "@/assets/bienale-cover.jpg";
+import bienaleSecond from "@/assets/bienale-second.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { workshops } from "@/data/workshops";
-import { residencies } from "@/data/residencies";
-import { exhibitions } from "@/data/exhibitions";
 
-// Data imported from centralized files
+const pressArticles = [
+  {
+    title: {
+      en: "Retrospective Exhibition",
+      sk: "Výstava Retrospektíva"
+    },
+    description: {
+      en: "A comprehensive look at the artist's journey",
+      sk: "Komplexný pohľad na umeleckú cestu"
+    },
+    publication: {
+      en: "RKCPD Prievidza",
+      sk: "RKCPD Prievidza"
+    },
+    link: "https://www.rkcpd.sk/hlavna-stranka/podujatia/vystava-retrospektiva.html?page_id=9142",
+    coverImage: retrospektivaCover,
+    secondImage: retrospektivaSecond,
+  },
+  {
+    title: {
+      en: "Bienále FORMA",
+      sk: "Bienále FORMA"
+    },
+    description: {
+      en: "Seventh edition of applied arts exhibition",
+      sk: "Siedmy ročník výstavy úžitkového umenia"
+    },
+    publication: {
+      en: "Slovenská výtvarná únia - Galéria Umelka",
+      sk: "Slovenská výtvarná únia - Galéria Umelka"
+    },
+    link: "https://www.archinfo.sk/kalendarium/bienale-forma-13163.html",
+    coverImage: bienaleCover,
+    secondImage: bienaleSecond,
+  },
+];
+
+const workshops = [
+  {
+    id: 1,
+    title: {
+      en: "Abstract Expression Workshop",
+      sk: "Workshop abstraktnej expresie"
+    },
+    description: {
+      en: "A hands-on exploration of color, form, and intuitive mark-making",
+      sk: "Praktické skúmanie farby, formy a intuitívneho vytvárania stôp"
+    },
+    duration: {
+      en: "2 days",
+      sk: "2 dni"
+    },
+    level: {
+      en: "All levels",
+      sk: "Všetky úrovne"
+    },
+  },
+  {
+    id: 2,
+    title: {
+      en: "Mixed Media Techniques",
+      sk: "Techniky zmiešaných médií"
+    },
+    description: {
+      en: "Combining collage, paint, and found materials in contemporary art",
+      sk: "Kombinácia koláže, farby a nájdených materiálov v súčasnom umení"
+    },
+    duration: {
+      en: "1 day",
+      sk: "1 deň"
+    },
+    level: {
+      en: "Intermediate",
+      sk: "Stredne pokročilí"
+    },
+  },
+  {
+    id: 3,
+    title: {
+      en: "Color Theory in Practice",
+      sk: "Teória farieb v praxi"
+    },
+    description: {
+      en: "Understanding color relationships and creating dynamic palettes",
+      sk: "Pochopenie vzťahov farieb a vytváranie dynamických paliet"
+    },
+    duration: {
+      en: "Half day",
+      sk: "Pol dňa"
+    },
+    level: {
+      en: "Beginners",
+      sk: "Začiatočníci"
+    },
+  },
+];
+
+const residencies = [
+  {
+    id: 1,
+    location: {
+      en: "Barcelona, Spain",
+      sk: "Barcelona, Španielsko"
+    },
+    period: {
+      en: "Spring 2024",
+      sk: "Jar 2024"
+    },
+    description: {
+      en: "A transformative three-month residency exploring the relationship between Mediterranean light and abstract form. Working in a converted industrial space near the Gothic Quarter, I developed a new series combining organic shapes with architectural elements inspired by Gaudí's vision.",
+      sk: "Transformačná trojmesačná rezidenčná pobyt skúmajúca vzťah medzi stredomorským svetlom a abstraktnou formou. Pracujúc v prestavenom priemyselnom priestore pri Gotickom štvrte, som vyvinula novú sériu kombinujúcu organické tvary s architektonickými prvkami inšpirovanými Gaudího víziou."
+    },
+    extendedDescription: {
+      en: "The residency allowed me to experiment with new color palettes inspired by the city's tiles and mosaics. Daily walks through the Barri Gòtic influenced the layering techniques in my work, creating depth through historical accumulation.",
+      sk: "Rezidenčný pobyt mi umožnil experimentovať s novými farebnými paletami inšpirovanými mestskými dlaždicami a mozaikami. Denné prechádzky cez Barri Gòtic ovplyvnili techniky vrstvenia v mojej práci, vytvárajúc hĺbku prostredníctvom historickej akumulácie."
+    },
+    images: [artwork1, artwork2, artwork3],
+  },
+  {
+    id: 2,
+    location: {
+      en: "Kyoto, Japan",
+      sk: "Kjóto, Japonsko"
+    },
+    period: {
+      en: "Fall 2023",
+      sk: "Jeseň 2023"
+    },
+    description: {
+      en: "An immersive experience in traditional Japanese aesthetics and contemporary art dialogue. The residency at a temple-adjacent studio provided unique insights into wabi-sabi philosophy and its application to abstract painting.",
+      sk: "Ponorná skúsenosť v tradičnej japonskej estetike a dialógu súčasného umenia. Rezidenčný pobyt v štúdiu priľahlom k chrámu poskytol jedinečné pohľady na filozofiu wabi-sabi a jej aplikáciu na abstraktnú maľbu."
+    },
+    extendedDescription: {
+      en: "Working alongside local artists, I explored the concept of ma (negative space) and its role in composition. The changing autumn colors and temple gardens deeply influenced my approach to subtle gradation and atmospheric effects.",
+      sk: "Pracujúc s miestnymi umelcami, som skúmala koncept ma (negatívny priestor) a jeho úlohu v kompozícii. Menšie sa jesenné farby a chrámové záhrady hlboko ovplyvnili môj prístup k jemným gradáciám a atmosférickým efektom."
+    },
+    images: [artwork2, artwork3, artwork1],
+  },
+  {
+    id: 3,
+    location: {
+      en: "Reykjavik, Iceland",
+      sk: "Reykjavík, Island"
+    },
+    period: {
+      en: "Winter 2023",
+      sk: "Zima 2023"
+    },
+    description: {
+      en: "A winter residency focused on light, darkness, and the sublime landscape. The extreme conditions and minimal daylight hours pushed my work toward more introspective and atmospheric directions.",
+      sk: "Zimný rezidenčný pobyt zameraný na svetlo, tmu a vznešenú krajinu. Extrémne podmienky a minimálne hodiny denného svetla posunuli moju prácu k introspekatívnejším a atmosférickejším smerom."
+    },
+    extendedDescription: {
+      en: "The volcanic landscape and northern lights provided endless inspiration for color relationships and emotional intensity. Working in near-darkness for much of the day created a meditative studio practice that transformed my approach to painting.",
+      sk: "Sopečná krajina a polárna žiara poskytli nekonečnú inšpiráciu pre vzťahy farieb a emocionálnu intenzitu. Práca v takmer tme počas väčšiny dňa vytvorila meditatívnu ateliérovú prax, ktorá transformovala môj prístup k maľbe."
+    },
+    images: [artwork3, artwork1, artwork2],
+  },
+];
 
 const AboutMe = () => {
   const { language, t } = useLanguage();
@@ -251,7 +413,7 @@ const AboutMe = () => {
               {/* Exhibitions Tab */}
               <TabsContent value="exhibitions" className="mt-0">
                 <div className="space-y-8">
-                  {exhibitions.map((article, index) => (
+                  {pressArticles.map((article, index) => (
                     <Card
                       key={index}
                       className="overflow-hidden hover:shadow-medium transition-shadow duration-300 border-border/50"
