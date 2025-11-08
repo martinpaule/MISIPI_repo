@@ -3,7 +3,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import artistPortrait from "@/assets/artist-portrait.jpg";
+import profileImage from "@/assets/profile-section.jpg";
+import artInterestImage from "@/assets/art-interest-section.jpg";
+import teachingImage from "@/assets/teaching-section.jpg";
+import travellingArtistImage from "@/assets/travelling-artist-section.jpg";
+import exhibitionsImage from "@/assets/exhibitions-section.jpg";
 import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
@@ -168,6 +172,15 @@ const residencies = [
 const AboutMe = () => {
   const { language, t } = useLanguage();
   const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState("profile");
+
+  const sectionImages = {
+    profile: profileImage,
+    art: artInterestImage,
+    teaching: teachingImage,
+    travelling: travellingArtistImage,
+    exhibitions: exhibitionsImage,
+  };
 
   const toggleExpanded = (id: number) => {
     setExpandedId(expandedId === id ? null : id);
@@ -182,7 +195,7 @@ const AboutMe = () => {
             {t('about.title')}
           </h2>
 
-          <Tabs defaultValue="profile" className="w-full">
+          <Tabs defaultValue="profile" className="w-full" onValueChange={setActiveTab}>
             <TabsList className="grid w-full grid-cols-5 mb-8 h-auto p-1 bg-muted/50 max-w-4xl mx-auto">
                 <TabsTrigger 
                   value="profile" 
@@ -218,13 +231,13 @@ const AboutMe = () => {
 
             {/* Grid with Image and Content */}
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-              {/* Left: Image */}
+              {/* Left: Image - Changes based on active tab */}
               <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                 <div className="relative overflow-hidden rounded-3xl shadow-medium">
                   <img
-                    src={artistPortrait}
-                    alt="Artist portrait"
-                    className="w-full h-auto object-cover"
+                    src={sectionImages[activeTab as keyof typeof sectionImages]}
+                    alt={`${activeTab} section`}
+                    className="w-full h-auto object-cover transition-opacity duration-300"
                   />
                 </div>
               </div>

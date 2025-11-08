@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import heroArtwork from "@/assets/hero-artwork.jpg";
+import artistPortrait from "@/assets/artist-portrait.jpg";
 import MisipiLogo from "./MisipiLogo";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -32,7 +32,7 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img src={heroArtwork} alt="Abstract artwork background" className="w-full h-full object-cover" />
+        <img src={artistPortrait} alt="Artist portrait background" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/90" />
       </div>
 
