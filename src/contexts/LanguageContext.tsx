@@ -19,8 +19,8 @@ const translations = {
     "nav.contact": "Contact",
 
     // Hero
-    "hero.subtitle": "Abstract Artist",
-    "hero.description": "Exploring color, memory and movement through abstract forms",
+    "hero.subtitle": "Ceramics, Painting, Photography",
+    "hero.description": "Exploring color, composition and memory through abstract forms",
 
     // About Me
     "about.title": "About Me",
