@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import MisipiLogo from "./MisipiLogo";
 import LanguageToggle from "@/components/LanguageToggle";
+import ThemeToggle from "@/components/ThemeToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navigation = () => {
@@ -44,7 +45,7 @@ const Navigation = () => {
             <MisipiLogo animated={false} />
           </button>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             <button
               onClick={() => scrollToSection("about")}
               className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors"
@@ -57,8 +58,11 @@ const Navigation = () => {
             >
               {t("nav.works")}
             </button>
+          </div>
 
+          <div className="hidden md:flex items-center gap-3">
             <LanguageToggle />
+            <ThemeToggle />
           </div>
         </div>
       </div>

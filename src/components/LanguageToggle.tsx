@@ -9,7 +9,7 @@ const LanguageToggle = () => {
       variant="ghost"
       size="sm"
       onClick={() => setLanguage(language === 'en' ? 'sk' : 'en')}
-      className="flex items-center gap-2"
+      className="flex items-center gap-2 border-2 border-foreground/20"
     >
       {language === 'en' ? (
         <>
