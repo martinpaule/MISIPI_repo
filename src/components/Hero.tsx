@@ -79,16 +79,17 @@ const Hero = () => {
           style={{ transform: isLogoExpanded ? `translateY(${ANIMATION.HERO.TEXT_MOVE_DISTANCE})` : 'translateY(0)' }}
         >
           <p
-            className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-white"
-            style={TEXT_OUTLINES.medium}
+            className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-foreground dark:text-foreground"
+            style={TEXT_OUTLINES.thinWhite}
           >
-            {t("hero.subtitle")}
+            <span className="dark:hidden" style={TEXT_OUTLINES.thinWhite}>{t("hero.subtitle")}</span>
+            <span className="hidden dark:inline" style={TEXT_OUTLINES.thin}>{t("hero.subtitle")}</span>
           </p>
           <p
-            className="font-body text-lg md:text-xl max-w-2xl mx-auto text-white leading-relaxed"
-            style={TEXT_OUTLINES.medium}
+            className="font-body text-lg md:text-xl max-w-2xl mx-auto text-foreground leading-relaxed"
           >
-            {t("hero.description")}
+            <span className="dark:hidden" style={TEXT_OUTLINES.thinWhite}>{t("hero.description")}</span>
+            <span className="hidden dark:inline" style={TEXT_OUTLINES.thin}>{t("hero.description")}</span>
           </p>
         </div>
       </div>

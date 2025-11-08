@@ -4,6 +4,12 @@ import LanguageToggle from "@/components/LanguageToggle";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SCROLL } from "@/lib/constants";
+import { Settings } from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,8 +67,19 @@ const Navigation = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-3">
-            <LanguageToggle />
-            <ThemeToggle />
+            <Popover>
+              <PopoverTrigger asChild>
+                <button className="p-2 rounded-md hover:bg-accent transition-colors">
+                  <Settings className="h-5 w-5 text-foreground" />
+                </button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-3" align="end">
+                <div className="flex flex-col gap-3">
+                  <LanguageToggle />
+                  <ThemeToggle />
+                </div>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
       </div>
