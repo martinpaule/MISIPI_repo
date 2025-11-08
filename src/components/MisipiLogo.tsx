@@ -18,14 +18,14 @@ const MisipiLogo = ({ className = "", onHoverChange, animated = true, isExpanded
     onHoverChange?.(newState);
   };
 
-  // Letter style with outline
+  // Letter style with outline - thicker (2px)
   const letterOutlineStyle = {
-    textShadow: "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000",
+    textShadow: "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000",
   };
 
   return (
     <div
-      className={`relative inline-block ${animated ? 'cursor-pointer' : ''} ${className}`}
+      className={`relative inline-block ${animated ? 'cursor-pointer' : ''} ${className} font-cinzel font-bold`}
       onClick={handleToggle}
       style={{ letterSpacing: "-0.02em" }}
     >
@@ -51,9 +51,10 @@ const MisipiLogo = ({ className = "", onHoverChange, animated = true, isExpanded
 
         {/* First I */}
         <span
-          className={`text-foreground ${animated ? 'transition-opacity duration-200' : ''} ${
+          className={`text-white ${animated ? 'transition-opacity duration-200' : ''} ${
             animated && isExpanded ? "opacity-0" : "opacity-100"
           }`}
+          style={letterOutlineStyle}
         >
           I
         </span>
@@ -88,9 +89,10 @@ const MisipiLogo = ({ className = "", onHoverChange, animated = true, isExpanded
 
         {/* Second I */}
         <span
-          className={`text-foreground ${animated ? 'transition-opacity duration-200' : ''} ${
+          className={`text-white ${animated ? 'transition-opacity duration-200' : ''} ${
             animated && isExpanded ? "opacity-0" : "opacity-100"
           }`}
+          style={letterOutlineStyle}
         >
           I
         </span>
@@ -125,9 +127,10 @@ const MisipiLogo = ({ className = "", onHoverChange, animated = true, isExpanded
 
         {/* Third I */}
         <span
-          className={`text-foreground ${animated ? 'transition-opacity duration-200' : ''} ${
+          className={`text-white ${animated ? 'transition-opacity duration-200' : ''} ${
             animated && isExpanded ? "opacity-0" : "opacity-100"
           }`}
+          style={letterOutlineStyle}
         >
           I
         </span>

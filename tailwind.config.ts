@@ -72,6 +72,7 @@ export default {
       fontFamily: {
         'display': ['Montserrat', 'sans-serif'],
         'body': ['Lora', 'serif'],
+        'cinzel': ['Cinzel', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
