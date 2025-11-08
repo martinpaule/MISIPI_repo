@@ -4,6 +4,7 @@ import MisipiLogo from "./MisipiLogo";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ANIMATION } from "@/lib/constants";
 import { TEXT_OUTLINES } from "@/lib/styles";
+import { useTheme } from "next-themes";
 
 const Hero = () => {
   const [isLogoExpanded, setIsLogoExpanded] = useState(false);
@@ -12,6 +13,7 @@ const Hero = () => {
   const [imageBlur, setImageBlur] = useState(0);
   const [overlayOpacity, setOverlayOpacity] = useState(0);
   const { t } = useLanguage();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,14 +81,14 @@ const Hero = () => {
           style={{ transform: isLogoExpanded ? `translateY(${ANIMATION.HERO.TEXT_MOVE_DISTANCE})` : 'translateY(0)' }}
         >
           <p
-            className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-white"
-            style={TEXT_OUTLINES.medium}
+            className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-foreground"
+            style={theme === 'dark' ? TEXT_OUTLINES.thinWhite : TEXT_OUTLINES.thin}
           >
             {t("hero.subtitle")}
           </p>
           <p
-            className="font-body text-lg md:text-xl max-w-2xl mx-auto text-white leading-relaxed"
-            style={TEXT_OUTLINES.medium}
+            className="font-body text-lg md:text-xl max-w-2xl mx-auto text-foreground leading-relaxed"
+            style={theme === 'dark' ? TEXT_OUTLINES.thinWhite : TEXT_OUTLINES.thin}
           >
             {t("hero.description")}
           </p>
