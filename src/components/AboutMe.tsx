@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import artistPortrait from "@/assets/artist-portrait.jpg";
 import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
@@ -215,9 +216,21 @@ const AboutMe = () => {
                 </TabsTrigger>
               </TabsList>
 
-            {/* Tab Content */}
-            <div className="max-w-4xl mx-auto">
+            {/* Grid with Image and Content */}
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+              {/* Left: Image */}
               <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+                <div className="relative overflow-hidden rounded-3xl shadow-medium">
+                  <img
+                    src={artistPortrait}
+                    alt="Artist portrait"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Right: Tab Content */}
+              <div className="animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
                 {/* Profile Tab */}
                 <TabsContent value="profile" className="mt-0">
                 <div className="space-y-6">
