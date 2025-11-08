@@ -68,7 +68,7 @@ const MisipiLogo = ({
         {/* S with OLÁROVÁ - moves down and left on hover */}
         <div className="relative inline-flex items-center" style={{ gap: "0" }}>
           <span
-            className={`text-[#A8D8EA] font-bold relative z-10 ${animated ? "transition-all duration-400 ease-out" : ""} ${
+            className={`text-[#A8D8EA] font-bold relative z-10 ${animated ? "transition-all duration-2000 ease-out" : ""} ${
               animated && isExpanded ? "translate-y-[1.2em] -translate-x-[1em]" : ""
             }`}
             style={letterOutlineStyle}
@@ -77,7 +77,7 @@ const MisipiLogo = ({
           </span>
           {animated && (
             <div
-              className={`absolute left-full top-0 overflow-hidden transition-all duration-400 ease-out ${
+              className={`absolute left-full top-0 overflow-hidden transition-all duration-2000 ease-out ${
                 isExpanded ? "translate-y-[1.2em] -translate-x-[1em]" : ""
               }`}
             >
@@ -106,7 +106,7 @@ const MisipiLogo = ({
         {/* P with AULEOVÁ - moves down 2 lines and left on hover */}
         <div className="relative inline-flex items-center" style={{ gap: "0" }}>
           <span
-            className={`text-[#E0BBE4] font-bold relative z-10 ${animated ? "transition-all duration-400 ease-out" : ""} ${
+            className={`text-[#E0BBE4] font-bold relative z-10 ${animated ? "transition-all duration-2000 ease-out" : ""} ${
               animated && isExpanded ? "translate-y-[2.4em] -translate-x-[2em]" : ""
             }`}
             style={letterOutlineStyle}
@@ -115,7 +115,7 @@ const MisipiLogo = ({
           </span>
           {animated && (
             <div
-              className={`absolute left-full top-0 overflow-hidden transition-all duration-400 ease-out ${
+              className={`absolute left-full top-0 overflow-hidden transition-all duration-2000 ease-out ${
                 isExpanded ? "translate-y-[2.4em] -translate-x-[2em]" : ""
               }`}
             >
