@@ -84,7 +84,7 @@ const Hero = () => {
             {t("hero.subtitle")}
           </p>
           <p
-            className="font-body text-lg md:text-xl max-w-2xl mx-auto text-gray leading-relaxed"
+            className="font-body text-lg md:text-xl max-w-2xl mx-auto text-white leading-relaxed"
             style={{
               textShadow:
                 "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black, -2px 0 0 black, 2px 0 0 black, 0 -2px 0 black, 0 2px 0 black",
