@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { ANIMATION_DELAYS } from "@/lib/constants";
+import { staggerDelay } from "@/lib/styles";
 import profileImage from "@/assets/profile-section.jpg";
 import artInterestImage from "@/assets/art-interest-section.jpg";
 import teachingImage from "@/assets/teaching-section.jpg";
@@ -241,7 +243,7 @@ const AboutMe = () => {
             {/* Grid with Image and Content */}
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
               {/* Left: Image - Changes based on active tab */}
-              <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              <div className="animate-fade-in-up" style={staggerDelay(1, ANIMATION_DELAYS.INCREMENT_MEDIUM)}>
                 <div className="relative overflow-hidden rounded-3xl shadow-medium">
                   <img
                     src={sectionImages[activeTab as keyof typeof sectionImages]}
@@ -252,7 +254,7 @@ const AboutMe = () => {
               </div>
 
               {/* Right: Tab Content */}
-              <div className="animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+              <div className="animate-fade-in-up" style={staggerDelay(2, ANIMATION_DELAYS.INCREMENT_MEDIUM)}>
                 {/* Profile Tab */}
                 <TabsContent value="profile" className="mt-0">
                 <div className="space-y-6">

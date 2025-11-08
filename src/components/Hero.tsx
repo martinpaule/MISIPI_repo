@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import artistPortrait from "@/assets/artist-portrait.jpg";
 import MisipiLogo from "./MisipiLogo";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { HERO_ANIMATION } from "@/lib/constants";
+import { textOutline } from "@/lib/styles";
 
 const Hero = () => {
   const [isLogoExpanded, setIsLogoExpanded] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [imageBlur, setImageBlur] = useState(0);
-  const [overlayOpacity, setOverlayOpacity] = useState(0);
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -29,13 +30,12 @@ const Hero = () => {
         setIsLogoExpanded(false);
       }
 
-      // Calculate blur: starts at 0, reaches max blur of 8px after scrolling 300px
-      const blurAmount = Math.min((currentScrollY / 300) * 8, 8);
+      // Calculate blur based on scroll position
+      const blurAmount = Math.min(
+        (currentScrollY / HERO_ANIMATION.SCROLL.BLUR_THRESHOLD) * HERO_ANIMATION.SCROLL.MAX_BLUR,
+        HERO_ANIMATION.SCROLL.MAX_BLUR
+      );
       setImageBlur(blurAmount);
-
-      // Calculate overlay opacity: starts at 0, gradually increases with scroll
-      const overlayAmount = Math.min(currentScrollY / 300, 1);
-      // setOverlayOpacity(overlayAmount);
 
       setLastScrollY(currentScrollY);
     };
@@ -58,10 +58,7 @@ const Hero = () => {
             filter: `blur(${imageBlur}px)`,
           }}
         />
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/90 transition-opacity duration-300"
-          style={{ opacity: overlayOpacity }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/90" />
       </div>
 
       {/* Content */}
@@ -73,22 +70,21 @@ const Hero = () => {
             isExpanded={isLogoExpanded}
           />
         </h1>
-        <div className={`transition-all duration-400 ease-out ${isLogoExpanded ? "translate-y-[15em]" : ""}`}>
+        <div
+          className="transition-all duration-400 ease-out"
+          style={{
+            transform: isLogoExpanded ? `translateY(${HERO_ANIMATION.SUBTITLE_TRANSFORM})` : 'translateY(0)',
+          }}
+        >
           <p
             className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-white"
-            style={{
-              textShadow:
-                "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black, -2px 0 0 black, 2px 0 0 black, 0 -2px 0 black, 0 2px 0 black",
-            }}
+            style={textOutline(2, 'black')}
           >
             {t("hero.subtitle")}
           </p>
           <p
             className="font-body text-lg md:text-xl max-w-2xl mx-auto text-white leading-relaxed"
-            style={{
-              textShadow:
-                "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black, -2px 0 0 black, 2px 0 0 black, 0 -2px 0 black, 0 2px 0 black",
-            }}
+            style={textOutline(2, 'black')}
           >
             {t("hero.description")}
           </p>

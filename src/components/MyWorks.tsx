@@ -3,6 +3,8 @@ import { Instagram } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { staggerDelay } from "@/lib/styles";
+import { ANIMATION_DELAYS } from "@/lib/constants";
 import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
@@ -115,7 +117,7 @@ const MyWorks = () => {
                 <div
                   key={artwork.id}
                   className="group cursor-pointer animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  style={staggerDelay(index, ANIMATION_DELAYS.INCREMENT_MEDIUM)}
                   onClick={() => setSelectedArtwork(artwork)}
                 >
                   <div className="relative overflow-hidden rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 aspect-[4/5]">
@@ -161,7 +163,7 @@ const MyWorks = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative overflow-hidden rounded-xl aspect-square animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.05}s` }}
+                  style={staggerDelay(index, ANIMATION_DELAYS.INCREMENT_SMALL)}
                 >
                   <img
                     src={post.image}
