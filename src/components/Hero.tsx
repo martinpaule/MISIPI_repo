@@ -6,20 +6,31 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Hero = () => {
   const [isLogoExpanded, setIsLogoExpanded] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [imageBlur, setImageBlur] = useState(0);
   const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = documentHeight > 0 ? currentScrollY / documentHeight : 0;
 
-      // If scrolling down from very top (even slightly), expand
+      // Update parallax scroll progress
+      setScrollProgress(progress);
+
+      // If scrolling down from very top (even slightly), expand and blur
       if (currentScrollY > 0 && lastScrollY === 0 && !isLogoExpanded) {
         setIsLogoExpanded(true);
       }
-      // If scrolling back to top, collapse
+      // If scrolling back to top, collapse and clear blur
       else if (currentScrollY === 0 && isLogoExpanded) {
         setIsLogoExpanded(false);
       }
+
+      // Calculate blur: starts at 0, reaches max blur of 8px after scrolling 300px
+      const blurAmount = Math.min((currentScrollY / 300) * 8, 8);
+      setImageBlur(blurAmount);
 
       setLastScrollY(currentScrollY);
     };
@@ -31,8 +42,17 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img src={artistPortrait} alt="Artist portrait background" className="w-full h-full object-cover" />
+      <div className="absolute inset-0 overflow-hidden">
+        <img 
+          src={artistPortrait} 
+          alt="Artist portrait background" 
+          className="w-full h-full object-cover transition-all duration-300 ease-out"
+          style={{
+            transform: `translateY(${scrollProgress * 100}%)`,
+            objectPosition: `center ${scrollProgress * 100}%`,
+            filter: `blur(${imageBlur}px)`,
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/90" />
       </div>
 
