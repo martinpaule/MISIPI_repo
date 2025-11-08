@@ -46,7 +46,7 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Image */}
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={artistPortrait}
@@ -58,7 +58,6 @@ const Hero = () => {
             filter: `blur(${imageBlur}px)`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/90" />
       </div>
 
       {/* Content */}
