@@ -120,8 +120,30 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-body {
-  @apply bg-background text-foreground;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+  html {
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  /* Smooth transitions for all theme-aware elements */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+  }
+
+  /* Preserve specific transitions for interactive elements */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    transition-property: background-color, border-color, color, fill, stroke, transform, box-shadow, opacity;
+  }
 }

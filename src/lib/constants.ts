@@ -24,6 +24,11 @@ export const ANIMATION = {
   },
 } as const;
 
+// Transitions
+export const TRANSITIONS = {
+  THEME_SWITCH: 0.5, // seconds - smooth transition when switching themes
+} as const;
+
 // Scroll thresholds
 export const SCROLL = {
   HEADER_SHADOW_THRESHOLD: 50, // px - when to add shadow to header
