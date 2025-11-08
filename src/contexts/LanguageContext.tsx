@@ -15,8 +15,6 @@ const translations = {
     // Navigation
     "nav.about": "About Me",
     "nav.works": "Gallery",
-    "nav.travelling": "Travelling Artist",
-    "nav.contact": "Contact",
 
     // Hero
     "hero.subtitle": "Ceramics, Painting, Photography",
