@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { LOGO_ANIMATION } from "@/lib/constants";
+import { textOutline } from "@/lib/styles";
 
 interface MisipiLogoProps {
   className?: string;
@@ -23,11 +25,7 @@ const MisipiLogo = ({
     onHoverChange?.(newState);
   };
 
-  // Letter style with outline - thicker (2px)
-  const letterOutlineStyle = {
-    textShadow:
-      "-2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -2px 0 0 #000, 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000",
-  };
+  const letterOutlineStyle = textOutline(2);
 
   return (
     <div
@@ -44,10 +42,13 @@ const MisipiLogo = ({
           {animated && (
             <div className="absolute left-full top-0 overflow-hidden">
               <span
-                className={`inline-block whitespace-nowrap transition-all duration-500 ease-out ${
+                className={`inline-block whitespace-nowrap ease-out ${
                   isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                 }`}
-                style={{ transitionDelay: isExpanded ? "500ms" : "0ms" }}
+                style={{ 
+                  transition: `all ${LOGO_ANIMATION.SLIDE_DURATION}ms ease-out`,
+                  transitionDelay: isExpanded ? `${LOGO_ANIMATION.EXPAND_DELAY}ms` : "0ms" 
+                }}
               >
                 ARTINA
               </span>
@@ -57,35 +58,43 @@ const MisipiLogo = ({
 
         {/* First I */}
         <span
-          className={`text-white ${animated ? "transition-opacity duration-200" : ""} ${
-            animated && isExpanded ? "opacity-0" : "opacity-100"
-          }`}
-          style={letterOutlineStyle}
+          className={`text-white ${animated && isExpanded ? "opacity-0" : "opacity-100"}`}
+          style={{
+            ...letterOutlineStyle,
+            transition: animated ? `opacity ${LOGO_ANIMATION.FADE_DURATION}ms` : undefined,
+          }}
         >
           I
         </span>
 
-        {/* S with OLÁROVÁ - moves down and left on hover */}
+        {/* S with SOLÁROVÁ - moves down and left on hover */}
         <div className="relative inline-flex items-center" style={{ gap: "0" }}>
           <span
-            className={`text-[#A8D8EA] font-bold relative z-10 ${animated ? "transition-all duration-400 ease-out" : ""} ${
+            className={`text-[#A8D8EA] font-bold relative z-10 ${
               animated && isExpanded ? "translate-y-[1.2em] -translate-x-[1em]" : ""
             }`}
-            style={letterOutlineStyle}
+            style={{
+              ...letterOutlineStyle,
+              transition: animated ? `all ${LOGO_ANIMATION.EXPAND_DURATION}ms ease-out` : undefined,
+            }}
           >
             S
           </span>
           {animated && (
             <div
-              className={`absolute left-full top-0 overflow-hidden transition-all duration-400 ease-out ${
+              className={`absolute left-full top-0 overflow-hidden ${
                 isExpanded ? "translate-y-[1.2em] -translate-x-[1em]" : ""
               }`}
+              style={{ transition: `all ${LOGO_ANIMATION.EXPAND_DURATION}ms ease-out` }}
             >
               <span
-                className={`inline-block whitespace-nowrap transition-all duration-500 ease-out ${
+                className={`inline-block whitespace-nowrap ${
                   isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                 }`}
-                style={{ transitionDelay: isExpanded ? "600ms" : "0ms" }}
+                style={{
+                  transition: `all ${LOGO_ANIMATION.SLIDE_DURATION}ms ease-out`,
+                  transitionDelay: isExpanded ? `${LOGO_ANIMATION.SLIDE_DELAY}ms` : "0ms",
+                }}
               >
                 OLÁROVÁ
               </span>
@@ -95,10 +104,11 @@ const MisipiLogo = ({
 
         {/* Second I */}
         <span
-          className={`text-white ${animated ? "transition-opacity duration-200" : ""} ${
-            animated && isExpanded ? "opacity-0" : "opacity-100"
-          }`}
-          style={letterOutlineStyle}
+          className={`text-white ${animated && isExpanded ? "opacity-0" : "opacity-100"}`}
+          style={{
+            ...letterOutlineStyle,
+            transition: animated ? `opacity ${LOGO_ANIMATION.FADE_DURATION}ms` : undefined,
+          }}
         >
           I
         </span>
@@ -106,24 +116,31 @@ const MisipiLogo = ({
         {/* P with AULEOVÁ - moves down 2 lines and left on hover */}
         <div className="relative inline-flex items-center" style={{ gap: "0" }}>
           <span
-            className={`text-[#E0BBE4] font-bold relative z-10 ${animated ? "transition-all duration-400 ease-out" : ""} ${
+            className={`text-[#E0BBE4] font-bold relative z-10 ${
               animated && isExpanded ? "translate-y-[2.4em] -translate-x-[2em]" : ""
             }`}
-            style={letterOutlineStyle}
+            style={{
+              ...letterOutlineStyle,
+              transition: animated ? `all ${LOGO_ANIMATION.EXPAND_DURATION}ms ease-out` : undefined,
+            }}
           >
             P
           </span>
           {animated && (
             <div
-              className={`absolute left-full top-0 overflow-hidden transition-all duration-400 ease-out ${
+              className={`absolute left-full top-0 overflow-hidden ${
                 isExpanded ? "translate-y-[2.4em] -translate-x-[2em]" : ""
               }`}
+              style={{ transition: `all ${LOGO_ANIMATION.EXPAND_DURATION}ms ease-out` }}
             >
               <span
-                className={`inline-block whitespace-nowrap transition-all duration-500 ease-out ${
+                className={`inline-block whitespace-nowrap ${
                   isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                 }`}
-                style={{ transitionDelay: isExpanded ? "600ms" : "0ms" }}
+                style={{
+                  transition: `all ${LOGO_ANIMATION.SLIDE_DURATION}ms ease-out`,
+                  transitionDelay: isExpanded ? `${LOGO_ANIMATION.SLIDE_DELAY}ms` : "0ms",
+                }}
               >
                 AULEOVÁ
               </span>
@@ -133,10 +150,11 @@ const MisipiLogo = ({
 
         {/* Third I */}
         <span
-          className={`text-white ${animated ? "transition-opacity duration-200" : ""} ${
-            animated && isExpanded ? "opacity-0" : "opacity-100"
-          }`}
-          style={letterOutlineStyle}
+          className={`text-white ${animated && isExpanded ? "opacity-0" : "opacity-100"}`}
+          style={{
+            ...letterOutlineStyle,
+            transition: animated ? `opacity ${LOGO_ANIMATION.FADE_DURATION}ms` : undefined,
+          }}
         >
           I
         </span>
