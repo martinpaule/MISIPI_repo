@@ -35,7 +35,7 @@ const Hero = () => {
 
       // Calculate overlay opacity: starts at 0, gradually increases with scroll
       const overlayAmount = Math.min(currentScrollY / 300, 1);
-      setOverlayOpacity(overlayAmount);
+      // setOverlayOpacity(overlayAmount);
 
       setLastScrollY(currentScrollY);
     };
@@ -48,9 +48,9 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 overflow-hidden">
-        <img 
-          src={artistPortrait} 
-          alt="Artist portrait background" 
+        <img
+          src={artistPortrait}
+          alt="Artist portrait background"
           className="w-full h-full object-cover transition-all duration-300 ease-out"
           style={{
             transform: `translateY(${scrollProgress * 100}%)`,
@@ -58,7 +58,7 @@ const Hero = () => {
             filter: `blur(${imageBlur}px)`,
           }}
         />
-        <div 
+        <div
           className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/90 transition-opacity duration-300"
           style={{ opacity: overlayOpacity }}
         />
@@ -74,17 +74,17 @@ const Hero = () => {
           />
         </h1>
         <div className={`transition-all duration-400 ease-out ${isLogoExpanded ? "translate-y-[15em]" : ""}`}>
-          <p 
+          <p
             className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-primary"
-            style={{ textShadow: '2px 2px 4px rgba(255, 255, 255, 0.8), -1px -1px 2px rgba(255, 255, 255, 0.6)' }}
+            style={{ textShadow: "2px 2px 4px rgba(255, 255, 255, 0.8), -1px -1px 2px rgba(255, 255, 255, 0.6)" }}
           >
-            {t('hero.subtitle')}
+            {t("hero.subtitle")}
           </p>
-          <p 
+          <p
             className="font-body text-lg md:text-xl max-w-2xl mx-auto text-muted-foreground leading-relaxed"
-            style={{ textShadow: '1px 1px 3px rgba(255, 255, 255, 0.7), -1px -1px 2px rgba(255, 255, 255, 0.5)' }}
+            style={{ textShadow: "1px 1px 3px rgba(255, 255, 255, 0.7), -1px -1px 2px rgba(255, 255, 255, 0.5)" }}
           >
-            {t('hero.description')}
+            {t("hero.description")}
           </p>
         </div>
       </div>
