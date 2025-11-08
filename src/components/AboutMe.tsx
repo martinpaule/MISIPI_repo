@@ -176,26 +176,14 @@ const AboutMe = () => {
   return (
     <section id="about" className="py-24 bg-gradient-soft">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Left: Image */}
-          <div className="animate-fade-in-up">
-            <div className="relative overflow-hidden rounded-3xl shadow-medium">
-              <img
-                src={artistPortrait}
-                alt="Artist portrait"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </div>
+        {/* Header and Tabs */}
+        <div className="space-y-8 mb-12 animate-fade-in-up">
+          <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight text-foreground text-center">
+            {t('about.title')}
+          </h2>
 
-          {/* Right: Content with Tabs */}
-          <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight text-foreground">
-              {t('about.title')}
-            </h2>
-
-            <Tabs defaultValue="profile" className="w-full">
-              <TabsList className="grid w-full grid-cols-5 mb-8 h-auto p-1 bg-muted/50">
+          <Tabs defaultValue="profile" className="w-full">
+            <TabsList className="grid w-full grid-cols-5 mb-8 h-auto p-1 bg-muted/50 max-w-4xl mx-auto">
                 <TabsTrigger 
                   value="profile" 
                   className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
@@ -228,8 +216,23 @@ const AboutMe = () => {
                 </TabsTrigger>
               </TabsList>
 
-              {/* Profile Tab */}
-              <TabsContent value="profile" className="mt-0">
+            {/* Grid with Image and Content */}
+            <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+              {/* Left: Image */}
+              <div className="animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+                <div className="relative overflow-hidden rounded-3xl shadow-medium">
+                  <img
+                    src={artistPortrait}
+                    alt="Artist portrait"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Right: Tab Content */}
+              <div className="animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+                {/* Profile Tab */}
+                <TabsContent value="profile" className="mt-0">
                 <div className="space-y-6">
                   <div className="font-body space-y-4 text-muted-foreground leading-relaxed">
                     <p>{t('about.bio')}</p>
@@ -416,8 +419,9 @@ const AboutMe = () => {
                   ))}
                 </div>
               </TabsContent>
-            </Tabs>
-          </div>
+              </div>
+            </div>
+          </Tabs>
         </div>
       </div>
     </section>
