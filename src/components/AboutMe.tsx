@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import profileImage from "@/assets/profile-section.jpg";
 import artInterestImage from "@/assets/art-interest-section.jpg";
 import teachingImage from "@/assets/teaching-section.jpg";
@@ -11,6 +12,10 @@ import exhibitionsImage from "@/assets/exhibitions-section.jpg";
 import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
+import retrospektivaCover from "@/assets/retrospektiva-cover.jpg";
+import retrospektivaSecond from "@/assets/retrospektiva-second.jpg";
+import bienaleCover from "@/assets/bienale-cover.jpg";
+import bienaleSecond from "@/assets/bienale-second.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const pressArticles = [
@@ -28,6 +33,8 @@ const pressArticles = [
       sk: "RKCPD Prievidza"
     },
     link: "https://www.rkcpd.sk/hlavna-stranka/podujatia/vystava-retrospektiva.html?page_id=9142",
+    coverImage: retrospektivaCover,
+    secondImage: retrospektivaSecond,
   },
   {
     title: {
@@ -43,6 +50,8 @@ const pressArticles = [
       sk: "Slovenská výtvarná únia - Galéria Umelka"
     },
     link: "https://www.archinfo.sk/kalendarium/bienale-forma-13163.html",
+    coverImage: bienaleCover,
+    secondImage: bienaleSecond,
   },
 ];
 
@@ -403,31 +412,86 @@ const AboutMe = () => {
 
               {/* Exhibitions Tab */}
               <TabsContent value="exhibitions" className="mt-0">
-                <div className="space-y-4">
+                <div className="space-y-8">
                   {pressArticles.map((article, index) => (
                     <Card
                       key={index}
-                      className="p-5 hover:shadow-medium transition-shadow duration-300 border-border/50"
+                      className="overflow-hidden hover:shadow-medium transition-shadow duration-300 border-border/50"
                     >
-                      <a
-                        href={article.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-start justify-between gap-4 group"
-                      >
-                        <div className="flex-1">
-                          <h4 className="font-display font-medium text-lg mb-1 text-foreground group-hover:text-primary transition-colors">
-                            {article.title[language]}
-                          </h4>
-                          <p className="font-body text-sm text-muted-foreground mb-1">
-                            {article.description[language]}
-                          </p>
-                          <p className="font-body text-xs text-muted-foreground/70">
-                            {article.publication[language]}
-                          </p>
+                      <div className="p-6 space-y-4">
+                        {/* Header with title and link */}
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex-1">
+                            <a
+                              href={article.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group inline-block"
+                            >
+                              <h4 className="font-display font-bold text-xl mb-2 text-foreground group-hover:text-primary transition-colors">
+                                {article.title[language]}
+                              </h4>
+                            </a>
+                            <p className="font-body text-sm text-muted-foreground mb-1">
+                              {article.description[language]}
+                            </p>
+                            <p className="font-body text-xs text-muted-foreground/70">
+                              {article.publication[language]}
+                            </p>
+                          </div>
+                          <a
+                            href={article.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group"
+                          >
+                            <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                          </a>
                         </div>
-                        <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-                      </a>
+
+                        {/* Images Grid */}
+                        <div className="grid grid-cols-3 gap-3">
+                          {/* Large cover image - spans 2 columns */}
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <div className="col-span-2 relative overflow-hidden rounded-lg cursor-pointer group">
+                                <img
+                                  src={article.coverImage}
+                                  alt={`${article.title[language]} cover`}
+                                  className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-500"
+                                />
+                              </div>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-4xl p-2">
+                              <img
+                                src={article.coverImage}
+                                alt={`${article.title[language]} cover`}
+                                className="w-full h-auto rounded-lg"
+                              />
+                            </DialogContent>
+                          </Dialog>
+
+                          {/* Small second image - spans 1 column */}
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <div className="relative overflow-hidden rounded-lg cursor-pointer group">
+                                <img
+                                  src={article.secondImage}
+                                  alt={`${article.title[language]} detail`}
+                                  className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-500"
+                                />
+                              </div>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-4xl p-2">
+                              <img
+                                src={article.secondImage}
+                                alt={`${article.title[language]} detail`}
+                                className="w-full h-auto rounded-lg"
+                              />
+                            </DialogContent>
+                          </Dialog>
+                        </div>
+                      </div>
                     </Card>
                   ))}
                 </div>
