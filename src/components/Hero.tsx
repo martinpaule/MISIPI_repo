@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import artistPortrait from "@/assets/artist-portrait.jpg";
 import MisipiLogo from "./MisipiLogo";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ANIMATION } from "@/lib/constants";
+import { TEXT_OUTLINES } from "@/lib/styles";
 
 const Hero = () => {
   const [isLogoExpanded, setIsLogoExpanded] = useState(false);
@@ -29,13 +31,12 @@ const Hero = () => {
         setIsLogoExpanded(false);
       }
 
-      // Calculate blur: starts at 0, reaches max blur of 8px after scrolling 300px
-      const blurAmount = Math.min((currentScrollY / 300) * 8, 8);
+      // Calculate blur: starts at 0, reaches max blur after scrolling threshold
+      const blurAmount = Math.min(
+        (currentScrollY / ANIMATION.HERO.BLUR_SCROLL_THRESHOLD) * ANIMATION.HERO.MAX_BLUR,
+        ANIMATION.HERO.MAX_BLUR
+      );
       setImageBlur(blurAmount);
-
-      // Calculate overlay opacity: starts at 0, gradually increases with scroll
-      const overlayAmount = Math.min(currentScrollY / 300, 1);
-      // setOverlayOpacity(overlayAmount);
 
       setLastScrollY(currentScrollY);
     };
@@ -73,22 +74,19 @@ const Hero = () => {
             isExpanded={isLogoExpanded}
           />
         </h1>
-        <div className={`transition-all duration-400 ease-out ${isLogoExpanded ? "translate-y-[15em]" : ""}`}>
+        <div 
+          className="transition-all duration-400 ease-out"
+          style={{ transform: isLogoExpanded ? `translateY(${ANIMATION.HERO.TEXT_MOVE_DISTANCE})` : 'translateY(0)' }}
+        >
           <p
             className="font-display text-xl md:text-2xl tracking-wider uppercase mb-4 text-white"
-            style={{
-              textShadow:
-                "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black, -2px 0 0 black, 2px 0 0 black, 0 -2px 0 black, 0 2px 0 black",
-            }}
+            style={TEXT_OUTLINES.medium}
           >
             {t("hero.subtitle")}
           </p>
           <p
             className="font-body text-lg md:text-xl max-w-2xl mx-auto text-white leading-relaxed"
-            style={{
-              textShadow:
-                "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black, -2px 0 0 black, 2px 0 0 black, 0 -2px 0 black, 0 2px 0 black",
-            }}
+            style={TEXT_OUTLINES.medium}
           >
             {t("hero.description")}
           </p>
