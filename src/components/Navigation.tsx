@@ -49,23 +49,15 @@ const Navigation = () => {
               onClick={() => scrollToSection("about")}
               className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors"
             >
-              {t('nav.about')}
+              {t("nav.about")}
             </button>
             <button
               onClick={() => scrollToSection("works")}
               className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors"
             >
-              {t('nav.works')}
+              {t("nav.works")}
             </button>
-            <button
-              onClick={() => scrollToSection("travelling")}
-              className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors"
-            >
-              {t('nav.travelling')}
-            </button>
-            <Button onClick={() => scrollToSection("contact")} variant="default" className="rounded-full">
-              {t('nav.contact')}
-            </Button>
+
             <LanguageToggle />
           </div>
         </div>

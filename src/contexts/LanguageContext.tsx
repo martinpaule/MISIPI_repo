@@ -65,8 +65,6 @@ const translations = {
     // Navigation
     "nav.about": "O mne",
     "nav.works": "Moje diela",
-    "nav.travelling": "Cestujúci umelec",
-    "nav.contact": "Kontakt",
 
     // Hero
     "hero.subtitle": "Abstraktná umelkyňa",
