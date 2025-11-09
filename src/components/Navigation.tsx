@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import MisipiLogo from "./MisipiLogo";
-import LanguageToggle from "@/components/LanguageToggle";
-import ThemeToggle from "@/components/ThemeToggle";
+import SettingsPopover from "@/components/SettingsPopover";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { NAVIGATION } from "@/lib/constants";
 
@@ -44,23 +43,22 @@ const Navigation = () => {
             <MisipiLogo animated={false} />
           </button>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             <button
               onClick={() => scrollToSection("about")}
-              className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors"
+              className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-300"
             >
               {t("nav.about")}
             </button>
             <button
               onClick={() => scrollToSection("works")}
-              className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors"
+              className="font-display text-sm tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-300"
             >
               {t("nav.works")}
             </button>
-
-            <ThemeToggle />
-            <LanguageToggle />
           </div>
+
+          <SettingsPopover />
         </div>
       </div>
     </nav>
