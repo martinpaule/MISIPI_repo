@@ -1,5 +1,5 @@
 import { Download, ExternalLink, MapPin, Calendar, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -192,6 +192,28 @@ const AboutMe = () => {
     travelling: travellingArtistImage,
     exhibitions: exhibitionsImage,
   };
+
+  // Preload all images after initial render
+  useEffect(() => {
+    const imagesToPreload = [
+      profileImage,
+      artInterestImage,
+      teachingImage,
+      travellingArtistImage,
+      exhibitionsImage,
+      retrospektivaCover,
+      retrospektivaSecond,
+      bienaleCover,
+      bienaleSecond,
+      ...residencies.flatMap(r => r.images),
+    ];
+
+    // Preload images in the background
+    imagesToPreload.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   const toggleExpanded = (id: number) => {
     setExpandedId(expandedId === id ? null : id);
