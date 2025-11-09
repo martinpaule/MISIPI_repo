@@ -61,7 +61,7 @@ const TravellingArtist = () => {
         {residencies.map((residency, index) => (
           <Card
             key={residency.id}
-            className="overflow-hidden shadow-soft hover:shadow-medium transition-shadow duration-300 border-border/50 animate-fade-in-up"
+            className="overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 border-border/50 animate-fade-in-up"
             style={{ animationDelay: `${index * 0.15}s` }}
           >
             <div className="p-8">
@@ -91,7 +91,7 @@ const TravellingArtist = () => {
                     <img
                       src={image}
                       alt={`${residency.location} artwork ${imgIndex + 1}`}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover hover:scale-105 transition-all duration-300"
                     />
                   </div>
                 ))}

@@ -51,7 +51,7 @@ const Hero = () => {
         <img
           src={artistPortrait}
           alt="Artist portrait background"
-          className="w-full h-full object-cover transition-all duration-300 ease-out"
+          className="w-full h-full object-cover transition-all duration-500 ease-out"
           style={{
             transform: `translateY(${scrollProgress * 100}%)`,
             objectPosition: `center ${scrollProgress * 100}%`,
@@ -70,7 +70,7 @@ const Hero = () => {
           />
         </h1>
         <div
-          className="transition-all duration-400 ease-out"
+          className="transition-all duration-300 ease-out"
           style={{
             transform: isLogoExpanded ? `translateY(${HERO_ANIMATION.SUBTITLE_TRANSFORM})` : 'translateY(0)',
           }}

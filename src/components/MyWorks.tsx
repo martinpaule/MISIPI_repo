@@ -124,7 +124,7 @@ const MyWorks = () => {
                     <img
                       src={artwork.image}
                       alt={artwork.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                       <h3 className="font-display font-semibold text-lg text-background mb-1">
@@ -168,7 +168,7 @@ const MyWorks = () => {
                   <img
                     src={post.image}
                     alt="Instagram post"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
                   />
                   <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300 flex items-center justify-center">
                     <Instagram className="w-8 h-8 text-background opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -182,10 +182,10 @@ const MyWorks = () => {
 
       {/* Lightbox Dialog */}
       <Dialog open={!!selectedArtwork} onOpenChange={() => setSelectedArtwork(null)}>
-        <DialogContent className="max-w-5xl p-0 bg-background border-none">
+        <DialogContent className="max-w-5xl p-0 bg-background border-none transition-colors duration-300">
           {selectedArtwork && (
             <div className="grid md:grid-cols-2 gap-0">
-              <div className="relative bg-muted">
+              <div className="relative bg-muted transition-colors duration-300">
                 <img
                   src={selectedArtwork.image}
                   alt={selectedArtwork.title}

@@ -220,7 +220,7 @@ const AboutMe = () => {
   };
 
   return (
-    <section id="about" className="py-24 bg-gradient-soft">
+    <section id="about" className="py-24 bg-muted/30 transition-colors duration-300">
       <div className="container mx-auto px-6">
         {/* Header and Tabs */}
         <div className="space-y-8 mb-12 animate-fade-in-up">
@@ -270,7 +270,7 @@ const AboutMe = () => {
                   <img
                     src={sectionImages[activeTab as keyof typeof sectionImages]}
                     alt={`${activeTab} section`}
-                    className="w-full h-auto object-cover transition-opacity duration-300"
+                    className="w-full h-auto object-cover transition-all duration-300"
                   />
                 </div>
               </div>
@@ -309,7 +309,7 @@ const AboutMe = () => {
                     </h3>
 
                     <div className="space-y-6">
-                      <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
+                      <Card className="p-6 border-border/50 hover:shadow-medium transition-all duration-300">
                         <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
                           {language === "en" ? "External Ceramics Lecturer" : "Externý lektor keramiky"}
                         </h4>
@@ -326,7 +326,7 @@ const AboutMe = () => {
                         </p>
                       </Card>
 
-                      <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
+                      <Card className="p-6 border-border/50 hover:shadow-medium transition-all duration-300">
                         <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
                           {language === "en" ? "Art Club Instructor" : "Lektor výtvarného krúžku"}
                         </h4>
@@ -343,7 +343,7 @@ const AboutMe = () => {
                         </p>
                       </Card>
 
-                      <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
+                      <Card className="p-6 border-border/50 hover:shadow-medium transition-all duration-300">
                         <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
                           {language === "en"
                             ? "Teacher of Art Subjects"
@@ -374,7 +374,7 @@ const AboutMe = () => {
                       {residencies.map((residency) => (
                         <Card
                           key={residency.id}
-                          className="overflow-hidden shadow-soft hover:shadow-medium transition-shadow duration-300 border-border/50"
+                          className="overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 border-border/50"
                         >
                           <div className="p-6">
                             <div className="flex flex-col gap-3 mb-4">

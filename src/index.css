@@ -60,7 +60,8 @@ All colors MUST be HSL.
     --shadow-medium: 0 12px 40px hsl(220 20% 15% / 0.12);
     
     /* Transitions */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
@@ -97,6 +98,9 @@ All colors MUST be HSL.
     --border: 220 20% 25%;
     --input: 220 20% 22%;
     --ring: 210 65% 45%;
+
+    /* Dark mode gradients */
+    --gradient-soft: linear-gradient(180deg, hsl(220 20% 12%) 0%, hsl(220 20% 15%) 100%);
   }
 }
 
