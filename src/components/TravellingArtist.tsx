@@ -2,45 +2,41 @@ import { useState } from "react";
 import { MapPin, Calendar, ChevronDown } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
 
-const residencies = [
-  {
-    id: 1,
-    location: "Barcelona, Spain",
-    period: "Spring 2024",
-    description:
-      "A transformative three-month residency exploring the relationship between Mediterranean light and abstract form. Working in a converted industrial space near the Gothic Quarter, I developed a new series combining organic shapes with architectural elements inspired by Gaudí's vision.",
-    extendedDescription:
-      "The residency allowed me to experiment with new color palettes inspired by the city's tiles and mosaics. Daily walks through the Barri Gòtic influenced the layering techniques in my work, creating depth through historical accumulation.",
-    images: [artwork1, artwork2, artwork3],
-  },
-  {
-    id: 2,
-    location: "Kyoto, Japan",
-    period: "Fall 2023",
-    description:
-      "An immersive experience in traditional Japanese aesthetics and contemporary art dialogue. The residency at a temple-adjacent studio provided unique insights into wabi-sabi philosophy and its application to abstract painting.",
-    extendedDescription:
-      "Working alongside local artists, I explored the concept of ma (negative space) and its role in composition. The changing autumn colors and temple gardens deeply influenced my approach to subtle gradation and atmospheric effects.",
-    images: [artwork2, artwork3, artwork1],
-  },
-  {
-    id: 3,
-    location: "Reykjavik, Iceland",
-    period: "Winter 2023",
-    description:
-      "A winter residency focused on light, darkness, and the sublime landscape. The extreme conditions and minimal daylight hours pushed my work toward more introspective and atmospheric directions.",
-    extendedDescription:
-      "The volcanic landscape and northern lights provided endless inspiration for color relationships and emotional intensity. Working in near-darkness for much of the day created a meditative studio practice that transformed my approach to painting.",
-    images: [artwork3, artwork1, artwork2],
-  },
-];
-
 const TravellingArtist = () => {
+  const { t } = useLanguage();
   const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const residencies = [
+    {
+      id: 1,
+      location: t("residency1.location"),
+      period: t("residency1.period"),
+      description: t("residency1.description"),
+      extendedDescription: t("residency1.extendedDescription"),
+      images: [artwork1, artwork2, artwork3],
+    },
+    {
+      id: 2,
+      location: t("residency2.location"),
+      period: t("residency2.period"),
+      description: t("residency2.description"),
+      extendedDescription: t("residency2.extendedDescription"),
+      images: [artwork2, artwork3, artwork1],
+    },
+    {
+      id: 3,
+      location: t("residency3.location"),
+      period: t("residency3.period"),
+      description: t("residency3.description"),
+      extendedDescription: t("residency3.extendedDescription"),
+      images: [artwork3, artwork1, artwork2],
+    },
+  ];
 
   const toggleExpanded = (id: number) => {
     setExpandedId(expandedId === id ? null : id);
@@ -50,10 +46,10 @@ const TravellingArtist = () => {
     <div className="py-12">
       <div className="text-center mb-12">
         <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4 text-foreground">
-          Travelling Artist
+          {t("travelling.title")}
         </h2>
         <p className="font-body text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Residencies, journeys, and creative explorations around the world
+          {t("travelling.description")}
         </p>
       </div>
 
@@ -112,7 +108,7 @@ const TravellingArtist = () => {
                 onClick={() => toggleExpanded(residency.id)}
                 className="mt-4 text-primary hover:text-accent"
               >
-                {expandedId === residency.id ? "Show less" : "Read more"}
+                {expandedId === residency.id ? t("travelling.showLess") : t("travelling.readMore")}
                 <ChevronDown
                   className={`w-4 h-4 ml-2 transition-transform duration-300 ${
                     expandedId === residency.id ? "rotate-180" : ""

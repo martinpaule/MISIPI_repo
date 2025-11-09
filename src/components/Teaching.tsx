@@ -1,28 +1,31 @@
 import { GraduationCap, Users, Palette } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Teaching = () => {
+  const { t } = useLanguage();
+
   const workshops = [
     {
       id: 1,
-      title: "Abstract Expression Workshop",
-      description: "A hands-on exploration of color, form, and intuitive mark-making",
-      duration: "2 days",
-      level: "All levels",
+      title: t("workshop1.title"),
+      description: t("workshop1.description"),
+      duration: t("workshop1.duration"),
+      level: t("workshop1.level"),
     },
     {
       id: 2,
-      title: "Mixed Media Techniques",
-      description: "Combining collage, paint, and found materials in contemporary art",
-      duration: "1 day",
-      level: "Intermediate",
+      title: t("workshop2.title"),
+      description: t("workshop2.description"),
+      duration: t("workshop2.duration"),
+      level: t("workshop2.level"),
     },
     {
       id: 3,
-      title: "Color Theory in Practice",
-      description: "Understanding color relationships and creating dynamic palettes",
-      duration: "Half day",
-      level: "Beginners",
+      title: t("workshop3.title"),
+      description: t("workshop3.description"),
+      duration: t("workshop3.duration"),
+      level: t("workshop3.level"),
     },
   ];
 
@@ -30,10 +33,10 @@ const Teaching = () => {
     <div className="py-12">
       <div className="text-center mb-12">
         <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight mb-4 text-foreground">
-          Teaching & Workshops
+          {t("teaching.title")}
         </h2>
         <p className="font-body text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Sharing my passion for abstract art through hands-on workshops and creative sessions
+          {t("teaching.description")}
         </p>
       </div>
 
@@ -41,37 +44,37 @@ const Teaching = () => {
         <Card className="p-8 text-center border-border/50 dark:border-white hover:shadow-medium transition-all duration-300">
           <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
           <h3 className="font-display font-semibold text-xl mb-2 text-foreground">
-            15+ Years Experience
+            {t("teaching.stat1.title")}
           </h3>
           <p className="font-body text-sm text-muted-foreground">
-            Teaching abstract painting techniques to students of all levels
+            {t("teaching.stat1.description")}
           </p>
         </Card>
 
         <Card className="p-8 text-center border-border/50 dark:border-white hover:shadow-medium transition-all duration-300">
           <Users className="w-12 h-12 text-primary mx-auto mb-4" />
           <h3 className="font-display font-semibold text-xl mb-2 text-foreground">
-            500+ Students
+            {t("teaching.stat2.title")}
           </h3>
           <p className="font-body text-sm text-muted-foreground">
-            From beginners to advanced artists across workshops and residencies
+            {t("teaching.stat2.description")}
           </p>
         </Card>
 
         <Card className="p-8 text-center border-border/50 dark:border-white hover:shadow-medium transition-all duration-300">
           <Palette className="w-12 h-12 text-primary mx-auto mb-4" />
           <h3 className="font-display font-semibold text-xl mb-2 text-foreground">
-            Custom Workshops
+            {t("teaching.stat3.title")}
           </h3>
           <p className="font-body text-sm text-muted-foreground">
-            Tailored sessions for groups, schools, and corporate events
+            {t("teaching.stat3.description")}
           </p>
         </Card>
       </div>
 
       <div className="space-y-6">
         <h3 className="font-display font-bold text-2xl text-foreground mb-6">
-          Available Workshops
+          {t("teaching.workshopsTitle")}
         </h3>
         {workshops.map((workshop, index) => (
           <Card
@@ -89,10 +92,10 @@ const Teaching = () => {
                 </p>
                 <div className="flex gap-4 text-sm">
                   <span className="font-body text-muted-foreground">
-                    Duration: {workshop.duration}
+                    {t("teaching.workshopDuration")}: {workshop.duration}
                   </span>
                   <span className="font-body text-muted-foreground">
-                    Level: {workshop.level}
+                    {t("teaching.workshopLevel")}: {workshop.level}
                   </span>
                 </div>
               </div>
@@ -103,13 +106,13 @@ const Teaching = () => {
 
       <div className="mt-12 text-center">
         <p className="font-body text-muted-foreground mb-4">
-          Interested in booking a workshop or private session?
+          {t("teaching.bookingText")}
         </p>
         <a
           href="#contact"
           className="inline-block px-6 py-3 bg-primary text-primary-foreground font-display font-semibold rounded-xl hover:bg-accent transition-colors"
         >
-          Get in Touch
+          {t("teaching.getInTouch")}
         </a>
       </div>
     </div>

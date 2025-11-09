@@ -96,13 +96,13 @@ const MyWorks = () => {
             value="selected" 
             className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
-            Selected Works
+            {t("works.selected")}
           </TabsTrigger>
           <TabsTrigger 
             value="instagram" 
             className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
-            From Instagram
+            {t("works.instagram")}
           </TabsTrigger>
         </TabsList>
 
@@ -152,7 +152,7 @@ const MyWorks = () => {
               className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-primary hover:text-accent transition-colors mb-8 mx-auto justify-center w-full"
             >
               <Instagram className="w-5 h-5" />
-              Follow @martinaemisipi
+              {t("works.follow")}
             </a>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
