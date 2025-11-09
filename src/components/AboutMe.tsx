@@ -24,15 +24,15 @@ const pressArticles = [
   {
     title: {
       en: "Retrospective Exhibition",
-      sk: "Výstava Retrospektíva"
+      sk: "Výstava Retrospektíva",
     },
     description: {
       en: "A comprehensive look at the artist's journey",
-      sk: "Komplexný pohľad na umeleckú cestu"
+      sk: "Komplexný pohľad na umeleckú cestu",
     },
     publication: {
       en: "RKCPD Prievidza",
-      sk: "RKCPD Prievidza"
+      sk: "RKCPD Prievidza",
     },
     link: "https://www.rkcpd.sk/hlavna-stranka/podujatia/vystava-retrospektiva.html?page_id=9142",
     coverImage: retrospektivaCover,
@@ -41,15 +41,15 @@ const pressArticles = [
   {
     title: {
       en: "Bienále FORMA",
-      sk: "Bienále FORMA"
+      sk: "Bienále FORMA",
     },
     description: {
       en: "Seventh edition of applied arts exhibition",
-      sk: "Siedmy ročník výstavy úžitkového umenia"
+      sk: "Siedmy ročník výstavy úžitkového umenia",
     },
     publication: {
       en: "Slovenská výtvarná únia - Galéria Umelka",
-      sk: "Slovenská výtvarná únia - Galéria Umelka"
+      sk: "Slovenská výtvarná únia - Galéria Umelka",
     },
     link: "https://www.archinfo.sk/kalendarium/bienale-forma-13163.html",
     coverImage: bienaleCover,
@@ -62,57 +62,57 @@ const workshops = [
     id: 1,
     title: {
       en: "Abstract Expression Workshop",
-      sk: "Workshop abstraktnej expresie"
+      sk: "Workshop abstraktnej expresie",
     },
     description: {
       en: "A hands-on exploration of color, form, and intuitive mark-making",
-      sk: "Praktické skúmanie farby, formy a intuitívneho vytvárania stôp"
+      sk: "Praktické skúmanie farby, formy a intuitívneho vytvárania stôp",
     },
     duration: {
       en: "2 days",
-      sk: "2 dni"
+      sk: "2 dni",
     },
     level: {
       en: "All levels",
-      sk: "Všetky úrovne"
+      sk: "Všetky úrovne",
     },
   },
   {
     id: 2,
     title: {
       en: "Mixed Media Techniques",
-      sk: "Techniky zmiešaných médií"
+      sk: "Techniky zmiešaných médií",
     },
     description: {
       en: "Combining collage, paint, and found materials in contemporary art",
-      sk: "Kombinácia koláže, farby a nájdených materiálov v súčasnom umení"
+      sk: "Kombinácia koláže, farby a nájdených materiálov v súčasnom umení",
     },
     duration: {
       en: "1 day",
-      sk: "1 deň"
+      sk: "1 deň",
     },
     level: {
       en: "Intermediate",
-      sk: "Stredne pokročilí"
+      sk: "Stredne pokročilí",
     },
   },
   {
     id: 3,
     title: {
       en: "Color Theory in Practice",
-      sk: "Teória farieb v praxi"
+      sk: "Teória farieb v praxi",
     },
     description: {
       en: "Understanding color relationships and creating dynamic palettes",
-      sk: "Pochopenie vzťahov farieb a vytváranie dynamických paliet"
+      sk: "Pochopenie vzťahov farieb a vytváranie dynamických paliet",
     },
     duration: {
       en: "Half day",
-      sk: "Pol dňa"
+      sk: "Pol dňa",
     },
     level: {
       en: "Beginners",
-      sk: "Začiatočníci"
+      sk: "Začiatočníci",
     },
   },
 ];
@@ -122,19 +122,19 @@ const residencies = [
     id: 1,
     location: {
       en: "Barcelona, Spain",
-      sk: "Barcelona, Španielsko"
+      sk: "Barcelona, Španielsko",
     },
     period: {
       en: "Spring 2024",
-      sk: "Jar 2024"
+      sk: "Jar 2024",
     },
     description: {
       en: "A transformative three-month residency exploring the relationship between Mediterranean light and abstract form. Working in a converted industrial space near the Gothic Quarter, I developed a new series combining organic shapes with architectural elements inspired by Gaudí's vision.",
-      sk: "Transformačná trojmesačná rezidenčná pobyt skúmajúca vzťah medzi stredomorským svetlom a abstraktnou formou. Pracujúc v prestavenom priemyselnom priestore pri Gotickom štvrte, som vyvinula novú sériu kombinujúcu organické tvary s architektonickými prvkami inšpirovanými Gaudího víziou."
+      sk: "Transformačná trojmesačná rezidenčná pobyt skúmajúca vzťah medzi stredomorským svetlom a abstraktnou formou. Pracujúc v prestavenom priemyselnom priestore pri Gotickom štvrte, som vyvinula novú sériu kombinujúcu organické tvary s architektonickými prvkami inšpirovanými Gaudího víziou.",
     },
     extendedDescription: {
       en: "The residency allowed me to experiment with new color palettes inspired by the city's tiles and mosaics. Daily walks through the Barri Gòtic influenced the layering techniques in my work, creating depth through historical accumulation.",
-      sk: "Rezidenčný pobyt mi umožnil experimentovať s novými farebnými paletami inšpirovanými mestskými dlaždicami a mozaikami. Denné prechádzky cez Barri Gòtic ovplyvnili techniky vrstvenia v mojej práci, vytvárajúc hĺbku prostredníctvom historickej akumulácie."
+      sk: "Rezidenčný pobyt mi umožnil experimentovať s novými farebnými paletami inšpirovanými mestskými dlaždicami a mozaikami. Denné prechádzky cez Barri Gòtic ovplyvnili techniky vrstvenia v mojej práci, vytvárajúc hĺbku prostredníctvom historickej akumulácie.",
     },
     images: [artwork1, artwork2, artwork3],
   },
@@ -142,19 +142,19 @@ const residencies = [
     id: 2,
     location: {
       en: "Kyoto, Japan",
-      sk: "Kjóto, Japonsko"
+      sk: "Kjóto, Japonsko",
     },
     period: {
       en: "Fall 2023",
-      sk: "Jeseň 2023"
+      sk: "Jeseň 2023",
     },
     description: {
       en: "An immersive experience in traditional Japanese aesthetics and contemporary art dialogue. The residency at a temple-adjacent studio provided unique insights into wabi-sabi philosophy and its application to abstract painting.",
-      sk: "Ponorná skúsenosť v tradičnej japonskej estetike a dialógu súčasného umenia. Rezidenčný pobyt v štúdiu priľahlom k chrámu poskytol jedinečné pohľady na filozofiu wabi-sabi a jej aplikáciu na abstraktnú maľbu."
+      sk: "Ponorná skúsenosť v tradičnej japonskej estetike a dialógu súčasného umenia. Rezidenčný pobyt v štúdiu priľahlom k chrámu poskytol jedinečné pohľady na filozofiu wabi-sabi a jej aplikáciu na abstraktnú maľbu.",
     },
     extendedDescription: {
       en: "Working alongside local artists, I explored the concept of ma (negative space) and its role in composition. The changing autumn colors and temple gardens deeply influenced my approach to subtle gradation and atmospheric effects.",
-      sk: "Pracujúc s miestnymi umelcami, som skúmala koncept ma (negatívny priestor) a jeho úlohu v kompozícii. Menšie sa jesenné farby a chrámové záhrady hlboko ovplyvnili môj prístup k jemným gradáciám a atmosférickým efektom."
+      sk: "Pracujúc s miestnymi umelcami, som skúmala koncept ma (negatívny priestor) a jeho úlohu v kompozícii. Menšie sa jesenné farby a chrámové záhrady hlboko ovplyvnili môj prístup k jemným gradáciám a atmosférickým efektom.",
     },
     images: [artwork2, artwork3, artwork1],
   },
@@ -162,19 +162,19 @@ const residencies = [
     id: 3,
     location: {
       en: "Reykjavik, Iceland",
-      sk: "Reykjavík, Island"
+      sk: "Reykjavík, Island",
     },
     period: {
       en: "Winter 2023",
-      sk: "Zima 2023"
+      sk: "Zima 2023",
     },
     description: {
       en: "A winter residency focused on light, darkness, and the sublime landscape. The extreme conditions and minimal daylight hours pushed my work toward more introspective and atmospheric directions.",
-      sk: "Zimný rezidenčný pobyt zameraný na svetlo, tmu a vznešenú krajinu. Extrémne podmienky a minimálne hodiny denného svetla posunuli moju prácu k introspekatívnejším a atmosférickejším smerom."
+      sk: "Zimný rezidenčný pobyt zameraný na svetlo, tmu a vznešenú krajinu. Extrémne podmienky a minimálne hodiny denného svetla posunuli moju prácu k introspekatívnejším a atmosférickejším smerom.",
     },
     extendedDescription: {
       en: "The volcanic landscape and northern lights provided endless inspiration for color relationships and emotional intensity. Working in near-darkness for much of the day created a meditative studio practice that transformed my approach to painting.",
-      sk: "Sopečná krajina a polárna žiara poskytli nekonečnú inšpiráciu pre vzťahy farieb a emocionálnu intenzitu. Práca v takmer tme počas väčšiny dňa vytvorila meditatívnu ateliérovú prax, ktorá transformovala môj prístup k maľbe."
+      sk: "Sopečná krajina a polárna žiara poskytli nekonečnú inšpiráciu pre vzťahy farieb a emocionálnu intenzitu. Práca v takmer tme počas väčšiny dňa vytvorila meditatívnu ateliérovú prax, ktorá transformovala môj prístup k maľbe.",
     },
     images: [artwork3, artwork1, artwork2],
   },
@@ -205,7 +205,7 @@ const AboutMe = () => {
       retrospektivaSecond,
       bienaleCover,
       bienaleSecond,
-      ...residencies.flatMap(r => r.images),
+      ...residencies.flatMap((r) => r.images),
     ];
 
     // Preload images in the background
@@ -218,49 +218,49 @@ const AboutMe = () => {
   const toggleExpanded = (id: number) => {
     setExpandedId(expandedId === id ? null : id);
   };
-  
+
   return (
     <section id="about" className="py-24 bg-gradient-soft">
       <div className="container mx-auto px-6">
         {/* Header and Tabs */}
         <div className="space-y-8 mb-12 animate-fade-in-up">
           <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tight text-foreground text-center">
-            {t('about.title')}
+            {t("about.title")}
           </h2>
 
           <Tabs defaultValue="profile" className="w-full" onValueChange={setActiveTab}>
             <TabsList className="grid w-full grid-cols-5 mb-8 h-auto p-1 bg-muted/50 max-w-4xl mx-auto">
-                <TabsTrigger 
-                  value="profile" 
-                  className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
-                >
-                  {t('about.profile')}
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="art" 
-                  className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
-                >
-                  {t('about.artInterest')}
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="travelling" 
-                  className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
-                >
-                  {t('about.travelingArtist')}
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="exhibitions" 
-                  className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
-                >
-                  {t('about.exhibitions')}
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="teaching" 
-                  className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
-                >
-                  {t('about.teaching')}
-                </TabsTrigger>
-              </TabsList>
+              <TabsTrigger
+                value="profile"
+                className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
+              >
+                {t("about.profile")}
+              </TabsTrigger>
+              <TabsTrigger
+                value="art"
+                className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
+              >
+                {t("about.artInterest")}
+              </TabsTrigger>
+              <TabsTrigger
+                value="travelling"
+                className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
+              >
+                {t("about.travelingArtist")}
+              </TabsTrigger>
+              <TabsTrigger
+                value="exhibitions"
+                className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
+              >
+                {t("about.exhibitions")}
+              </TabsTrigger>
+              <TabsTrigger
+                value="teaching"
+                className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
+              >
+                {t("about.teaching")}
+              </TabsTrigger>
+            </TabsList>
 
             {/* Grid with Image and Content */}
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -279,250 +279,243 @@ const AboutMe = () => {
               <div className="animate-fade-in-up" style={staggerDelay(2, ANIMATION_DELAYS.INCREMENT_MEDIUM)}>
                 {/* Profile Tab */}
                 <TabsContent value="profile" className="mt-0">
-                <div className="space-y-6">
+                  <div className="space-y-6">
+                    <div className="font-body space-y-4 text-muted-foreground leading-relaxed">
+                      <p>{t("about.bio")}</p>
+                      <p>{t("about.bio2")}</p>
+                    </div>
+                    <Button size="lg" variant="default" className="rounded-full" asChild>
+                      <a href="/CV_MISIPI.pdf" download>
+                        <Download className="w-4 h-4 mr-2" />
+                        {t("about.downloadCV")}
+                      </a>
+                    </Button>
+                  </div>
+                </TabsContent>
+
+                {/* Art Interest Tab */}
+                <TabsContent value="art" className="mt-0">
                   <div className="font-body space-y-4 text-muted-foreground leading-relaxed">
-                    <p>{t('about.bio')}</p>
-                    <p>{t('about.bio2')}</p>
+                    <p>{t("about.artInterestText")}</p>
+                    <p>{t("about.artInterestText2")}</p>
                   </div>
-                  <Button size="lg" variant="default" className="rounded-full" asChild>
-                    <a href="/CV_MISIPI.pdf" download>
-                      <Download className="w-4 h-4 mr-2" />
-                      {t('about.downloadCV')}
-                    </a>
-                  </Button>
-                </div>
-              </TabsContent>
+                </TabsContent>
 
-              {/* Art Interest Tab */}
-              <TabsContent value="art" className="mt-0">
-                <div className="font-body space-y-4 text-muted-foreground leading-relaxed">
-                  <p>{t('about.artInterestText')}</p>
-                  <p>{t('about.artInterestText2')}</p>
-                </div>
-              </TabsContent>
-
-              {/* Teaching Tab */}
-              <TabsContent value="teaching" className="mt-0">
-                <div className="space-y-6">
-                  <h3 className="font-display font-bold text-xl text-foreground">
-                    {language === 'en' ? 'WORK EXPERIENCE' : 'PRACOVNÉ SKÚSENOSTI'}
-                  </h3>
-                  
+                {/* Teaching Tab */}
+                <TabsContent value="teaching" className="mt-0">
                   <div className="space-y-6">
-                    <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
-                      <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
-                        {language === 'en' ? 'External Ceramics Lecturer' : 'Externý lektor keramiky'}
-                      </h4>
-                      <p className="font-body text-sm text-primary mb-3">
-                        {language === 'en' ? 'Center for Folk Art Production' : 'Ústredie ľudovej umeleckej výroby'}
-                      </p>
-                      <p className="font-body text-sm text-muted-foreground/70 mb-3">
-                        {language === 'en' ? 'July 2004 - August 2022' : 'Júl 2004 - August 2022'}
-                      </p>
-                      <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                        {language === 'en' 
-                          ? 'Teaching wheel throwing, developing creativity, introducing traditional folk crafts' 
-                          : 'Výučba točenia na kruhu, rozvoj kreativity, oboznámenie s tradičnými ľudovými remeslami'}
-                      </p>
-                    </Card>
+                    <h3 className="font-display font-bold text-xl text-foreground">
+                      {language === "en" ? "WORK EXPERIENCE" : "PRACOVNÉ SKÚSENOSTI"}
+                    </h3>
 
-                    <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
-                      <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
-                        {language === 'en' ? 'Art Club Instructor' : 'Lektor výtvarného krúžku'}
-                      </h4>
-                      <p className="font-body text-sm text-primary mb-3">
-                        {language === 'en' ? '1st Private Kindergarten Štvorlístok' : '1.súkromná škôlka Štvorlístok'}
-                      </p>
-                      <p className="font-body text-sm text-muted-foreground/70 mb-3">
-                        {language === 'en' ? 'September 2011 - August 2017' : 'September 2011 - August 2017'}
-                      </p>
-                      <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                        {language === 'en' 
-                          ? 'Working with clay, developing motor skills' 
-                          : 'Práca s hlinou, rozvoj motorických zručností'}
-                      </p>
-                    </Card>
+                    <div className="space-y-6">
+                      <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
+                        <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
+                          {language === "en" ? "External Ceramics Lecturer" : "Externý lektor keramiky"}
+                        </h4>
+                        <p className="font-body text-sm text-primary mb-3">
+                          {language === "en" ? "Center for Folk Art Production" : "Ústredie ľudovej umeleckej výroby"}
+                        </p>
+                        <p className="font-body text-sm text-muted-foreground/70 mb-3">
+                          {language === "en" ? "July 2004 - Present" : "Júl 2004 - Súčastnosť"}
+                        </p>
+                        <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                          {language === "en"
+                            ? "Teaching wheel throwing, developing creativity, introducing traditional folk crafts"
+                            : "Výučba točenia na kruhu, rozvoj kreativity, oboznámenie s tradičnými ľudovými remeslami"}
+                        </p>
+                      </Card>
 
-                    <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
-                      <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
-                        {language === 'en' ? 'Teacher of Art Subjects' : 'Učiteľka odborných predmetov výtvarného zamerania'}
-                      </h4>
-                      <p className="font-body text-sm text-primary mb-3">
-                        {language === 'en' 
-                          ? 'United Secondary School of Scenic Arts - Bratislava, Slovakia' 
-                          : 'Združená stredná škola scénického výtvarníctva - Bratislava, Slovenská republika'}
-                      </p>
-                      <p className="font-body text-sm text-muted-foreground/70 mb-3">
-                        {language === 'en' ? 'September 1995 - June 1996' : 'September 1995 - Jún 1996'}
-                      </p>
-                      <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                        {language === 'en' 
-                          ? 'Teaching art history and drawing' 
-                          : 'Vyučovanie dejín umenia a kresby'}
-                      </p>
-                    </Card>
+                      <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
+                        <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
+                          {language === "en" ? "Art Club Instructor" : "Lektor výtvarného krúžku"}
+                        </h4>
+                        <p className="font-body text-sm text-primary mb-3">
+                          {language === "en" ? "1st Private Kindergarten Štvorlístok" : "1.súkromná škôlka Štvorlístok"}
+                        </p>
+                        <p className="font-body text-sm text-muted-foreground/70 mb-3">
+                          {language === "en" ? "September 2011 - August 2017" : "September 2011 - August 2017"}
+                        </p>
+                        <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                          {language === "en"
+                            ? "Working with clay, developing motor skills"
+                            : "Práca s hlinou, rozvoj motorických zručností"}
+                        </p>
+                      </Card>
+
+                      <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
+                        <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
+                          {language === "en"
+                            ? "Teacher of Art Subjects"
+                            : "Učiteľka odborných predmetov výtvarného zamerania"}
+                        </h4>
+                        <p className="font-body text-sm text-primary mb-3">
+                          {language === "en"
+                            ? "United Secondary School of Scenic Arts - Bratislava, Slovakia"
+                            : "Združená stredná škola scénického výtvarníctva - Bratislava, Slovenská republika"}
+                        </p>
+                        <p className="font-body text-sm text-muted-foreground/70 mb-3">
+                          {language === "en" ? "September 1995 - June 1996" : "September 1995 - Jún 1996"}
+                        </p>
+                        <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                          {language === "en" ? "Teaching art history and drawing" : "Vyučovanie dejín umenia a kresby"}
+                        </p>
+                      </Card>
+                    </div>
                   </div>
-                </div>
-              </TabsContent>
+                </TabsContent>
 
-              {/* Traveling Artist Tab */}
-              <TabsContent value="travelling" className="mt-0">
-                <div className="space-y-6">
-                  <p className="font-body text-muted-foreground leading-relaxed">
-                    {t('about.travelingIntro')}
-                  </p>
-
+                {/* Traveling Artist Tab */}
+                <TabsContent value="travelling" className="mt-0">
                   <div className="space-y-6">
-                    {residencies.map((residency) => (
-                      <Card
-                        key={residency.id}
-                        className="overflow-hidden shadow-soft hover:shadow-medium transition-shadow duration-300 border-border/50"
-                      >
-                        <div className="p-6">
-                          <div className="flex flex-col gap-3 mb-4">
-                            <div className="flex items-center gap-2 text-primary">
-                              <MapPin className="w-4 h-4" />
-                              <h3 className="font-display font-bold text-lg text-foreground">
-                                {residency.location[language]}
-                              </h3>
-                            </div>
-                            <div className="flex items-center gap-2 text-muted-foreground">
-                              <Calendar className="w-4 h-4" />
-                              <span className="font-body text-sm">{residency.period[language]}</span>
-                            </div>
-                          </div>
+                    <p className="font-body text-muted-foreground leading-relaxed">{t("about.travelingIntro")}</p>
 
-                          <div className="grid grid-cols-3 gap-2 mb-4">
-                            {residency.images.map((image, imgIndex) => (
-                              <div
-                                key={imgIndex}
-                                className="relative overflow-hidden rounded-lg aspect-square"
-                              >
-                                <img
-                                  src={image}
-                                  alt={`${residency.location[language]} artwork ${imgIndex + 1}`}
-                                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                                />
+                    <div className="space-y-6">
+                      {residencies.map((residency) => (
+                        <Card
+                          key={residency.id}
+                          className="overflow-hidden shadow-soft hover:shadow-medium transition-shadow duration-300 border-border/50"
+                        >
+                          <div className="p-6">
+                            <div className="flex flex-col gap-3 mb-4">
+                              <div className="flex items-center gap-2 text-primary">
+                                <MapPin className="w-4 h-4" />
+                                <h3 className="font-display font-bold text-lg text-foreground">
+                                  {residency.location[language]}
+                                </h3>
                               </div>
-                            ))}
+                              <div className="flex items-center gap-2 text-muted-foreground">
+                                <Calendar className="w-4 h-4" />
+                                <span className="font-body text-sm">{residency.period[language]}</span>
+                              </div>
+                            </div>
+
+                            <div className="grid grid-cols-3 gap-2 mb-4">
+                              {residency.images.map((image, imgIndex) => (
+                                <div key={imgIndex} className="relative overflow-hidden rounded-lg aspect-square">
+                                  <img
+                                    src={image}
+                                    alt={`${residency.location[language]} artwork ${imgIndex + 1}`}
+                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                                  />
+                                </div>
+                              ))}
+                            </div>
+
+                            <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-2">
+                              <p>{residency.description[language]}</p>
+                              {expandedId === residency.id && (
+                                <p className="animate-fade-in-up">{residency.extendedDescription[language]}</p>
+                              )}
+                            </div>
+
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => toggleExpanded(residency.id)}
+                              className="mt-3 text-primary hover:text-accent"
+                            >
+                              {expandedId === residency.id
+                                ? language === "en"
+                                  ? "Show less"
+                                  : "Zobraziť menej"
+                                : language === "en"
+                                  ? "Read more"
+                                  : "Čítať viac"}
+                              <ChevronDown
+                                className={`w-4 h-4 ml-2 transition-transform duration-300 ${
+                                  expandedId === residency.id ? "rotate-180" : ""
+                                }`}
+                              />
+                            </Button>
+                          </div>
+                        </Card>
+                      ))}
+                    </div>
+                  </div>
+                </TabsContent>
+
+                {/* Exhibitions Tab */}
+                <TabsContent value="exhibitions" className="mt-0">
+                  <div className="space-y-8">
+                    {pressArticles.map((article, index) => (
+                      <Card
+                        key={index}
+                        className="overflow-hidden hover:shadow-medium transition-shadow duration-300 border-border/50"
+                      >
+                        <div className="p-6 space-y-4">
+                          {/* Header with title and link */}
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="flex-1">
+                              <a
+                                href={article.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group inline-block"
+                              >
+                                <h4 className="font-display font-bold text-xl mb-2 text-foreground group-hover:text-primary transition-colors">
+                                  {article.title[language]}
+                                </h4>
+                              </a>
+                              <p className="font-body text-sm text-muted-foreground mb-1">
+                                {article.description[language]}
+                              </p>
+                              <p className="font-body text-xs text-muted-foreground/70">
+                                {article.publication[language]}
+                              </p>
+                            </div>
+                            <a href={article.link} target="_blank" rel="noopener noreferrer" className="group">
+                              <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                            </a>
                           </div>
 
-                          <div className="font-body text-sm text-muted-foreground leading-relaxed space-y-2">
-                            <p>{residency.description[language]}</p>
-                            {expandedId === residency.id && (
-                              <p className="animate-fade-in-up">{residency.extendedDescription[language]}</p>
-                            )}
-                          </div>
+                          {/* Images Grid */}
+                          <div className="grid grid-cols-3 gap-3">
+                            {/* Large cover image - spans 2 columns */}
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <div className="col-span-2 relative overflow-hidden rounded-lg cursor-pointer group">
+                                  <img
+                                    src={article.coverImage}
+                                    alt={`${article.title[language]} cover`}
+                                    className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-500"
+                                  />
+                                </div>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-4xl p-2">
+                                <img
+                                  src={article.coverImage}
+                                  alt={`${article.title[language]} cover`}
+                                  className="w-full h-auto rounded-lg"
+                                />
+                              </DialogContent>
+                            </Dialog>
 
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => toggleExpanded(residency.id)}
-                            className="mt-3 text-primary hover:text-accent"
-                          >
-                            {expandedId === residency.id ? 
-                              (language === 'en' ? 'Show less' : 'Zobraziť menej') : 
-                              (language === 'en' ? 'Read more' : 'Čítať viac')
-                            }
-                            <ChevronDown
-                              className={`w-4 h-4 ml-2 transition-transform duration-300 ${
-                                expandedId === residency.id ? "rotate-180" : ""
-                              }`}
-                            />
-                          </Button>
+                            {/* Small second image - spans 1 column */}
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <div className="relative overflow-hidden rounded-lg cursor-pointer group">
+                                  <img
+                                    src={article.secondImage}
+                                    alt={`${article.title[language]} detail`}
+                                    className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-500"
+                                  />
+                                </div>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-4xl p-2">
+                                <img
+                                  src={article.secondImage}
+                                  alt={`${article.title[language]} detail`}
+                                  className="w-full h-auto rounded-lg"
+                                />
+                              </DialogContent>
+                            </Dialog>
+                          </div>
                         </div>
                       </Card>
                     ))}
                   </div>
-                </div>
-              </TabsContent>
-
-              {/* Exhibitions Tab */}
-              <TabsContent value="exhibitions" className="mt-0">
-                <div className="space-y-8">
-                  {pressArticles.map((article, index) => (
-                    <Card
-                      key={index}
-                      className="overflow-hidden hover:shadow-medium transition-shadow duration-300 border-border/50"
-                    >
-                      <div className="p-6 space-y-4">
-                        {/* Header with title and link */}
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1">
-                            <a
-                              href={article.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="group inline-block"
-                            >
-                              <h4 className="font-display font-bold text-xl mb-2 text-foreground group-hover:text-primary transition-colors">
-                                {article.title[language]}
-                              </h4>
-                            </a>
-                            <p className="font-body text-sm text-muted-foreground mb-1">
-                              {article.description[language]}
-                            </p>
-                            <p className="font-body text-xs text-muted-foreground/70">
-                              {article.publication[language]}
-                            </p>
-                          </div>
-                          <a
-                            href={article.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group"
-                          >
-                            <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-                          </a>
-                        </div>
-
-                        {/* Images Grid */}
-                        <div className="grid grid-cols-3 gap-3">
-                          {/* Large cover image - spans 2 columns */}
-                          <Dialog>
-                            <DialogTrigger asChild>
-                              <div className="col-span-2 relative overflow-hidden rounded-lg cursor-pointer group">
-                                <img
-                                  src={article.coverImage}
-                                  alt={`${article.title[language]} cover`}
-                                  className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-500"
-                                />
-                              </div>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-4xl p-2">
-                              <img
-                                src={article.coverImage}
-                                alt={`${article.title[language]} cover`}
-                                className="w-full h-auto rounded-lg"
-                              />
-                            </DialogContent>
-                          </Dialog>
-
-                          {/* Small second image - spans 1 column */}
-                          <Dialog>
-                            <DialogTrigger asChild>
-                              <div className="relative overflow-hidden rounded-lg cursor-pointer group">
-                                <img
-                                  src={article.secondImage}
-                                  alt={`${article.title[language]} detail`}
-                                  className="w-full h-full object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-500"
-                                />
-                              </div>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-4xl p-2">
-                              <img
-                                src={article.secondImage}
-                                alt={`${article.title[language]} detail`}
-                                className="w-full h-auto rounded-lg"
-                              />
-                            </DialogContent>
-                          </Dialog>
-                        </div>
-                      </div>
-                    </Card>
-                  ))}
-                </div>
-              </TabsContent>
+                </TabsContent>
               </div>
             </div>
           </Tabs>
