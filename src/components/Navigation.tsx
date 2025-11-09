@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MisipiLogo from "./MisipiLogo";
 import LanguageToggle from "@/components/LanguageToggle";
+import ThemeToggle from "@/components/ThemeToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { NAVIGATION } from "@/lib/constants";
 
@@ -57,6 +58,7 @@ const Navigation = () => {
               {t("nav.works")}
             </button>
 
+            <ThemeToggle />
             <LanguageToggle />
           </div>
         </div>
