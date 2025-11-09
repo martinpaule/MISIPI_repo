@@ -1,4 +1,4 @@
-import { Download, ExternalLink, GraduationCap, Users, Palette, MapPin, Calendar, ChevronDown } from "lucide-react";
+import { Download, ExternalLink, MapPin, Calendar, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -221,12 +221,6 @@ const AboutMe = () => {
                   {t('about.artInterest')}
                 </TabsTrigger>
                 <TabsTrigger 
-                  value="teaching" 
-                  className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
-                >
-                  {t('about.teaching')}
-                </TabsTrigger>
-                <TabsTrigger 
                   value="travelling" 
                   className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
                 >
@@ -237,6 +231,12 @@ const AboutMe = () => {
                   className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
                 >
                   {t('about.exhibitions')}
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="teaching" 
+                  className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary"
+                >
+                  {t('about.teaching')}
                 </TabsTrigger>
               </TabsList>
 
@@ -262,9 +262,11 @@ const AboutMe = () => {
                     <p>{t('about.bio')}</p>
                     <p>{t('about.bio2')}</p>
                   </div>
-                  <Button size="lg" variant="default" className="rounded-full">
-                    <Download className="w-4 h-4 mr-2" />
-                    {t('about.downloadCV')}
+                  <Button size="lg" variant="default" className="rounded-full" asChild>
+                    <a href="/CV_MISIPI.pdf" download>
+                      <Download className="w-4 h-4 mr-2" />
+                      {t('about.downloadCV')}
+                    </a>
                   </Button>
                 </div>
               </TabsContent>
@@ -279,63 +281,64 @@ const AboutMe = () => {
 
               {/* Teaching Tab */}
               <TabsContent value="teaching" className="mt-0">
-                <div className="space-y-8">
-                  <p className="font-body text-muted-foreground leading-relaxed">
-                    {t('about.teachingIntro')}
-                  </p>
-
-                  <div className="grid md:grid-cols-3 gap-4">
-                    <Card className="p-6 text-center border-border/50 hover:shadow-medium transition-shadow">
-                      <GraduationCap className="w-10 h-10 text-primary mx-auto mb-3" />
-                      <h3 className="font-display font-semibold text-lg mb-2 text-foreground">
-                        15+ Years
-                      </h3>
-                      <p className="font-body text-xs text-muted-foreground">
-                        {language === 'en' ? 'Teaching experience' : 'Skúsenosti s vyučovaním'}
+                <div className="space-y-6">
+                  <h3 className="font-display font-bold text-xl text-foreground">
+                    {language === 'en' ? 'WORK EXPERIENCE' : 'PRACOVNÉ SKÚSENOSTI'}
+                  </h3>
+                  
+                  <div className="space-y-6">
+                    <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
+                      <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
+                        {language === 'en' ? 'External Ceramics Lecturer' : 'Externý lektor keramiky'}
+                      </h4>
+                      <p className="font-body text-sm text-primary mb-3">
+                        {language === 'en' ? 'Center for Folk Art Production' : 'Ústredie ľudovej umeleckej výroby'}
+                      </p>
+                      <p className="font-body text-sm text-muted-foreground/70 mb-3">
+                        {language === 'en' ? 'July 2004 - August 2022' : 'Júl 2004 - August 2022'}
+                      </p>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                        {language === 'en' 
+                          ? 'Teaching wheel throwing, developing creativity, introducing traditional folk crafts' 
+                          : 'Výučba točenia na kruhu, rozvoj kreativity, oboznámenie s tradičnými ľudovými remeslami'}
                       </p>
                     </Card>
 
-                    <Card className="p-6 text-center border-border/50 hover:shadow-medium transition-shadow">
-                      <Users className="w-10 h-10 text-primary mx-auto mb-3" />
-                      <h3 className="font-display font-semibold text-lg mb-2 text-foreground">
-                        500+
-                      </h3>
-                      <p className="font-body text-xs text-muted-foreground">
-                        {language === 'en' ? 'Students taught' : 'Vyučovaných študentov'}
+                    <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
+                      <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
+                        {language === 'en' ? 'Art Club Instructor' : 'Lektor výtvarného krúžku'}
+                      </h4>
+                      <p className="font-body text-sm text-primary mb-3">
+                        {language === 'en' ? '1st Private Kindergarten Štvorlístok' : '1.súkromná škôlka Štvorlístok'}
+                      </p>
+                      <p className="font-body text-sm text-muted-foreground/70 mb-3">
+                        {language === 'en' ? 'September 2011 - August 2017' : 'September 2011 - August 2017'}
+                      </p>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                        {language === 'en' 
+                          ? 'Working with clay, developing motor skills' 
+                          : 'Práca s hlinou, rozvoj motorických zručností'}
                       </p>
                     </Card>
 
-                    <Card className="p-6 text-center border-border/50 hover:shadow-medium transition-shadow">
-                      <Palette className="w-10 h-10 text-primary mx-auto mb-3" />
-                      <h3 className="font-display font-semibold text-lg mb-2 text-foreground">
-                        {language === 'en' ? 'Custom' : 'Vlastné'}
-                      </h3>
-                      <p className="font-body text-xs text-muted-foreground">
-                        {language === 'en' ? 'Workshops' : 'Workshopy'}
+                    <Card className="p-6 border-border/50 hover:shadow-medium transition-shadow">
+                      <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
+                        {language === 'en' ? 'Teacher of Art Subjects' : 'Učiteľka odborných predmetov výtvarného zamerania'}
+                      </h4>
+                      <p className="font-body text-sm text-primary mb-3">
+                        {language === 'en' 
+                          ? 'United Secondary School of Scenic Arts - Bratislava, Slovakia' 
+                          : 'Združená stredná škola scénického výtvarníctva - Bratislava, Slovenská republika'}
+                      </p>
+                      <p className="font-body text-sm text-muted-foreground/70 mb-3">
+                        {language === 'en' ? 'September 1995 - June 1996' : 'September 1995 - Jún 1996'}
+                      </p>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                        {language === 'en' 
+                          ? 'Teaching art history and drawing' 
+                          : 'Vyučovanie dejín umenia a kresby'}
                       </p>
                     </Card>
-                  </div>
-
-                  <div className="space-y-4">
-                    {workshops.map((workshop) => (
-                      <Card
-                        key={workshop.id}
-                        className="p-5 border-border/50 hover:shadow-medium transition-all duration-300"
-                      >
-                        <div className="flex-1">
-                          <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
-                            {workshop.title[language]}
-                          </h4>
-                          <p className="font-body text-sm text-muted-foreground mb-2">
-                            {workshop.description[language]}
-                          </p>
-                          <div className="flex gap-4 text-xs text-muted-foreground/70">
-                            <span>{workshop.duration[language]}</span>
-                            <span>{workshop.level[language]}</span>
-                          </div>
-                        </div>
-                      </Card>
-                    ))}
                   </div>
                 </div>
               </TabsContent>
