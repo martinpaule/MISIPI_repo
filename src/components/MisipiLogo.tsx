@@ -42,12 +42,13 @@ const MisipiLogo = ({
           {animated && (
             <div className="absolute left-full top-0 overflow-hidden">
               <span
-                className={`inline-block whitespace-nowrap transition-all ease-out ${
+                className={`inline-block whitespace-nowrap transition-all ease-out text-foreground dark:text-white ${
                   isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                 }`}
                 style={{ 
                   transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_SLIDE}ms`,
-                  transitionDelay: isExpanded ? `${LOGO_ANIMATION.DELAY.MARTINA}ms` : "0ms" 
+                  transitionDelay: isExpanded ? `${LOGO_ANIMATION.DELAY.MARTINA}ms` : "0ms",
+                  textShadow: 'var(--title-outline)'
                 }}
               >
                 ARTINA
@@ -94,12 +95,13 @@ const MisipiLogo = ({
               }}
             >
               <span
-                className={`inline-block whitespace-nowrap transition-all ease-out ${
+                className={`inline-block whitespace-nowrap transition-all ease-out text-foreground dark:text-white ${
                   isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                 }`}
                 style={{
                   transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_SLIDE}ms`,
                   transitionDelay: isExpanded ? `${LOGO_ANIMATION.DELAY.SOLAROVA}ms` : "0ms",
+                  textShadow: 'var(--title-outline)'
                 }}
               >
                 OLÁROVÁ
@@ -146,12 +148,13 @@ const MisipiLogo = ({
               }}
             >
               <span
-                className={`inline-block whitespace-nowrap transition-all ease-out ${
+                className={`inline-block whitespace-nowrap transition-all ease-out text-foreground dark:text-white ${
                   isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                 }`}
                 style={{
                   transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_SLIDE}ms`,
                   transitionDelay: isExpanded ? `${LOGO_ANIMATION.DELAY.PAULEOVA}ms` : "0ms",
+                  textShadow: 'var(--title-outline)'
                 }}
               >
                 AULEOVÁ

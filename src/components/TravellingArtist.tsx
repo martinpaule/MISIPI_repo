@@ -61,7 +61,7 @@ const TravellingArtist = () => {
         {residencies.map((residency, index) => (
           <Card
             key={residency.id}
-            className="overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 border-border/50 animate-fade-in-up"
+            className="overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 border-border/50 dark:border-white animate-fade-in-up"
             style={{ animationDelay: `${index * 0.15}s` }}
           >
             <div className="p-8">

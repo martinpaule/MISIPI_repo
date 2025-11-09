@@ -38,7 +38,7 @@ const Teaching = () => {
       </div>
 
       <div className="grid md:grid-cols-3 gap-6 mb-12">
-        <Card className="p-8 text-center border-border/50 hover:shadow-medium transition-shadow">
+        <Card className="p-8 text-center border-border/50 dark:border-white hover:shadow-medium transition-all duration-300">
           <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
           <h3 className="font-display font-semibold text-xl mb-2 text-foreground">
             15+ Years Experience
@@ -48,7 +48,7 @@ const Teaching = () => {
           </p>
         </Card>
 
-        <Card className="p-8 text-center border-border/50 hover:shadow-medium transition-shadow">
+        <Card className="p-8 text-center border-border/50 dark:border-white hover:shadow-medium transition-all duration-300">
           <Users className="w-12 h-12 text-primary mx-auto mb-4" />
           <h3 className="font-display font-semibold text-xl mb-2 text-foreground">
             500+ Students
@@ -58,7 +58,7 @@ const Teaching = () => {
           </p>
         </Card>
 
-        <Card className="p-8 text-center border-border/50 hover:shadow-medium transition-shadow">
+        <Card className="p-8 text-center border-border/50 dark:border-white hover:shadow-medium transition-all duration-300">
           <Palette className="w-12 h-12 text-primary mx-auto mb-4" />
           <h3 className="font-display font-semibold text-xl mb-2 text-foreground">
             Custom Workshops
@@ -76,7 +76,7 @@ const Teaching = () => {
         {workshops.map((workshop, index) => (
           <Card
             key={workshop.id}
-            className="p-6 border-border/50 hover:shadow-medium transition-all duration-300 animate-fade-in-up"
+            className="p-6 border-border/50 dark:border-white hover:shadow-medium transition-all duration-300 animate-fade-in-up"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

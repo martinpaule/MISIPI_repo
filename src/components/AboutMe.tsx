@@ -309,7 +309,7 @@ const AboutMe = () => {
                     </h3>
 
                     <div className="space-y-6">
-                      <Card className="p-6 border-border/50 hover:shadow-medium transition-all duration-300">
+                      <Card className="p-6 border-border/50 dark:border-white hover:shadow-medium transition-all duration-300">
                         <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
                           {language === "en" ? "External Ceramics Lecturer" : "Externý lektor keramiky"}
                         </h4>
@@ -326,7 +326,7 @@ const AboutMe = () => {
                         </p>
                       </Card>
 
-                      <Card className="p-6 border-border/50 hover:shadow-medium transition-all duration-300">
+                      <Card className="p-6 border-border/50 dark:border-white hover:shadow-medium transition-all duration-300">
                         <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
                           {language === "en" ? "Art Club Instructor" : "Lektor výtvarného krúžku"}
                         </h4>
@@ -343,7 +343,7 @@ const AboutMe = () => {
                         </p>
                       </Card>
 
-                      <Card className="p-6 border-border/50 hover:shadow-medium transition-all duration-300">
+                      <Card className="p-6 border-border/50 dark:border-white hover:shadow-medium transition-all duration-300">
                         <h4 className="font-display font-semibold text-lg mb-2 text-foreground">
                           {language === "en"
                             ? "Teacher of Art Subjects"
@@ -374,7 +374,7 @@ const AboutMe = () => {
                       {residencies.map((residency) => (
                         <Card
                           key={residency.id}
-                          className="overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 border-border/50"
+                          className="overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 border-border/50 dark:border-white"
                         >
                           <div className="p-6">
                             <div className="flex flex-col gap-3 mb-4">
@@ -441,7 +441,7 @@ const AboutMe = () => {
                     {pressArticles.map((article, index) => (
                       <Card
                         key={index}
-                        className="overflow-hidden hover:shadow-medium transition-shadow duration-300 border-border/50"
+                        className="overflow-hidden hover:shadow-medium transition-shadow duration-300 border-border/50 dark:border-white"
                       >
                         <div className="p-6 space-y-4">
                           {/* Header with title and link */}
