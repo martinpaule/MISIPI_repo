@@ -8,6 +8,7 @@ const Hero = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [imageBlur, setImageBlur] = useState(0);
+  const [isHighResLoaded, setIsHighResLoaded] = useState(false);
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -36,13 +37,37 @@ const Hero = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, isLogoExpanded]);
 
+  // Preload high-res image
+  useEffect(() => {
+    const img = new Image();
+    img.src = images.artistPortrait;
+    img.onload = () => setIsHighResLoaded(true);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
+        {/* Low-res placeholder */}
+        <img
+          src={images.artistPortraitLowres}
+          alt=""
+          aria-hidden="true"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+            isHighResLoaded ? "opacity-0" : "opacity-100"
+          }`}
+          style={{
+            transform: `translateY(${scrollProgress * 100}%)`,
+            objectPosition: `center ${scrollProgress * 100}%`,
+            filter: `blur(${imageBlur}px)`,
+          }}
+        />
+        {/* High-res image */}
         <img
           src={images.artistPortrait}
           alt="Artist portrait background"
-          className="w-full h-full object-cover transition-all duration-500 ease-out"
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
+            isHighResLoaded ? "opacity-100" : "opacity-0"
+          }`}
           style={{
             transform: `translateY(${scrollProgress * 100}%)`,
             objectPosition: `center ${scrollProgress * 100}%`,

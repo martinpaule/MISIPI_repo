@@ -5,6 +5,7 @@
 
 // Artist & Background Images
 import artistPortrait from "@/assets/artist-portrait.jpg";
+import artistPortraitLowres from "@/assets/artist-portrait-lowres.png";
 import heroArtwork from "@/assets/hero-artwork.jpg";
 
 // Section Images
@@ -31,6 +32,7 @@ import bienaleSecond from "@/assets/bienale-second.jpg";
 // Export individual images
 export const images = {
   artistPortrait,
+  artistPortraitLowres,
   heroArtwork,
   profile: profileImage,
   artInterest: artInterestImage,
