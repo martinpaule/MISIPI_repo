@@ -33,7 +33,7 @@ const MisipiLogo = ({
       onClick={handleToggle}
       style={{ 
         letterSpacing: "-0.02em",
-        transform: animated && isExpanded ? "translateX(-3em)" : "translateX(0)"
+        transform: animated && isExpanded ? "translateX(-1em)" : "translateX(0)"
       }}
     >
       <div className="relative flex items-center" style={{ gap: "0" }}>
