@@ -49,20 +49,20 @@ const AboutMe = () => {
           </h2>
 
           <Tabs defaultValue="profile" className="w-full" onValueChange={(v) => setActiveTab(v as SectionKey)}>
-            <TabsList className="grid w-full grid-cols-5 mb-8 h-auto p-1 bg-muted/50 max-w-4xl mx-auto">
-              <TabsTrigger value="profile" className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary">
+            <TabsList className="flex flex-wrap justify-center gap-1 mb-8 h-auto p-1 bg-muted/50 max-w-4xl mx-auto">
+              <TabsTrigger value="profile" className="font-display font-medium text-xs md:text-sm py-2 px-3 data-[state=active]:bg-background data-[state=active]:text-primary">
                 {t("about.profile")}
               </TabsTrigger>
-              <TabsTrigger value="art" className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary">
+              <TabsTrigger value="art" className="font-display font-medium text-xs md:text-sm py-2 px-3 data-[state=active]:bg-background data-[state=active]:text-primary">
                 {t("about.artInterest")}
               </TabsTrigger>
-              <TabsTrigger value="travelling" className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary">
+              <TabsTrigger value="travelling" className="font-display font-medium text-xs md:text-sm py-2 px-3 data-[state=active]:bg-background data-[state=active]:text-primary">
                 {t("about.travelingArtist")}
               </TabsTrigger>
-              <TabsTrigger value="exhibitions" className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary">
+              <TabsTrigger value="exhibitions" className="font-display font-medium text-xs md:text-sm py-2 px-3 data-[state=active]:bg-background data-[state=active]:text-primary">
                 {t("about.exhibitions")}
               </TabsTrigger>
-              <TabsTrigger value="teaching" className="font-display font-medium text-xs md:text-sm py-2 data-[state=active]:bg-background data-[state=active]:text-primary">
+              <TabsTrigger value="teaching" className="font-display font-medium text-xs md:text-sm py-2 px-3 data-[state=active]:bg-background data-[state=active]:text-primary">
                 {t("about.teaching")}
               </TabsTrigger>
             </TabsList>
