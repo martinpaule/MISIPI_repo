@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { LOGO_ANIMATION } from "@/lib/constants";
-import { textOutline } from "@/lib/styles";
+import { logoAnimation, textOutline, logoColors } from "@/config";
 
 interface MisipiLogoProps {
   className?: string;
@@ -31,15 +30,15 @@ const MisipiLogo = ({
     <div
       className={`relative inline-block ${animated ? "cursor-pointer" : ""} ${className} font-cinzel font-bold transition-transform duration-500 ease-out`}
       onClick={handleToggle}
-      style={{ 
+      style={{
         letterSpacing: "-0.02em",
-        transform: animated && isExpanded ? "translateX(-1em)" : "translateX(0)"
+        transform: animated && isExpanded ? "translateX(-1em)" : "translateX(0)",
       }}
     >
       <div className="relative flex items-center" style={{ gap: "0" }}>
         {/* M with ARTINA sliding out */}
         <div className="relative inline-flex items-center" style={{ gap: "0" }}>
-          <span className="text-[#FFB5C5] font-bold relative z-10" style={letterOutlineStyle}>
+          <span className="font-bold relative z-10" style={{ ...letterOutlineStyle, color: logoColors.m }}>
             M
           </span>
           {animated && (
@@ -48,10 +47,10 @@ const MisipiLogo = ({
                 className={`inline-block whitespace-nowrap transition-all ease-out text-foreground dark:text-white ${
                   isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                 }`}
-                style={{ 
-                  transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_SLIDE}ms`,
-                  transitionDelay: isExpanded ? `${LOGO_ANIMATION.DELAY.MARTINA}ms` : "0ms",
-                  textShadow: 'var(--title-outline)'
+                style={{
+                  transitionDuration: `${logoAnimation.duration.letterSlide}ms`,
+                  transitionDelay: isExpanded ? `${logoAnimation.delay.martina}ms` : "0ms",
+                  textShadow: "var(--title-outline)",
                 }}
               >
                 ARTINA
@@ -62,27 +61,27 @@ const MisipiLogo = ({
 
         {/* First I */}
         <span
-          className={`text-white ${animated ? "transition-opacity ease-out" : ""} ${
-            animated && isExpanded ? "opacity-0" : "opacity-100"
-          }`}
+          className={`${animated ? "transition-opacity ease-out" : ""} ${animated && isExpanded ? "opacity-0" : "opacity-100"}`}
           style={{
             ...letterOutlineStyle,
-            ...(animated && { transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_FADE}ms` }),
+            color: logoColors.i,
+            ...(animated && { transitionDuration: `${logoAnimation.duration.letterFade}ms` }),
           }}
         >
           I
         </span>
 
-        {/* S with SOLÁROVÁ - moves down and left on hover */}
+        {/* S with SOLÁROVÁ */}
         <div className="relative inline-flex items-center" style={{ gap: "0" }}>
           <span
-            className={`text-[#A8D8EA] font-bold relative z-10 ${animated ? "transition-all ease-out" : ""}`}
+            className={`font-bold relative z-10 ${animated ? "transition-all ease-out" : ""}`}
             style={{
               ...letterOutlineStyle,
+              color: logoColors.s,
               ...(animated && isExpanded && {
-                transform: `translateY(${LOGO_ANIMATION.TRANSFORM.S_VERTICAL}) translateX(${LOGO_ANIMATION.TRANSFORM.S_HORIZONTAL})`,
+                transform: `translateY(${logoAnimation.transform.sVertical}) translateX(${logoAnimation.transform.sHorizontal})`,
               }),
-              ...(animated && { transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_MOVE}ms` }),
+              ...(animated && { transitionDuration: `${logoAnimation.duration.letterMove}ms` }),
             }}
           >
             S
@@ -92,9 +91,9 @@ const MisipiLogo = ({
               className="absolute left-full top-0 overflow-hidden transition-all ease-out"
               style={{
                 ...(isExpanded && {
-                  transform: `translateY(${LOGO_ANIMATION.TRANSFORM.S_VERTICAL}) translateX(${LOGO_ANIMATION.TRANSFORM.S_HORIZONTAL})`,
+                  transform: `translateY(${logoAnimation.transform.sVertical}) translateX(${logoAnimation.transform.sHorizontal})`,
                 }),
-                transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_MOVE}ms`,
+                transitionDuration: `${logoAnimation.duration.letterMove}ms`,
               }}
             >
               <span
@@ -102,9 +101,9 @@ const MisipiLogo = ({
                   isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                 }`}
                 style={{
-                  transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_SLIDE}ms`,
-                  transitionDelay: isExpanded ? `${LOGO_ANIMATION.DELAY.SOLAROVA}ms` : "0ms",
-                  textShadow: 'var(--title-outline)'
+                  transitionDuration: `${logoAnimation.duration.letterSlide}ms`,
+                  transitionDelay: isExpanded ? `${logoAnimation.delay.solarova}ms` : "0ms",
+                  textShadow: "var(--title-outline)",
                 }}
               >
                 OLÁROVÁ
@@ -115,27 +114,27 @@ const MisipiLogo = ({
 
         {/* Second I */}
         <span
-          className={`text-white ${animated ? "transition-opacity ease-out" : ""} ${
-            animated && isExpanded ? "opacity-0" : "opacity-100"
-          }`}
+          className={`${animated ? "transition-opacity ease-out" : ""} ${animated && isExpanded ? "opacity-0" : "opacity-100"}`}
           style={{
             ...letterOutlineStyle,
-            ...(animated && { transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_FADE}ms` }),
+            color: logoColors.i,
+            ...(animated && { transitionDuration: `${logoAnimation.duration.letterFade}ms` }),
           }}
         >
           I
         </span>
 
-        {/* P with AULEOVÁ - moves down 2 lines and left on hover */}
+        {/* P with AULEOVÁ */}
         <div className="relative inline-flex items-center" style={{ gap: "0" }}>
           <span
-            className={`text-[#E0BBE4] font-bold relative z-10 ${animated ? "transition-all ease-out" : ""}`}
+            className={`font-bold relative z-10 ${animated ? "transition-all ease-out" : ""}`}
             style={{
               ...letterOutlineStyle,
+              color: logoColors.p,
               ...(animated && isExpanded && {
-                transform: `translateY(${LOGO_ANIMATION.TRANSFORM.P_VERTICAL}) translateX(${LOGO_ANIMATION.TRANSFORM.P_HORIZONTAL})`,
+                transform: `translateY(${logoAnimation.transform.pVertical}) translateX(${logoAnimation.transform.pHorizontal})`,
               }),
-              ...(animated && { transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_MOVE}ms` }),
+              ...(animated && { transitionDuration: `${logoAnimation.duration.letterMove}ms` }),
             }}
           >
             P
@@ -145,9 +144,9 @@ const MisipiLogo = ({
               className="absolute left-full top-0 overflow-hidden transition-all ease-out"
               style={{
                 ...(isExpanded && {
-                  transform: `translateY(${LOGO_ANIMATION.TRANSFORM.P_VERTICAL}) translateX(${LOGO_ANIMATION.TRANSFORM.P_HORIZONTAL})`,
+                  transform: `translateY(${logoAnimation.transform.pVertical}) translateX(${logoAnimation.transform.pHorizontal})`,
                 }),
-                transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_MOVE}ms`,
+                transitionDuration: `${logoAnimation.duration.letterMove}ms`,
               }}
             >
               <span
@@ -155,9 +154,9 @@ const MisipiLogo = ({
                   isExpanded ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
                 }`}
                 style={{
-                  transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_SLIDE}ms`,
-                  transitionDelay: isExpanded ? `${LOGO_ANIMATION.DELAY.PAULEOVA}ms` : "0ms",
-                  textShadow: 'var(--title-outline)'
+                  transitionDuration: `${logoAnimation.duration.letterSlide}ms`,
+                  transitionDelay: isExpanded ? `${logoAnimation.delay.pauleova}ms` : "0ms",
+                  textShadow: "var(--title-outline)",
                 }}
               >
                 AULEOVÁ
@@ -168,12 +167,11 @@ const MisipiLogo = ({
 
         {/* Third I */}
         <span
-          className={`text-white ${animated ? "transition-opacity ease-out" : ""} ${
-            animated && isExpanded ? "opacity-0" : "opacity-100"
-          }`}
+          className={`${animated ? "transition-opacity ease-out" : ""} ${animated && isExpanded ? "opacity-0" : "opacity-100"}`}
           style={{
             ...letterOutlineStyle,
-            ...(animated && { transitionDuration: `${LOGO_ANIMATION.DURATION.LETTER_FADE}ms` }),
+            color: logoColors.i,
+            ...(animated && { transitionDuration: `${logoAnimation.duration.letterFade}ms` }),
           }}
         >
           I
