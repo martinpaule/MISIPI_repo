@@ -43,16 +43,16 @@ const Navigation = () => {
             <MisipiLogo animated={false} className="text-3xl" />
           </button>
 
-          <div className="hidden md:flex items-center gap-12 absolute left-1/2 -translate-x-1/2">
+          <div className="flex items-center gap-4 sm:gap-8 md:gap-12 absolute left-1/2 -translate-x-1/2">
             <button
               onClick={() => scrollToSection("about")}
-              className="font-display text-2xl font-bold tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-300"
+              className="font-display text-sm sm:text-lg md:text-2xl font-bold tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-300 whitespace-nowrap"
             >
               {t("nav.about")}
             </button>
             <button
               onClick={() => scrollToSection("works")}
-              className="font-display text-2xl font-bold tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-300"
+              className="font-display text-sm sm:text-lg md:text-2xl font-bold tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-300 whitespace-nowrap"
             >
               {t("nav.works")}
             </button>
