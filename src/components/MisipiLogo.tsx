@@ -29,9 +29,12 @@ const MisipiLogo = ({
 
   return (
     <div
-      className={`relative inline-block ${animated ? "cursor-pointer" : ""} ${className} font-cinzel font-bold`}
+      className={`relative inline-block ${animated ? "cursor-pointer" : ""} ${className} font-cinzel font-bold transition-transform duration-500 ease-out`}
       onClick={handleToggle}
-      style={{ letterSpacing: "-0.02em" }}
+      style={{ 
+        letterSpacing: "-0.02em",
+        transform: animated && isExpanded ? "translateX(-3em)" : "translateX(0)"
+      }}
     >
       <div className="relative flex items-center" style={{ gap: "0" }}>
         {/* M with ARTINA sliding out */}
