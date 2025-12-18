@@ -38,9 +38,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-24">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-display font-semibold text-xl tracking-wide uppercase"
+            className="font-display font-semibold tracking-wide uppercase"
           >
-            <MisipiLogo animated={false} className="text-3xl" />
+            <MisipiLogo animated={false} className="text-lg sm:text-2xl md:text-3xl" />
           </button>
 
           <div className="flex items-center gap-4 sm:gap-8 md:gap-12 absolute left-1/2 -translate-x-1/2">
