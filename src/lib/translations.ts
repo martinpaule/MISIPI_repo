@@ -116,10 +116,6 @@ export const translations = {
     "travelling.showLess": "Show less",
 
     // Gallery
-    "gallery.title": "Art Gallery",
-    "gallery.subtitle": "A curated collection of recent pieces exploring abstraction, memory, and color",
-    "gallery.instagramSubtitle": "Latest updates from my studio on Instagram",
-    "gallery.dimensions": "Dimensions",
     "works.selected": "Selected Works",
     "works.instagram": "From Instagram",
     "works.follow": "Follow me on Instagram",
@@ -238,10 +234,6 @@ export const translations = {
     "travelling.showLess": "Zobraziť menej",
 
     // Gallery
-    "gallery.title": "Galéria umenia",
-    "gallery.subtitle": "Kurátorská kolekcia nedávnych diel skúmajúcich abstrakciu, pamäť a farbu",
-    "gallery.instagramSubtitle": "Najnovšie aktualizácie z môjho ateliéru na Instagrame",
-    "gallery.dimensions": "Rozmery",
     "works.selected": "Vybrané diela",
     "works.instagram": "Z Instagramu",
     "works.follow": "Sledujte ma na Instagrame",

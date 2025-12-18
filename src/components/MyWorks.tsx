@@ -5,9 +5,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { staggerDelay } from "@/lib/styles";
 import { ANIMATION_DELAYS } from "@/lib/constants";
-import galleryData from "@/data/gallery_contents.json";
-
-// Import all artwork images
 import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
@@ -15,38 +12,81 @@ import artwork4 from "@/assets/artwork-4.jpg";
 import artwork5 from "@/assets/artwork-5.jpg";
 import artwork6 from "@/assets/artwork-6.jpg";
 
-// Map image paths to imported images
-const imageMap: Record<string, string> = {
-  "/assets/artwork-1.jpg": artwork1,
-  "/assets/artwork-2.jpg": artwork2,
-  "/assets/artwork-3.jpg": artwork3,
-  "/assets/artwork-4.jpg": artwork4,
-  "/assets/artwork-5.jpg": artwork5,
-  "/assets/artwork-6.jpg": artwork6,
-};
+const artworks = [
+  {
+    id: 1,
+    image: artwork1,
+    title: "Studio Mural",
+    year: "2024",
+    medium: "Mixed media on wall",
+    dimensions: "Large scale",
+    description: "Striking cat mural in studio workspace with vibrant teal patterns",
+  },
+  {
+    id: 2,
+    image: artwork2,
+    title: "Interior Studies",
+    year: "2024",
+    medium: "Oil on canvas",
+    dimensions: "Various sizes",
+    description: "A series exploring domestic spaces and still life compositions",
+  },
+  {
+    id: 3,
+    image: artwork3,
+    title: "Landscape Journey",
+    year: "2024",
+    medium: "Oil on canvas",
+    dimensions: "Framed",
+    description: "Atmospheric landscape with flowing colors and emotional depth",
+  },
+  {
+    id: 4,
+    image: artwork4,
+    title: "Colorful Creature",
+    year: "2024",
+    medium: "Mixed media on wood",
+    dimensions: "Large scale",
+    description: "Bold cat face artwork merging graphic design with expressive color",
+  },
+  {
+    id: 5,
+    image: artwork5,
+    title: "Body Art",
+    year: "2024",
+    medium: "Tattoo design",
+    dimensions: "Various",
+    description: "Exploring art on skin with distinctive cat motif designs",
+  },
+  {
+    id: 6,
+    image: artwork6,
+    title: "Coastal Moment",
+    year: "2024",
+    medium: "Photography",
+    dimensions: "Digital",
+    description: "Capturing natural beauty and serene coastal landscapes",
+  },
+];
 
-type GalleryArtwork = {
-  id: number;
-  imagePath: string;
-  year: string;
-  medium: { en: string; sk: string };
-  dimensions: { en: string; sk: string };
-  title: { en: string; sk: string };
-  description: { en: string; sk: string };
-};
+const instagramPosts = [
+  { id: 1, image: artwork1 },
+  { id: 2, image: artwork2 },
+  { id: 3, image: artwork3 },
+  { id: 4, image: artwork4 },
+  { id: 5, image: artwork5 },
+  { id: 6, image: artwork6 },
+];
 
 const MyWorks = () => {
-  const [selectedArtwork, setSelectedArtwork] = useState<GalleryArtwork | null>(null);
-  const { language, t } = useLanguage();
-
-  const getImage = (imagePath: string) => imageMap[imagePath] || imagePath;
-  const getText = (field: { en: string; sk: string }) => field[language] || field.en;
+  const [selectedArtwork, setSelectedArtwork] = useState<(typeof artworks)[0] | null>(null);
+  const { t } = useLanguage();
 
   return (
     <div className="py-24 container mx-auto px-6">
       <div className="text-center mb-12 animate-fade-in">
         <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4 text-foreground">
-          {t("gallery.title")}
+          Art Gallery
         </h2>
       </div>
 
@@ -70,10 +110,10 @@ const MyWorks = () => {
         <TabsContent value="selected" className="animate-fade-in">
           <div className="max-w-5xl mx-auto">
             <p className="font-body text-muted-foreground mb-8 text-center">
-              {t("gallery.subtitle")}
+              A curated collection of recent pieces exploring abstraction, memory, and color
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-              {galleryData.artworks.map((artwork, index) => (
+              {artworks.map((artwork, index) => (
                 <div
                   key={artwork.id}
                   className="group cursor-pointer animate-fade-in-up"
@@ -82,13 +122,13 @@ const MyWorks = () => {
                 >
                   <div className="relative overflow-hidden rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 aspect-[4/5]">
                     <img
-                      src={getImage(artwork.imagePath)}
-                      alt={getText(artwork.title)}
+                      src={artwork.image}
+                      alt={artwork.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                       <h3 className="font-display font-semibold text-lg text-background mb-1">
-                        {getText(artwork.title)}
+                        {artwork.title}
                       </h3>
                       <p className="font-body text-sm text-background/90">{artwork.year}</p>
                     </div>
@@ -103,7 +143,7 @@ const MyWorks = () => {
         <TabsContent value="instagram" className="animate-fade-in">
           <div className="max-w-5xl mx-auto">
             <p className="font-body text-muted-foreground mb-4 text-center">
-              {t("gallery.instagramSubtitle")}
+              Latest updates from my studio on Instagram
             </p>
             <a
               href="https://www.instagram.com/martinaemisipi/"
@@ -116,7 +156,7 @@ const MyWorks = () => {
             </a>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-              {galleryData.instagramPosts.map((post, index) => (
+              {instagramPosts.map((post, index) => (
                 <a
                   key={post.id}
                   href="https://www.instagram.com/martinaemisipi/"
@@ -126,7 +166,7 @@ const MyWorks = () => {
                   style={staggerDelay(index, ANIMATION_DELAYS.INCREMENT_SMALL)}
                 >
                   <img
-                    src={getImage(post.imagePath)}
+                    src={post.image}
                     alt="Instagram post"
                     className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
                   />
@@ -147,23 +187,23 @@ const MyWorks = () => {
             <div className="grid md:grid-cols-2 gap-0">
               <div className="relative bg-muted transition-colors duration-300">
                 <img
-                  src={getImage(selectedArtwork.imagePath)}
-                  alt={getText(selectedArtwork.title)}
+                  src={selectedArtwork.image}
+                  alt={selectedArtwork.title}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <h3 className="font-display font-bold text-3xl mb-2 text-foreground">
-                  {getText(selectedArtwork.title)}
+                  {selectedArtwork.title}
                 </h3>
                 <p className="font-body text-sm text-muted-foreground mb-6">
-                  {selectedArtwork.year} • {getText(selectedArtwork.medium)}
+                  {selectedArtwork.year} • {selectedArtwork.medium}
                 </p>
                 <p className="font-body text-muted-foreground mb-4 leading-relaxed">
-                  {getText(selectedArtwork.description)}
+                  {selectedArtwork.description}
                 </p>
                 <p className="font-body text-sm text-muted-foreground">
-                  {t("gallery.dimensions")}: {getText(selectedArtwork.dimensions)}
+                  Dimensions: {selectedArtwork.dimensions}
                 </p>
               </div>
             </div>
