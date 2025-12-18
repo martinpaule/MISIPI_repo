@@ -3,83 +3,10 @@ import { Instagram } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { staggerDelay } from "@/lib/styles";
-import { ANIMATION_DELAYS } from "@/lib/constants";
-import artwork1 from "@/assets/artwork-1.jpg";
-import artwork2 from "@/assets/artwork-2.jpg";
-import artwork3 from "@/assets/artwork-3.jpg";
-import artwork4 from "@/assets/artwork-4.jpg";
-import artwork5 from "@/assets/artwork-5.jpg";
-import artwork6 from "@/assets/artwork-6.jpg";
-
-const artworks = [
-  {
-    id: 1,
-    image: artwork1,
-    title: "Studio Mural",
-    year: "2024",
-    medium: "Mixed media on wall",
-    dimensions: "Large scale",
-    description: "Striking cat mural in studio workspace with vibrant teal patterns",
-  },
-  {
-    id: 2,
-    image: artwork2,
-    title: "Interior Studies",
-    year: "2024",
-    medium: "Oil on canvas",
-    dimensions: "Various sizes",
-    description: "A series exploring domestic spaces and still life compositions",
-  },
-  {
-    id: 3,
-    image: artwork3,
-    title: "Landscape Journey",
-    year: "2024",
-    medium: "Oil on canvas",
-    dimensions: "Framed",
-    description: "Atmospheric landscape with flowing colors and emotional depth",
-  },
-  {
-    id: 4,
-    image: artwork4,
-    title: "Colorful Creature",
-    year: "2024",
-    medium: "Mixed media on wood",
-    dimensions: "Large scale",
-    description: "Bold cat face artwork merging graphic design with expressive color",
-  },
-  {
-    id: 5,
-    image: artwork5,
-    title: "Body Art",
-    year: "2024",
-    medium: "Tattoo design",
-    dimensions: "Various",
-    description: "Exploring art on skin with distinctive cat motif designs",
-  },
-  {
-    id: 6,
-    image: artwork6,
-    title: "Coastal Moment",
-    year: "2024",
-    medium: "Photography",
-    dimensions: "Digital",
-    description: "Capturing natural beauty and serene coastal landscapes",
-  },
-];
-
-const instagramPosts = [
-  { id: 1, image: artwork1 },
-  { id: 2, image: artwork2 },
-  { id: 3, image: artwork3 },
-  { id: 4, image: artwork4 },
-  { id: 5, image: artwork5 },
-  { id: 6, image: artwork6 },
-];
+import { artworks, instagramPosts, staggerDelay, animationDelays, social } from "@/config";
 
 const MyWorks = () => {
-  const [selectedArtwork, setSelectedArtwork] = useState<(typeof artworks)[0] | null>(null);
+  const [selectedArtwork, setSelectedArtwork] = useState<(typeof artworks)[number] | null>(null);
   const { t } = useLanguage();
 
   return (
@@ -92,21 +19,20 @@ const MyWorks = () => {
 
       <Tabs defaultValue="selected" className="w-full">
         <TabsList className="grid w-full grid-cols-2 mb-8 h-auto p-1 bg-muted/50 max-w-2xl mx-auto">
-          <TabsTrigger 
-            value="selected" 
+          <TabsTrigger
+            value="selected"
             className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
             {t("works.selected")}
           </TabsTrigger>
-          <TabsTrigger 
-            value="instagram" 
+          <TabsTrigger
+            value="instagram"
             className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
             {t("works.instagram")}
           </TabsTrigger>
         </TabsList>
 
-        {/* Selected Works Tab */}
         <TabsContent value="selected" className="animate-fade-in">
           <div className="max-w-5xl mx-auto">
             <p className="font-body text-muted-foreground mb-8 text-center">
@@ -117,7 +43,7 @@ const MyWorks = () => {
                 <div
                   key={artwork.id}
                   className="group cursor-pointer animate-fade-in-up"
-                  style={staggerDelay(index, ANIMATION_DELAYS.INCREMENT_MEDIUM)}
+                  style={staggerDelay(index, animationDelays.medium)}
                   onClick={() => setSelectedArtwork(artwork)}
                 >
                   <div className="relative overflow-hidden rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300 aspect-[4/5]">
@@ -139,14 +65,13 @@ const MyWorks = () => {
           </div>
         </TabsContent>
 
-        {/* Instagram Tab */}
         <TabsContent value="instagram" className="animate-fade-in">
           <div className="max-w-5xl mx-auto">
             <p className="font-body text-muted-foreground mb-4 text-center">
               Latest updates from my studio on Instagram
             </p>
             <a
-              href="https://www.instagram.com/martinaemisipi/"
+              href={social.instagram.url}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-primary hover:text-accent transition-colors mb-8 mx-auto justify-center w-full"
@@ -159,11 +84,11 @@ const MyWorks = () => {
               {instagramPosts.map((post, index) => (
                 <a
                   key={post.id}
-                  href="https://www.instagram.com/martinaemisipi/"
+                  href={social.instagram.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative overflow-hidden rounded-xl aspect-square animate-fade-in-up"
-                  style={staggerDelay(index, ANIMATION_DELAYS.INCREMENT_SMALL)}
+                  style={staggerDelay(index, animationDelays.small)}
                 >
                   <img
                     src={post.image}
@@ -180,7 +105,6 @@ const MyWorks = () => {
         </TabsContent>
       </Tabs>
 
-      {/* Lightbox Dialog */}
       <Dialog open={!!selectedArtwork} onOpenChange={() => setSelectedArtwork(null)}>
         <DialogContent className="max-w-5xl p-0 bg-background border-none transition-colors duration-300">
           {selectedArtwork && (
