@@ -40,19 +40,19 @@ const Navigation = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="font-display font-semibold text-xl tracking-wide uppercase"
           >
-            <MisipiLogo animated={false} />
+            <MisipiLogo animated={false} className="text-3xl" />
           </button>
 
           <div className="hidden md:flex items-center gap-12 absolute left-1/2 -translate-x-1/2">
             <button
               onClick={() => scrollToSection("about")}
-              className="font-display text-base font-bold tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-300"
+              className="font-display text-2xl font-bold tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-300"
             >
               {t("nav.about")}
             </button>
             <button
               onClick={() => scrollToSection("works")}
-              className="font-display text-base font-bold tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-300"
+              className="font-display text-2xl font-bold tracking-wider uppercase text-foreground hover:text-primary transition-colors duration-300"
             >
               {t("nav.works")}
             </button>
