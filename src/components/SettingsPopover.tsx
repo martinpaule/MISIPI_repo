@@ -20,10 +20,10 @@ const SettingsPopover = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="transition-all duration-300"
+          className="transition-all duration-300 h-12 w-12"
           aria-label="Settings"
         >
-          <Settings className="h-5 w-5" />
+          <Settings className="h-10 w-10" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-56" align="end">
