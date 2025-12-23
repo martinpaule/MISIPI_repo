@@ -69,7 +69,7 @@ const MyWorks = () => {
           <div className="max-w-3xl mx-auto text-center py-12">
             <Instagram className="w-16 h-16 text-primary mx-auto mb-6" />
             <p className="font-body text-lg text-muted-foreground mb-6 leading-relaxed">
-              A large number of my artworks live on my Instagram profile. Follow me there to see my latest creations, works in progress, and studio updates.
+              {t("works.instagramDescription")}
             </p>
             <a
               href="https://www.instagram.com/martinaemisipi/"
