@@ -118,6 +118,7 @@ export const translations = {
     // Gallery
     "works.selected": "Selected Works",
     "works.instagram": "From Instagram",
+    "works.instagramDescription": "A large number of my artworks live on my Instagram profile. Follow me there to see my latest creations, works in progress, and studio updates.",
     "works.follow": "Follow me on Instagram",
 
     // Common
@@ -236,6 +237,7 @@ export const translations = {
     // Gallery
     "works.selected": "Vybrané diela",
     "works.instagram": "Z Instagramu",
+    "works.instagramDescription": "Veľké množstvo mojich umeleckých diel nájdete na mojom Instagrame. Sledujte ma tam a pozrite si moje najnovšie tvorby, rozpracované diela a novinky z ateliéru.",
     "works.follow": "Sledujte ma na Instagrame",
 
     // Common
