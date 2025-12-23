@@ -49,6 +49,9 @@ const Hero = () => {
         setIsLogoExpanded(true);
         setIsScrollLocked(true);
         
+        // Smoothly scroll to top so user sees the animation
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        
         // Clear any existing timer
         if (animationTimerRef.current) {
           clearTimeout(animationTimerRef.current);
