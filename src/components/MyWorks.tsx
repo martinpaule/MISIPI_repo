@@ -3,7 +3,7 @@ import { Instagram } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { artworks, instagramPosts, staggerDelay, animationDelays, social } from "@/config";
+import { artworks, staggerDelay, animationDelays } from "@/config";
 
 const MyWorks = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<(typeof artworks)[number] | null>(null);
@@ -66,41 +66,20 @@ const MyWorks = () => {
         </TabsContent>
 
         <TabsContent value="instagram" className="animate-fade-in">
-          <div className="max-w-5xl mx-auto">
-            <p className="font-body text-muted-foreground mb-4 text-center">
-              Latest updates from my studio on Instagram
+          <div className="max-w-3xl mx-auto text-center py-12">
+            <Instagram className="w-16 h-16 text-primary mx-auto mb-6" />
+            <p className="font-body text-lg text-muted-foreground mb-6 leading-relaxed">
+              A large number of my artworks live on my Instagram profile. Follow me there to see my latest creations, works in progress, and studio updates.
             </p>
             <a
-              href={social.instagram.url}
+              href="https://www.instagram.com/martinaemisipi/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-display text-sm tracking-wider uppercase text-primary hover:text-accent transition-colors mb-8 mx-auto justify-center w-full"
+              className="inline-flex items-center gap-2 font-display text-base tracking-wider uppercase text-primary hover:text-accent transition-colors border border-primary hover:border-accent px-6 py-3 rounded-full"
             >
               <Instagram className="w-5 h-5" />
               {t("works.follow")}
             </a>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-              {instagramPosts.map((post, index) => (
-                <a
-                  key={post.id}
-                  href={social.instagram.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-xl aspect-square animate-fade-in-up"
-                  style={staggerDelay(index, animationDelays.small)}
-                >
-                  <img
-                    src={post.image}
-                    alt="Instagram post"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
-                  />
-                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300 flex items-center justify-center">
-                    <Instagram className="w-8 h-8 text-background opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                </a>
-              ))}
-            </div>
           </div>
         </TabsContent>
       </Tabs>
