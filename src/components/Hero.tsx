@@ -97,8 +97,31 @@ const Hero = () => {
       lastScrollYRef.current = currentScrollY;
     };
 
+    // Handle touch start for mobile - triggers animation on first touch/swipe
+    const handleTouchStart = () => {
+      if (!isLogoExpanded && !introGateStartedRef.current) {
+        setIsLogoExpanded(true);
+        introGateStartedRef.current = true;
+        setIsScrollLocked(true);
+
+        if (animationTimerRef.current) {
+          clearTimeout(animationTimerRef.current);
+        }
+
+        animationTimerRef.current = setTimeout(() => {
+          setIsScrollLocked(false);
+          introGateCompletedRef.current = true;
+        }, totalAnimationDuration);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("touchstart", handleTouchStart, { passive: true, once: true });
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+    };
   }, [isLogoExpanded, totalAnimationDuration]);
 
   // Cleanup timer on unmount
