@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import MisipiLogo from "./MisipiLogo";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { images, heroAnimation, textOutline } from "@/config";
+import { images, heroAnimation, textOutline, logoAnimation } from "@/config";
 
 const Hero = () => {
   const [isLogoExpanded, setIsLogoExpanded] = useState(false);
@@ -9,33 +9,62 @@ const Hero = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [imageBlur, setImageBlur] = useState(0);
   const [isHighResLoaded, setIsHighResLoaded] = useState(false);
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+  const animationStartedRef = useRef(false);
   const { t } = useLanguage();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = documentHeight > 0 ? currentScrollY / documentHeight : 0;
+  // Calculate animation duration (longest delay + slide duration)
+  const totalAnimationDuration = Math.max(
+    logoAnimation.delay.martina,
+    logoAnimation.delay.solarova,
+    logoAnimation.delay.pauleova
+  ) + logoAnimation.duration.letterSlide + 100; // +100ms buffer
 
-      setScrollProgress(progress);
+  // Scroll lock threshold (10% of viewport height)
+  const scrollLockThreshold = window.innerHeight * 0.1;
 
-      if (currentScrollY > 0 && lastScrollY === 0 && !isLogoExpanded) {
-        setIsLogoExpanded(true);
-      } else if (currentScrollY === 0 && isLogoExpanded) {
-        setIsLogoExpanded(false);
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = documentHeight > 0 ? currentScrollY / documentHeight : 0;
+
+    // If animation hasn't completed and user tries to scroll past threshold, lock scroll
+    if (!isAnimationComplete && currentScrollY > scrollLockThreshold) {
+      window.scrollTo({ top: scrollLockThreshold, behavior: "instant" });
+      return;
+    }
+
+    setScrollProgress(progress);
+
+    if (currentScrollY > 0 && lastScrollY === 0 && !isLogoExpanded) {
+      setIsLogoExpanded(true);
+      
+      // Start animation timer if not already started
+      if (!animationStartedRef.current) {
+        animationStartedRef.current = true;
+        setTimeout(() => {
+          setIsAnimationComplete(true);
+        }, totalAnimationDuration);
       }
+    } else if (currentScrollY === 0 && isLogoExpanded) {
+      setIsLogoExpanded(false);
+      // Reset animation state when scrolled back to top
+      animationStartedRef.current = false;
+      setIsAnimationComplete(false);
+    }
 
-      const blurAmount = Math.min(
-        (currentScrollY / heroAnimation.scroll.blurThreshold) * heroAnimation.scroll.maxBlur,
-        heroAnimation.scroll.maxBlur
-      );
-      setImageBlur(blurAmount);
-      setLastScrollY(currentScrollY);
-    };
+    const blurAmount = Math.min(
+      (currentScrollY / heroAnimation.scroll.blurThreshold) * heroAnimation.scroll.maxBlur,
+      heroAnimation.scroll.maxBlur
+    );
+    setImageBlur(blurAmount);
+    setLastScrollY(currentScrollY);
+  }, [lastScrollY, isLogoExpanded, isAnimationComplete, scrollLockThreshold, totalAnimationDuration]);
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: false });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, isLogoExpanded]);
+  }, [handleScroll]);
 
   // Preload high-res image
   useEffect(() => {
