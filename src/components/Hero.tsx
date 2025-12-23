@@ -45,6 +45,34 @@ const Hero = () => {
 
   // Handle scroll events
   useEffect(() => {
+    const isCoarsePointer = () =>
+      typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(pointer: coarse)").matches;
+
+    const shouldSkipIntroGate = (currentScrollY: number) => {
+      // If user scrolls very fast (already far from top) or on touch devices,
+      // do not lock the page — it feels like a freeze.
+      return isCoarsePointer() || currentScrollY > 140;
+    };
+
+    const startIntroGate = () => {
+      introGateStartedRef.current = true;
+
+      // Avoid "teleport" feeling: only force-to-top when still near the top.
+      window.scrollTo({ top: 0, behavior: "auto" });
+      setIsScrollLocked(true);
+
+      if (animationTimerRef.current) {
+        clearTimeout(animationTimerRef.current);
+      }
+
+      animationTimerRef.current = setTimeout(() => {
+        setIsScrollLocked(false);
+        introGateCompletedRef.current = true;
+      }, totalAnimationDuration);
+    };
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const documentHeight =
@@ -61,22 +89,12 @@ const Hero = () => {
         setIsLogoExpanded(true);
 
         if (!introGateCompletedRef.current && !introGateStartedRef.current) {
-          introGateStartedRef.current = true;
-
-          // Ensure the user sees the animation (they may have scrolled very fast)
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          setIsScrollLocked(true);
-
-          // Clear any existing timer
-          if (animationTimerRef.current) {
-            clearTimeout(animationTimerRef.current);
-          }
-
-          // Unlock scroll after animation completes
-          animationTimerRef.current = setTimeout(() => {
-            setIsScrollLocked(false);
+          if (shouldSkipIntroGate(currentScrollY)) {
+            introGateStartedRef.current = true;
             introGateCompletedRef.current = true;
-          }, totalAnimationDuration);
+          } else {
+            startIntroGate();
+          }
         }
       } else if (
         currentScrollY === 0 &&
@@ -97,30 +115,24 @@ const Hero = () => {
       lastScrollYRef.current = currentScrollY;
     };
 
-    // Handle touch start for mobile - triggers animation on first touch/swipe
-    const handleTouchStart = () => {
+    // Mobile: avoid triggering the intro gate on simple taps; only on actual swipe.
+    const handleTouchMoveOnce = () => {
       if (!isLogoExpanded && !introGateStartedRef.current) {
         setIsLogoExpanded(true);
         introGateStartedRef.current = true;
-        setIsScrollLocked(true);
-
-        if (animationTimerRef.current) {
-          clearTimeout(animationTimerRef.current);
-        }
-
-        animationTimerRef.current = setTimeout(() => {
-          setIsScrollLocked(false);
-          introGateCompletedRef.current = true;
-        }, totalAnimationDuration);
+        introGateCompletedRef.current = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true, once: true });
-    
+    window.addEventListener("touchmove", handleTouchMoveOnce, {
+      passive: true,
+      once: true,
+    });
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMoveOnce);
     };
   }, [isLogoExpanded, totalAnimationDuration]);
 
