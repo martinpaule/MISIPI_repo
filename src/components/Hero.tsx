@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import MisipiLogo from "./MisipiLogo";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { images, heroAnimation, textOutline, logoAnimation } from "@/config";
@@ -9,8 +9,8 @@ const Hero = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [imageBlur, setImageBlur] = useState(0);
   const [isHighResLoaded, setIsHighResLoaded] = useState(false);
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
-  const animationStartedRef = useRef(false);
+  const [isScrollLocked, setIsScrollLocked] = useState(false);
+  const animationTimerRef = useRef<NodeJS.Timeout | null>(null);
   const { t } = useLanguage();
 
   // Calculate animation duration (longest delay + slide duration)
@@ -18,53 +18,70 @@ const Hero = () => {
     logoAnimation.delay.martina,
     logoAnimation.delay.solarova,
     logoAnimation.delay.pauleova
-  ) + logoAnimation.duration.letterSlide + 100; // +100ms buffer
+  ) + logoAnimation.duration.letterSlide + 200; // +200ms buffer
 
-  // Scroll lock threshold (10% of viewport height)
-  const scrollLockThreshold = window.innerHeight * 0.1;
-
-  const handleScroll = useCallback(() => {
-    const currentScrollY = window.scrollY;
-    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = documentHeight > 0 ? currentScrollY / documentHeight : 0;
-
-    // If animation hasn't completed and user tries to scroll past threshold, lock scroll
-    if (!isAnimationComplete && currentScrollY > scrollLockThreshold) {
-      window.scrollTo({ top: scrollLockThreshold, behavior: "instant" });
-      return;
-    }
-
-    setScrollProgress(progress);
-
-    if (currentScrollY > 0 && lastScrollY === 0 && !isLogoExpanded) {
-      setIsLogoExpanded(true);
-      
-      // Start animation timer if not already started
-      if (!animationStartedRef.current) {
-        animationStartedRef.current = true;
-        setTimeout(() => {
-          setIsAnimationComplete(true);
-        }, totalAnimationDuration);
-      }
-    } else if (currentScrollY === 0 && isLogoExpanded) {
-      setIsLogoExpanded(false);
-      // Reset animation state when scrolled back to top
-      animationStartedRef.current = false;
-      setIsAnimationComplete(false);
-    }
-
-    const blurAmount = Math.min(
-      (currentScrollY / heroAnimation.scroll.blurThreshold) * heroAnimation.scroll.maxBlur,
-      heroAnimation.scroll.maxBlur
-    );
-    setImageBlur(blurAmount);
-    setLastScrollY(currentScrollY);
-  }, [lastScrollY, isLogoExpanded, isAnimationComplete, scrollLockThreshold, totalAnimationDuration]);
-
+  // Lock/unlock body scroll via CSS
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: false });
+    if (isScrollLocked) {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, [isScrollLocked]);
+
+  // Handle scroll events
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = documentHeight > 0 ? currentScrollY / documentHeight : 0;
+
+      setScrollProgress(progress);
+
+      // Trigger animation when user starts scrolling
+      if (currentScrollY > 0 && lastScrollY === 0 && !isLogoExpanded) {
+        setIsLogoExpanded(true);
+        setIsScrollLocked(true);
+        
+        // Clear any existing timer
+        if (animationTimerRef.current) {
+          clearTimeout(animationTimerRef.current);
+        }
+        
+        // Unlock scroll after animation completes
+        animationTimerRef.current = setTimeout(() => {
+          setIsScrollLocked(false);
+        }, totalAnimationDuration);
+      } else if (currentScrollY === 0 && isLogoExpanded) {
+        setIsLogoExpanded(false);
+      }
+
+      const blurAmount = Math.min(
+        (currentScrollY / heroAnimation.scroll.blurThreshold) * heroAnimation.scroll.maxBlur,
+        heroAnimation.scroll.maxBlur
+      );
+      setImageBlur(blurAmount);
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+  }, [lastScrollY, isLogoExpanded, totalAnimationDuration]);
+
+  // Cleanup timer on unmount
+  useEffect(() => {
+    return () => {
+      if (animationTimerRef.current) {
+        clearTimeout(animationTimerRef.current);
+      }
+    };
+  }, []);
 
   // Preload high-res image
   useEffect(() => {
