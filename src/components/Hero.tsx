@@ -5,20 +5,27 @@ import { images, heroAnimation, textOutline, logoAnimation } from "@/config";
 
 const Hero = () => {
   const [isLogoExpanded, setIsLogoExpanded] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [imageBlur, setImageBlur] = useState(0);
   const [isHighResLoaded, setIsHighResLoaded] = useState(false);
   const [isScrollLocked, setIsScrollLocked] = useState(false);
+
+  const lastScrollYRef = useRef(0);
+  const introGateStartedRef = useRef(false);
+  const introGateCompletedRef = useRef(false);
   const animationTimerRef = useRef<NodeJS.Timeout | null>(null);
+
   const { t } = useLanguage();
 
   // Calculate animation duration (longest delay + slide duration)
-  const totalAnimationDuration = Math.max(
-    logoAnimation.delay.martina,
-    logoAnimation.delay.solarova,
-    logoAnimation.delay.pauleova
-  ) + logoAnimation.duration.letterSlide + 200; // +200ms buffer
+  const totalAnimationDuration =
+    Math.max(
+      logoAnimation.delay.martina,
+      logoAnimation.delay.solarova,
+      logoAnimation.delay.pauleova
+    ) +
+    logoAnimation.duration.letterSlide +
+    200; // +200ms buffer
 
   // Lock/unlock body scroll via CSS
   useEffect(() => {
@@ -29,6 +36,7 @@ const Hero = () => {
       document.body.style.overflow = "";
       document.body.style.touchAction = "";
     }
+
     return () => {
       document.body.style.overflow = "";
       document.body.style.touchAction = "";
@@ -39,43 +47,59 @@ const Hero = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const documentHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const progress = documentHeight > 0 ? currentScrollY / documentHeight : 0;
 
       setScrollProgress(progress);
 
-      // Trigger animation when user starts scrolling
-      if (currentScrollY > 0 && lastScrollY === 0 && !isLogoExpanded) {
+      const isFirstScrollFromTop =
+        currentScrollY > 0 && lastScrollYRef.current === 0;
+
+      // Trigger animation when user starts scrolling (only once per page load)
+      if (isFirstScrollFromTop && !isLogoExpanded) {
         setIsLogoExpanded(true);
-        setIsScrollLocked(true);
-        
-        // Smoothly scroll to top so user sees the animation
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        
-        // Clear any existing timer
-        if (animationTimerRef.current) {
-          clearTimeout(animationTimerRef.current);
+
+        if (!introGateCompletedRef.current && !introGateStartedRef.current) {
+          introGateStartedRef.current = true;
+
+          // Ensure the user sees the animation (they may have scrolled very fast)
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          setIsScrollLocked(true);
+
+          // Clear any existing timer
+          if (animationTimerRef.current) {
+            clearTimeout(animationTimerRef.current);
+          }
+
+          // Unlock scroll after animation completes
+          animationTimerRef.current = setTimeout(() => {
+            setIsScrollLocked(false);
+            introGateCompletedRef.current = true;
+          }, totalAnimationDuration);
         }
-        
-        // Unlock scroll after animation completes
-        animationTimerRef.current = setTimeout(() => {
-          setIsScrollLocked(false);
-        }, totalAnimationDuration);
-      } else if (currentScrollY === 0 && isLogoExpanded) {
+      } else if (
+        currentScrollY === 0 &&
+        isLogoExpanded &&
+        // Don't collapse during the intro lock (prevents re-trigger loop)
+        (!introGateStartedRef.current || introGateCompletedRef.current)
+      ) {
         setIsLogoExpanded(false);
       }
 
       const blurAmount = Math.min(
-        (currentScrollY / heroAnimation.scroll.blurThreshold) * heroAnimation.scroll.maxBlur,
+        (currentScrollY / heroAnimation.scroll.blurThreshold) *
+          heroAnimation.scroll.maxBlur,
         heroAnimation.scroll.maxBlur
       );
       setImageBlur(blurAmount);
-      setLastScrollY(currentScrollY);
+
+      lastScrollYRef.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, isLogoExpanded, totalAnimationDuration]);
+  }, [isLogoExpanded, totalAnimationDuration]);
 
   // Cleanup timer on unmount
   useEffect(() => {
@@ -110,6 +134,7 @@ const Hero = () => {
             filter: `blur(${imageBlur}px)`,
           }}
         />
+
         {/* High-res image */}
         <img
           src={images.artistPortrait}
@@ -133,10 +158,13 @@ const Hero = () => {
             isExpanded={isLogoExpanded}
           />
         </h1>
+
         <div
           className="transition-all duration-300 ease-out"
           style={{
-            transform: isLogoExpanded ? `translateY(${heroAnimation.subtitleTransform})` : "translateY(0)",
+            transform: isLogoExpanded
+              ? `translateY(${heroAnimation.subtitleTransform})`
+              : "translateY(0)",
           }}
         >
           <p
