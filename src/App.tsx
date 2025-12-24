@@ -10,9 +10,15 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Determine default theme based on UTC time (light: 8 AM - 8 PM UTC)
+const getDefaultTheme = (): "light" | "dark" => {
+  const utcHour = new Date().getUTCHours();
+  return utcHour >= 8 && utcHour < 20 ? "light" : "dark";
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+    <ThemeProvider attribute="class" defaultTheme={getDefaultTheme()} enableSystem={false}>
       <LanguageProvider>
         <TooltipProvider>
           <Toaster />
