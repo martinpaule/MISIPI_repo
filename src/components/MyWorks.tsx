@@ -4,19 +4,21 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { artworks, staggerDelay, animationDelays } from "@/config";
+import conversationsOfColorsAndClayPdf from "@/assets/documents/Conversations_of_Colors_and_Clay.pdf";
+import pollysProjectPdf from "@/assets/documents/Pollys_Project.pdf";
 
 const documents = [
   {
     id: 1,
     titleKey: "works.document1.title" as const,
     descriptionKey: "works.document1.description" as const,
-    file: "/documents/Conversations_of_Colors_and_Clay.pdf",
+    file: conversationsOfColorsAndClayPdf,
   },
   {
     id: 2,
     titleKey: "works.document2.title" as const,
     descriptionKey: "works.document2.description" as const,
-    file: "/documents/Pollys_Project.pdf",
+    file: pollysProjectPdf,
   },
 ];
 
