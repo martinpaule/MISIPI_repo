@@ -93,8 +93,7 @@ const MyWorks = () => {
                 <a
                   key={doc.id}
                   href={doc.file}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  download
                   className="group p-6 rounded-2xl border border-border/50 hover:border-primary/50 bg-card hover:bg-accent/5 transition-all duration-300 animate-fade-in-up"
                   style={staggerDelay(index, animationDelays.medium)}
                 >
