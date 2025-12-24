@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Instagram, FileText, ExternalLink } from "lucide-react";
+import { Instagram, FileText, Download } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -93,7 +93,8 @@ const MyWorks = () => {
                 <a
                   key={doc.id}
                   href={doc.file}
-                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group p-6 rounded-2xl border border-border/50 hover:border-primary/50 bg-card hover:bg-accent/5 transition-all duration-300 animate-fade-in-up"
                   style={staggerDelay(index, animationDelays.medium)}
                 >
@@ -110,7 +111,7 @@ const MyWorks = () => {
                       </p>
                       <span className="inline-flex items-center gap-1 text-sm text-primary font-medium">
                         {t("works.viewDocument")}
-                        <ExternalLink className="w-4 h-4" />
+                        <Download className="w-4 h-4" />
                       </span>
                     </div>
                   </div>
