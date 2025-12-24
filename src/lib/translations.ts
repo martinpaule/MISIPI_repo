@@ -125,7 +125,7 @@ export const translations = {
     "works.document1.description": "A visual exploration of colors and ceramic art",
     "works.document2.title": "Polly's Project",
     "works.document2.description": "An artistic journey through form and expression",
-    "works.viewDocument": "View Document",
+    "works.viewDocument": "Download Document",
 
     // Common
     "common.readMore": "Read more",
@@ -250,7 +250,7 @@ export const translations = {
     "works.document1.description": "Vizuálne skúmanie farieb a keramického umenia",
     "works.document2.title": "Projekt Polly",
     "works.document2.description": "Umelecká cesta cez formu a výraz",
-    "works.viewDocument": "Zobraziť dokument",
+    "works.viewDocument": "Stiahnuť dokument",
 
     // Common
     "common.readMore": "Čítať viac",
