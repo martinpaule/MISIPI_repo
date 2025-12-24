@@ -117,9 +117,15 @@ export const translations = {
 
     // Gallery
     "works.selected": "Selected Works",
-    "works.instagram": "From Instagram",
+    "works.documents": "Documents",
+    "works.instagram": "Instagram",
     "works.instagramDescription": "A large number of my artworks live on my Instagram profile. Follow me there to see my latest creations, works in progress, and studio updates.",
     "works.follow": "Follow me on Instagram",
+    "works.document1.title": "Conversations of Colors and Clay",
+    "works.document1.description": "A visual exploration of colors and ceramic art",
+    "works.document2.title": "Polly's Project",
+    "works.document2.description": "An artistic journey through form and expression",
+    "works.viewDocument": "View Document",
 
     // Common
     "common.readMore": "Read more",
@@ -236,9 +242,15 @@ export const translations = {
 
     // Gallery
     "works.selected": "Vybrané diela",
-    "works.instagram": "Z Instagramu",
+    "works.documents": "Dokumenty",
+    "works.instagram": "Instagram",
     "works.instagramDescription": "Veľké množstvo mojich umeleckých diel nájdete na mojom Instagrame. Sledujte ma tam a pozrite si moje najnovšie tvorby, rozpracované diela a novinky z ateliéru.",
     "works.follow": "Sledujte ma na Instagrame",
+    "works.document1.title": "Rozhovory farieb a hliny",
+    "works.document1.description": "Vizuálne skúmanie farieb a keramického umenia",
+    "works.document2.title": "Projekt Polly",
+    "works.document2.description": "Umelecká cesta cez formu a výraz",
+    "works.viewDocument": "Zobraziť dokument",
 
     // Common
     "common.readMore": "Čítať viac",
