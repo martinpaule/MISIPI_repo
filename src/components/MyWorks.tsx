@@ -1,9 +1,24 @@
 import { useState } from "react";
-import { Instagram } from "lucide-react";
+import { Instagram, FileText, ExternalLink } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { artworks, staggerDelay, animationDelays } from "@/config";
+
+const documents = [
+  {
+    id: 1,
+    titleKey: "works.document1.title" as const,
+    descriptionKey: "works.document1.description" as const,
+    file: "/documents/Conversations_of_Colors_and_Clay.pdf",
+  },
+  {
+    id: 2,
+    titleKey: "works.document2.title" as const,
+    descriptionKey: "works.document2.description" as const,
+    file: "/documents/Pollys_Project.pdf",
+  },
+];
 
 const MyWorks = () => {
   const [selectedArtwork, setSelectedArtwork] = useState<(typeof artworks)[number] | null>(null);
@@ -18,12 +33,18 @@ const MyWorks = () => {
       </div>
 
       <Tabs defaultValue="selected" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 mb-8 h-auto p-1 bg-muted/50 max-w-2xl mx-auto">
+        <TabsList className="grid w-full grid-cols-3 mb-8 h-auto p-1 bg-muted/50 max-w-3xl mx-auto">
           <TabsTrigger
             value="selected"
             className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
             {t("works.selected")}
+          </TabsTrigger>
+          <TabsTrigger
+            value="documents"
+            className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+          >
+            {t("works.documents")}
           </TabsTrigger>
           <TabsTrigger
             value="instagram"
@@ -60,6 +81,41 @@ const MyWorks = () => {
                     </div>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="documents" className="animate-fade-in">
+          <div className="max-w-3xl mx-auto">
+            <div className="grid gap-6 md:grid-cols-2">
+              {documents.map((doc, index) => (
+                <a
+                  key={doc.id}
+                  href={doc.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group p-6 rounded-2xl border border-border/50 hover:border-primary/50 bg-card hover:bg-accent/5 transition-all duration-300 animate-fade-in-up"
+                  style={staggerDelay(index, animationDelays.medium)}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                      <FileText className="w-6 h-6" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-display font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                        {t(doc.titleKey)}
+                      </h3>
+                      <p className="font-body text-sm text-muted-foreground mb-3">
+                        {t(doc.descriptionKey)}
+                      </p>
+                      <span className="inline-flex items-center gap-1 text-sm text-primary font-medium">
+                        {t("works.viewDocument")}
+                        <ExternalLink className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </div>
+                </a>
               ))}
             </div>
           </div>
