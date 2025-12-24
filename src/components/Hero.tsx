@@ -1,149 +1,41 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import MisipiLogo from "./MisipiLogo";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { images, heroAnimation, textOutline, logoAnimation } from "@/config";
+import { images, heroAnimation, textOutline } from "@/config";
 
 const Hero = () => {
   const [isLogoExpanded, setIsLogoExpanded] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [imageBlur, setImageBlur] = useState(0);
   const [isHighResLoaded, setIsHighResLoaded] = useState(false);
-  const [isScrollLocked, setIsScrollLocked] = useState(false);
-
-  const lastScrollYRef = useRef(0);
-  const introGateStartedRef = useRef(false);
-  const introGateCompletedRef = useRef(false);
-  const animationTimerRef = useRef<NodeJS.Timeout | null>(null);
-
   const { t } = useLanguage();
 
-  // Calculate animation duration (longest delay + slide duration)
-  const totalAnimationDuration =
-    Math.max(
-      logoAnimation.delay.martina,
-      logoAnimation.delay.solarova,
-      logoAnimation.delay.pauleova
-    ) +
-    logoAnimation.duration.letterSlide +
-    200; // +200ms buffer
-
-  // Lock/unlock body scroll via CSS
   useEffect(() => {
-    if (isScrollLocked) {
-      document.body.style.overflow = "hidden";
-      document.body.style.touchAction = "none";
-    } else {
-      document.body.style.overflow = "";
-      document.body.style.touchAction = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.touchAction = "";
-    };
-  }, [isScrollLocked]);
-
-  // Handle scroll events
-  useEffect(() => {
-    const isCoarsePointer = () =>
-      typeof window !== "undefined" &&
-      typeof window.matchMedia === "function" &&
-      window.matchMedia("(pointer: coarse)").matches;
-
-    const shouldSkipIntroGate = (currentScrollY: number) => {
-      // If user scrolls very fast (already far from top) or on touch devices,
-      // do not lock the page — it feels like a freeze.
-      return isCoarsePointer() || currentScrollY > 140;
-    };
-
-    const startIntroGate = () => {
-      introGateStartedRef.current = true;
-
-      // Avoid "teleport" feeling: only force-to-top when still near the top.
-      window.scrollTo({ top: 0, behavior: "auto" });
-      setIsScrollLocked(true);
-
-      if (animationTimerRef.current) {
-        clearTimeout(animationTimerRef.current);
-      }
-
-      animationTimerRef.current = setTimeout(() => {
-        setIsScrollLocked(false);
-        introGateCompletedRef.current = true;
-      }, totalAnimationDuration);
-    };
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const documentHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = documentHeight > 0 ? currentScrollY / documentHeight : 0;
 
       setScrollProgress(progress);
 
-      const isFirstScrollFromTop =
-        currentScrollY > 0 && lastScrollYRef.current === 0;
-
-      // Trigger animation when user starts scrolling (only once per page load)
-      if (isFirstScrollFromTop && !isLogoExpanded) {
+      if (currentScrollY > 0 && lastScrollY === 0 && !isLogoExpanded) {
         setIsLogoExpanded(true);
-
-        if (!introGateCompletedRef.current && !introGateStartedRef.current) {
-          if (shouldSkipIntroGate(currentScrollY)) {
-            introGateStartedRef.current = true;
-            introGateCompletedRef.current = true;
-          } else {
-            startIntroGate();
-          }
-        }
-      } else if (
-        currentScrollY === 0 &&
-        isLogoExpanded &&
-        // Don't collapse during the intro lock (prevents re-trigger loop)
-        (!introGateStartedRef.current || introGateCompletedRef.current)
-      ) {
+      } else if (currentScrollY === 0 && isLogoExpanded) {
         setIsLogoExpanded(false);
       }
 
       const blurAmount = Math.min(
-        (currentScrollY / heroAnimation.scroll.blurThreshold) *
-          heroAnimation.scroll.maxBlur,
+        (currentScrollY / heroAnimation.scroll.blurThreshold) * heroAnimation.scroll.maxBlur,
         heroAnimation.scroll.maxBlur
       );
       setImageBlur(blurAmount);
-
-      lastScrollYRef.current = currentScrollY;
-    };
-
-    // Mobile: avoid triggering the intro gate on simple taps; only on actual swipe.
-    const handleTouchMoveOnce = () => {
-      if (!isLogoExpanded && !introGateStartedRef.current) {
-        setIsLogoExpanded(true);
-        introGateStartedRef.current = true;
-        introGateCompletedRef.current = true;
-      }
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("touchmove", handleTouchMoveOnce, {
-      passive: true,
-      once: true,
-    });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("touchmove", handleTouchMoveOnce);
-    };
-  }, [isLogoExpanded, totalAnimationDuration]);
-
-  // Cleanup timer on unmount
-  useEffect(() => {
-    return () => {
-      if (animationTimerRef.current) {
-        clearTimeout(animationTimerRef.current);
-      }
-    };
-  }, []);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY, isLogoExpanded]);
 
   // Preload high-res image
   useEffect(() => {
@@ -169,7 +61,6 @@ const Hero = () => {
             filter: `blur(${imageBlur}px)`,
           }}
         />
-
         {/* High-res image */}
         <img
           src={images.artistPortrait}
@@ -193,13 +84,10 @@ const Hero = () => {
             isExpanded={isLogoExpanded}
           />
         </h1>
-
         <div
           className="transition-all duration-300 ease-out"
           style={{
-            transform: isLogoExpanded
-              ? `translateY(${heroAnimation.subtitleTransform})`
-              : "translateY(0)",
+            transform: isLogoExpanded ? `translateY(${heroAnimation.subtitleTransform})` : "translateY(0)",
           }}
         >
           <p
