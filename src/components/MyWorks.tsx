@@ -35,22 +35,22 @@ const MyWorks = () => {
       </div>
 
       <Tabs defaultValue="selected" className="w-full">
-        <TabsList className="grid w-full grid-cols-3 mb-8 h-auto p-1 bg-muted/50 max-w-3xl mx-auto">
+        <TabsList className="flex flex-wrap w-full justify-center gap-1 mb-8 h-auto p-1 bg-muted/50 max-w-3xl mx-auto">
           <TabsTrigger
             value="selected"
-            className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            className="shrink-0 font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
             {t("works.selected")}
           </TabsTrigger>
           <TabsTrigger
             value="documents"
-            className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            className="shrink-0 font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
             {t("works.documents")}
           </TabsTrigger>
           <TabsTrigger
             value="instagram"
-            className="font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            className="shrink-0 font-display text-sm tracking-wider uppercase py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
           >
             {t("works.instagram")}
           </TabsTrigger>
