@@ -25,16 +25,16 @@ export const translations = {
     "about.travelingArtist": "Traveling Artist",
     "about.exhibitions": "Exhibitions",
     "about.bio":
-      "I am Martina Pauleová - Solárová (*1972). I spent my first years in Handlová, later in Nedožery Brezany. I graduated from V.B. Nedožerský Grammar School in Prievidza (1990) and from the Academy of Fine Arts and Design in Bratislava - classical painting studio under Professor Ján Berger (1998). I live and work in Bratislava with my husband and three sons.",
+      "I am Martina Pauleová - Solárová (*1972). I grew up in Handlová, then moved to Nedožery Brezany. I finished high school in Prievidza (1990) and studied classical painting at the Academy of Fine Arts in Bratislava with Professor Ján Berger (1998). I now live and work in Bratislava with my husband and three sons.",
     "about.bio2":
-      "My work is characterized by revealing a layer of reality imperceptible at first glance, whether still lifes, landscapes or portraits. I uncover adventures with vibrations of infinite amplitude, seemingly static at first sight. These adventures do not force themselves upon the viewer. One must set out to seek them independently, with quiet patience, lest they dissolve with the stroke of an eager hand.",
+      "In my work, I try to show what we often miss at first glance - whether in still lifes, landscapes, or portraits. I look for quiet moments and hidden stories that seem still but are full of life. These moments do not jump out at you. You need to slow down and look carefully to find them.",
     "about.downloadCV": "Download CV (PDF)",
     "about.artInterestText":
-      "My artistic practice revolves around capturing the subtle interplay between memory, emotion, and visual experience. Through abstract and semi-abstract compositions, I explore how color and form can evoke deep psychological responses. Each piece is an investigation into the delicate balance between control and spontaneity, structure and chaos.",
+      "My art is about memory, feelings, and what we see. I use abstract shapes and colors to create emotions. Each painting is a mix of planning and letting things happen naturally.",
     "about.artInterestText2":
-      "Working primarily with acrylics and mixed media, I layer textures and hues to create depth that mirrors the complexity of human experience. My paintings invite viewers to engage in their own interpretative journey, finding personal meaning within the abstract landscapes I create.",
-    "about.teachingIntro": "Sharing my passion for abstract art through hands-on workshops and creative sessions",
-    "about.travelingIntro": "Residencies, journeys, and creative explorations around the world",
+      "I mostly work with acrylics and mixed materials. I build up layers to create depth. My paintings are open to different meanings - each person can find their own story in them.",
+    "about.teachingIntro": "I love sharing my passion for art through hands-on workshops",
+    "about.travelingIntro": "Art residencies and creative journeys around the world",
     "about.articles": "Articles & Interviews",
 
     // Work Experience
@@ -148,17 +148,16 @@ export const translations = {
     "about.travelingArtist": "Cestujúci umelec",
     "about.exhibitions": "Výstavy",
     "about.bio":
-      "Som Martina Pauleová - Solárová (*1972). Prvé roky som prežila v Handlovej, neskôr v Nedožeroch Brezanoch. Vyštudovala som Gymnázium V.B. Nedožerského v Prievidzi (1990) a VŠVU v Bratislave - ateliér klasickej maľby u profesora Jána Bergera (1998). S manželom a tromi synmi žijem a pôsobím v Bratislave.",
+      "Som Martina Pauleová - Solárová (*1972). Vyrastala som v Handlovej, potom v Nedožeroch Brezanoch. Maturovala som v Prievidzi (1990) a študovala klasickú maľbu na VŠVU v Bratislave u profesora Jána Bergera (1998). Teraz žijem a pracujem v Bratislave s manželom a tromi synmi.",
     "about.bio2":
-      "Moju tvorbu charakterizuje odkrývanie na prvý pohľad nepostrehnuteľnej vrstvy reality, či už sú to zátišia, krajinomaľba alebo portréty. Odkrývam dobrodružstvá s vibráciami s nekonečnou amplitúdou, na prvý pohľad statické. Tieto dobrodružstvá sa k divákovi nedobýjajú násilím. Musí sa vybrať hľadať ich sám, s tichou trpezlivosťou, aby sa nerozplynuli šmahom dychtivej ruky.",
+      "Vo svojej tvorbe sa snažím ukázať to, čo na prvý pohľad nevidíme - či už v zátiší, krajinách alebo portrétoch. Hľadám tiché momenty a skryté príbehy, ktoré vyzerajú pokojne, no sú plné života. Tieto momenty sa samy neukážu. Treba spomaliť a dobre sa pozerať.",
     "about.downloadCV": "Stiahnuť životopis (PDF)",
     "about.artInterestText":
-      "Moja umelecká prax sa točí okolo zachytenia jemnej súhry medzi pamäťou, emóciami a vizuálnym zážitkom. Prostredníctvom abstraktných a polo-abstraktných kompozícií skúmam, ako farba a forma môžu vyvolať hlboké psychologické reakcie. Každé dielo je vyšetrovaním jemnej rovnováhy medzi kontrolou a spontánnosťou, štruktúrou a chaosom.",
+      "Moje umenie je o spomienkach, pocitoch a tom, čo vidíme. Používam abstraktné tvary a farby, aby som vyvolala emócie. Každý obraz je mix plánovania a prirodzeného tvorenia.",
     "about.artInterestText2":
-      "Pracujúc predovšetkým s akrylom a zmiešanými médiami, vrstvím textúry a odtiene, aby som vytvorila hĺbku, ktorá zrkadlí komplexnosť ľudskej skúsenosti. Moje maľby pozývajú divákov, aby sa zapojili do vlastnej interpretačnej cesty a našli osobný význam v abstraktných krajinách, ktoré vytváram.",
-    "about.teachingIntro":
-      "Zdieľanie mojej vášne pre abstraktné umenie prostredníctvom praktických workshopov a kreatívnych stretnutí",
-    "about.travelingIntro": "Rezidencie, cesty a tvorivé objavy po celom svete",
+      "Najčastejšie pracujem s akrylom a rôznymi materiálmi. Vrstvím farby, aby som vytvorila hĺbku. Moje maľby sú otvorené rôznym významom - každý si v nich môže nájsť svoj vlastný príbeh.",
+    "about.teachingIntro": "Rada zdieľam svoju lásku k umeniu cez praktické workshopy",
+    "about.travelingIntro": "Umelecké rezidencie a tvorivé cesty po svete",
     "about.articles": "Články a rozhovory",
 
     // Work Experience
